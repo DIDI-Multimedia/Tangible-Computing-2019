@@ -61,7 +61,7 @@ var attempt2 = function( p ) {
 
     const canvasDiv = document.getElementById('wk01-02-div');
     const canvasWidth = canvasDiv.offsetWidth;
-    p.createCanvas(canvasWidth, canvasWidth).parent('wk01-02-div')
+    p.createCanvas(canvasWidth - 500, canvasWidth/4).parent('wk01-02-div')
 
     p.noStroke()
 
@@ -82,7 +82,7 @@ var attempt2 = function( p ) {
 
       p.fill(0)
 
-      this.col = [[255,0,0],[255,255,0],[0,0,255]]
+      this.col = [[23,73,91],[156,45,35],[0,161,123]]
 
       this.arr = []
       this.arrPrev = null
@@ -103,7 +103,7 @@ var attempt2 = function( p ) {
       // noise() gir samme verdi (mellom 0 og 1) med samme parameter, men ulik verdi for hver kjøring
       // print(noise(0)); // Aktiver denne og se selv
       // this.x = p.map(p.noise(this.tx), 0, 1, 0, width);
-      this.x += 1
+      this.x += 2
       this.ny = p.map(p.noise(this.ty), 0, 1, 0, this.range);
 
 
@@ -134,7 +134,7 @@ var attempt2 = function( p ) {
 
         console.log('x greather than width')
         this.x = 0;
-        this.iy += 3
+        this.iy += 2
         this.y = this.iy 
         // p.fill(random(255),random(255),random(255))
         this.count = 0 
@@ -154,10 +154,8 @@ var attempt2 = function( p ) {
 
     display() {
 
-      // p.fill(255,0,0);
-      p.ellipse(this.x, this.y,4, 4);
-      // console.log('display',this.x,this.y)
-
+      p.ellipse(this.x, this.y,3, 3);
+ 
     }
 
   }
