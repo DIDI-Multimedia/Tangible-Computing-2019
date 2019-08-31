@@ -9,9 +9,9 @@ const leftMargin = 200
 
 function setup() {
 
-  const canvasDiv = document.getElementById('wk02-div');
+  const canvasDiv = document.getElementById('p5_example');
   const canvasWidth = canvasDiv.offsetWidth;
-  createCanvas(canvasWidth, canvasWidth/2).parent('wk02-div')
+  createCanvas(canvasWidth, canvasWidth/2).parent('p5_example')
   initialize()
 
 }
