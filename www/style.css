@@ -1,32 +1,69 @@
 
+
+#content{
+
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+
+  transition: margin-left .5s; /* If you want a transition effect */
+  padding: 20px;
+  margin-right: 20%;
+  margin-left: 500px;
+  padding-left: 10%;
+
+}
 html,
+
+header {
+  /*color: black;*/
+  /*margin: 10px;*/
+  /*text-align: left;*/
+  /*font-size: 1.8em;*/
+  /*font-weight: thin;*/
+    /*color: #F04E30*/
+  /*color: rgb(240,78,48);*/
+}
+
 body {
+
   min-width: 290px;
-  color: #4d4e53;
+  /*color: #4d4e53;*/
   background-color: #ffffff;
   font-family: "Open Sans", Arial, sans-serif;
   line-height: 1.5;
   padding-right: 5;
   overflow-x:hidden;
+
 }
 
 h1{
-
-  color: #F04E30
+  font-size: 3.6em;
+  font-family: "Arial Narrow",Tahoma,Arial,Helvetica,sans-serif;
+  color: #00A17B
 
 }
 
 h2 {
-    color: #F04E30
+    /*color: #F04E30*/
+}
+
+h3 {
+  text-align: center;
+  color: #ffffff;
+  font-weight: normal;
 }
 
 p {
-    color: #F04E30
+    /*color: #F04E30*/
 }
 
-#title{
+#hihihi{
 
-  /*color:#999;*/
+  color:#999 !important;
+  padding-left: 5%;
+
   /*text-align: left !important;*/
 
 
@@ -63,16 +100,7 @@ p {
   border-color: rgba(0, 22, 22, 0.4);
 }
 
-header {
-  /*color: black;*/
-  margin: 10px;
-  text-align: left;
-  font-size: 1.8em;
-  font-weight: thin;
-    color: #F04E30
-  /*color: rgb(240,78,48);*/
-}
-
+/**/
 
 #main-doc header {
   text-align: left;
@@ -215,7 +243,7 @@ code {
 /* The sidebar menu */
 .sidebar {
   height: 100%; /* 100% Full-height */
-  width: 0; /* 0 width - change this with JavaScript */
+  width: 500px; /* 0 width - change this with JavaScript */
   position: fixed; /* Stay in place */
   z-index: 1; /* Stay on top */
   top: 0;
@@ -264,12 +292,7 @@ code {
   background-color: #444;
 }
 
-/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-#main {
-  transition: margin-left .5s; /* If you want a transition effect */
-  padding: 20px;
-  margin-right: 20%;
-}
+
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
