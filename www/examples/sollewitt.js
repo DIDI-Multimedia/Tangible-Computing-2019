@@ -18,7 +18,8 @@ var attempt2 = function( p ) {
 
     const canvasDiv = document.getElementById('INTRO');
     const canvasWidth = canvasDiv.offsetWidth;
-    p.createCanvas(canvasWidth, canvasWidth).parent('INTRO')
+    // console.log(canvasDiv.off)
+    p.createCanvas(canvasWidth, screen.height).parent('INTRO')
     p.noStroke()
     w = new Walker();
 
@@ -102,7 +103,6 @@ var attempt2 = function( p ) {
         console.log("this.color",this.color,this.col)
         p.fill(this.color[0],this.color[1],this.color[2])
         this.col.push(this.color)
-        // drips = []
 
       }
 
@@ -113,6 +113,9 @@ var attempt2 = function( p ) {
         let y = this.y
         let r = 5 
         drips.push([x,y,r,...this.color])
+        if (p.random()>0.5){
+          drips.shift(drips.length*p.random()*Math.floor(),1)
+        }
       
       }
       // console.log('step', this.iy)
@@ -123,7 +126,7 @@ var attempt2 = function( p ) {
 
       // p.fill(255,0,0);
               p.fill(this.color)
-      p.ellipse(this.x, this.y,5, 5);
+      p.ellipse(this.x, this.y,3, 3);
       drips.forEach(arr=>{
         arr[1] = arr[1] + 0.25
         arr[0] = arr[0]+(p.mouseX-arr[0])*0.00001

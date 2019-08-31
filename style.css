@@ -1,4 +1,10 @@
+.logo{
 
+  position: absolute;
+  padding-left: 5%;
+  z-index: -5;
+
+}
 
 #ENTER{
 
@@ -14,7 +20,7 @@
 }
 
 #ENTER:hover { 
-  color: cyan;
+  color: #F04E30;
 }
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
@@ -27,6 +33,7 @@
   padding-left: 10%;
 
 }
+
 html,
 
 header {
@@ -311,4 +318,11 @@ code {
 @media screen and (max-height: 450px) {
   .sidebar {padding-top: 15px;}
   .sidebar a {font-size: 18px;}
+}
+
+a{
+
+  color:#8331A7;
+  
+
 }
