@@ -34,6 +34,48 @@
   color: #F04E30;
 }
 
+
+    @keyframes colorchange
+    {
+      0%   {background: #F04E30;}
+      10%  {background: #9C2D23;}
+      20%  {background: #8331A7;}
+      30%  {background: #592C5F;}
+      40% {background: #505457;}
+      50%   {background: #00A17B;}
+      60%  {background: #00604A;}
+      70%  {background: #98262B;}
+      80%  {background: #E1C722;}
+      100% {background: #17495B;}
+      100% {background: #7F8A8E;}
+    }
+
+    @-webkit-keyframes colorchange 
+    {
+      0%   {background: #F04E30;}
+      25%  {background: #9C2D23;}
+      50%  {background: #8331A7;}
+      75%  {background: #592C5F;}
+      100% {background: #505457;}
+    }
+
+
+
+
+/*
+#00A17B
+#00604A
+#D70036
+#98262B
+#0391BB
+#17495B
+#E1C722
+#7F6D1A
+#7F8A8E*/
+
+
+
+
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 #main {
 
@@ -274,7 +316,7 @@ code {
 /* The sidebar menu */
 .sidebar {
   height: 100%; /* 100% Full-height */
-  width: 500px; /* 0 width - change this with JavaScript */
+  width: 30%; /* 0 width - change this with JavaScript */
   position: fixed; /* Stay in place */
   z-index: 1; /* Stay on top */
   top: 0;
@@ -283,6 +325,9 @@ code {
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 60px; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
+  /*animation: colorchange 100s;  animation-name followed by duration in seconds*/
+  /* you could also use milliseconds (ms) or something like 2.5s */
+  /*-webkit-animation: colorchange 100s; /* Chrome and Safari */*/
 }
 
 /* The sidebar links */
