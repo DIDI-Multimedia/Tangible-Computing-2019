@@ -4,12 +4,25 @@
 
 	font-family: 'arial';
 	padding: 5%;
+	color: #592C5F;
+
 
 }
 
 
 p {
 
-	color: #000 !important; 
+	color: #000 !important;
 
+}
+
+h1{
+ font-family: Comic Sans MS;
+}
+
+h2{
+	font-family: Courier new;
+}
+h3{
+	font-family: Comic Sans MS;
 }
