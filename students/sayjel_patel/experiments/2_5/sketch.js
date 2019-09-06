@@ -7,10 +7,10 @@ console.log('sketch.js')
 
 let blocks =[]
 let reset = true
-
+let sbtrk = 0
 function setup(){
 
-	let canvas = createCanvas(windowWidth/3,windowWidth/3)
+	let canvas = createCanvas(windowWidth/3,windowWidth/2)
 	canvas.parent('sketch-holder');
 	blocks = initialize()
 	fill(255,0,0)
@@ -21,7 +21,7 @@ function draw(){
 
 	background(253,253,150)
 	// ellipse(width/2,height/2,500,500)
-	text(second(),50,50)
+	// text(second(),50,50)
 	
 	for (var i = 0; i< blocks.length; i++){
 
@@ -30,7 +30,7 @@ function draw(){
 
 	}
 
-	if (second() == 59){
+	if (second() == 0){
 		if (reset){
 		fill(random(255),random(255),random(255))
 		blocks.forEach(block=>{
@@ -39,6 +39,7 @@ function draw(){
 		
 			// block.tarY = random(height/2,height) // (height/60)*block.id
 			block.tarR = random(TWO_PI)
+			sbtrk = millis()
 		})
 		}
 		reset = false
@@ -59,20 +60,29 @@ function updateBlock(block){
 	block.posX =lerp(block.posX, block.tarX, .025)
 	block.posY =lerp(block.posY, block.tarY, .05)
 	block.rot = lerp(block.rot,block.tarR,.02)
+			line(width/120000*(millis()-sbtrk),height/8,0,0)
+		line(width/120000*(millis()-sbtrk),height/8,width,0)
 }
 
 function drawBlock(block){
 
 	push()
 	let x =block.posX+(60-(60-block.id)/2)
-	let y = height-block.posY
+	let y = height-block.posY 
+	if (second()<block.id &&(block.rot)>0.025){
+		y -= block.id*mouseY/200*sin(millis()/(500+block.id))
+	}
 	translate(x,y)
 	rotate(block.rot)
 	rect(0,0,(60-block.id),block.size)
 	pop()
 	stroke(0)
-	if (abs(block.rot)>0.01 ){
-		line(width/60000*millis(),0,x,y)
+	if (abs(block.rot)>0.1 ){
+		strokeWeight(1)
+		stroke(0,200)
+		line(width/120000*(millis()-sbtrk),height/8,x,y)
+		// line(width/8,height-height/60000*(millis()-sbtrk),0,0)
+
 	}
 
 
@@ -83,7 +93,7 @@ function initialize(){
 
 	let arr = []
 
-	for (var i =59; i > 0;i--){
+	for (var i =57; i > 3;i--){
 
 		let block = {}
 		block.id = i
