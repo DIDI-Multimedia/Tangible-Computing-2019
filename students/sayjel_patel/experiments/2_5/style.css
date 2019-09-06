@@ -1,34 +1,39 @@
+/* style.css */
+
+html, body {
+
+  height: 50%;
 
 
 
-/* div class based on id */
+}
+
+h1 {
+	text-align: center;
+}
 
 body {
-
+	padding-top: 5%;
 	font-family: 'arial';
 	color: #592C5F; 
-	padding: 5vw;
-	/*position: absolute;*/
-	/*background-color: rgb(0,0,255);*/
+	display: : flex;*/
 
-	/*display: flex;*/
-	/* This centers our sketch horizontally. */
-
-	justify-content: center;
-
-	/* This centers our sketch vertically. */
-	align-items: center;
 
 }
 
-h1{
-	/*color:rgb(0,0,255);*/
+#sketch-holder{
+	padding-top: 5%;
+	width: 100%;
+	position:relative;
+	left:37.5vw;
 }
 
-p {
+footer {
 
-	/*color: 999 !important;*/
-	color: #000 !important; 
-	/*text*/
+   width: 100%;
+   padding-top: 5%;
+   position: absolute;
+   text-align: center;*/
 
 }
+
