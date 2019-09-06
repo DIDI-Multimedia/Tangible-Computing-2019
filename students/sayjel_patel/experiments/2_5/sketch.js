@@ -60,8 +60,7 @@ function updateBlock(block){
 	block.posX =lerp(block.posX, block.tarX, .025)
 	block.posY =lerp(block.posY, block.tarY, .05)
 	block.rot = lerp(block.rot,block.tarR,.02)
-			line(width/120000*(millis()-sbtrk),height/8,0,0)
-		line(width/120000*(millis()-sbtrk),height/8,width,0)
+
 }
 
 function drawBlock(block){
@@ -80,7 +79,7 @@ function drawBlock(block){
 	if (abs(block.rot)>0.1 ){
 		strokeWeight(1)
 		stroke(0,200)
-		line(width/120000*(millis()-sbtrk),height/8,x,y)
+		line(width/120000*(millis()-sbtrk),0,x,y)
 		// line(width/8,height-height/60000*(millis()-sbtrk),0,0)
 
 	}
