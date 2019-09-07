@@ -2,11 +2,40 @@
 
 #content {
 
-	font-family: 'arial';
-	padding: 5%;
+	font-family: 'Yu Gothic UI';
+	padding: 6%;
+
 
 }
+body {
+	
+  background-image:  repeating-radial-gradient(pink, rgb(255, 98, 131), pink 15%);
+  
+}
 
+.springy-text {
+ 
+  animation-name: springy-text;
+  animation-duration: 2s;
+  animation-timing-function: ease-in;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  animation-play-state: running;
+  animation-fill-mode: backwards;
+}
+@keyframes springy-text {
+  0%   {
+    letter-spacing: 1.0em;
+    color: white;
+  }
+  100%   {
+    letter-spacing: 0.1em;
+    color: white;
+  }
+}
+
+}
 
 p {
 
