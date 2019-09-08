@@ -2,14 +2,15 @@
 
 #content {
 
-	font-family: 'Yu Gothic UI';
+	font-family: 'Verdana';
+  font-style: oblique;
 	padding: 6%;
 
 
 }
 body {
 	
-  background-image:  repeating-radial-gradient(pink, rgb(255, 98, 131), pink 15%);
+  background-image:  repeating-radial-gradient(yellow, rgb(255, 98, 131), red 15%);
   
 }
 
