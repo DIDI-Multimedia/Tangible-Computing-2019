@@ -1,42 +1,50 @@
-/* div class based on id */
-body {
+body 
+{
 	margin: 0;
-	background: #222;
-	font-family: 'Work Sans', sans-serif;
-	font-weight: 800;
+	background: #000;
+  font-family: 'Titillium Web';
+	font-weight: 700;
 }
 
-.container {
+.container 
+{
 	width: 80%;
 	margin: 0 auto;
 }
 
-header {
+header 
+{
   background: #55d6aa;
 }
 
-header::after {
+header::after 
+{
   content: '';
   display: table;
   clear: both;
 }
 
-.logo {
+.logo 
+{
+
   float: left;
-  padding: 10px 0;
+  padding: 20px 0;
 }
 
-nav {
+nav 
+{
   float: right;
 }
 
-nav ul {
+nav ul 
+{
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-nav li {
+nav li 
+{
   display: inline-block;
   margin-left: 70px;
   padding-top: 23px;
@@ -44,22 +52,23 @@ nav li {
   position: relative;
 }
 
-nav a {
-  color: #444;
+nav a 
+{
+  color: rgb(255,255,255);
   text-decoration: none;
-  text-transform: uppercase;
   font-size: 14px;
 }
 
-nav a:hover {
-  color: #000;
+nav a:hover 
+{
+  color: #999;
 }
 
 nav a::before {
   content: '';
   display: block;
   height: 5px;
-  background-color: #444;
+  background-color: #999;
 
   position: absolute;
   top: 0;
@@ -72,19 +81,20 @@ nav a:hover::before {
   width: 100%;
 }
 
+
 #content 
 {
 
 	font-family: 'Titillium Web';
 	padding: 1% 5%;
-	background-color: : rgb(1,1,1);
+	background: rgb(0,0,0);
 
 }
 
 #body 
 {
 
-	background-color: : rgb(0,0,0);
+	background: #111;
 }
 
 #container
@@ -102,6 +112,8 @@ header
 h1
 {
    color: rgb(255,255,255);
+   font-size: 30px;
+   font-weight: 700;
 }
 h2
 {
@@ -117,14 +129,22 @@ h6
    color: rgb(0,0,0);
 }
 
-li
+content li
 {
-	font-style: none;
+  list-style: none;
 }
 
 
 p 
 {
+  font-weight:400; 
 	color: rgb(255,255,255);
-	font-size: 15px
+	font-size: 17px;
+}
+
+#sidepic
+{
+  
+  padding-right: 20%;
+   
 }

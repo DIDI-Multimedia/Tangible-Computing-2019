@@ -1,0 +1,102 @@
+<!-- HTML Example -->
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<title> Nikhilesh Mohan </title>
+
+	<!-- load processing files  -->
+	<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script> -->
+
+	<!-- load CSS -->
+	<link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="style.css"> 
+
+
+</head>
+
+
+<body>
+
+	<header>
+    <div class="container">
+      <img src ="Nikilogo.png"50% =Logo width=35px height=35px class="logo">
+
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="About.html">About</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">Courses</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+  <div class="slideshow" style="max-width:1920">
+
+   <img class="Slides" src="anakinheader1.png" style="width:100%">
+   <img class="Slides" src="reflectedheader1.png" style="width:100%">
+   <img class="Slides" src="anakinheader1.png" style="width:100%">
+   <img class="Slides" src="reflectedheader1.png" style="width:100%">
+  </div>
+
+  <script>
+    var myIndex = 0;
+    carousel();
+
+    function carousel() 
+     {
+       var i;
+       var x = document.getElementsByClassName("Slides");
+       for (i = 0; i < x.length; i++) 
+        {
+          x[i].style.display = "none";  
+        }
+ 
+       myIndex++;
+       if (myIndex > x.length) 
+       	{
+     	     myIndex = 1
+       	}    
+       x[myIndex-1].style.display = "block";  
+       setTimeout(carousel, 5000);    
+     }
+  </script>
+
+
+  <div id="content">
+	
+		<h1> Nikhilesh Mohan </h1>
+
+		<br>
+
+          <p>Crazy Dreams</p>
+          <p>Wicked Realities</p>.
+	
+		<br>
+
+		<h3> Contents </h3>
+
+		<ul>
+			<li><a href="week_01.html"> Week 1 </a></li>
+
+		</ul>
+
+		
+
+  </div>
+
+
+
+
+
+
+
+</body>
+
+</html>
