@@ -14,6 +14,11 @@
   padding-left: 10%;
 
 }
+
+#footer{
+  display: inline;
+  width: 100%;
+}
 html,
 
 header {
