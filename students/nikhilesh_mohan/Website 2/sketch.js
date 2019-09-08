@@ -1,6 +1,8 @@
 // Sayjel Vijay Patel
 // @djclds
 // DIDI MuW 2019, Lab 2, August 16, 2019
+
+
 console.log('clock.js')
 
 let seconds, minutes, hours, days 
