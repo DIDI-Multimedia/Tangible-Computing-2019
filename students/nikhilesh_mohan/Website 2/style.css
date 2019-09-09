@@ -1,0 +1,204 @@
+body 
+{
+	margin: 0;
+	background: #000;
+  font-family: 'Titillium Web';
+	font-weight: 700;
+}
+
+.container 
+{
+	width: 80%;
+	margin: 0 auto;
+}
+
+header 
+{
+  background: #55d6aa;
+}
+
+header::after 
+{
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.logo 
+{
+
+  float: left;
+  padding: 20px 0;
+}
+
+nav 
+{
+  float: right;
+}
+
+nav ul 
+{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li 
+{
+  display: inline-block;
+  margin-left: 70px;
+  padding-top: 23px;
+
+  position: relative;
+}
+
+nav a 
+{
+  color: rgb(255,255,255);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+nav a:hover 
+{
+  color: #999;
+}
+
+nav a::before {
+  content: '';
+  display: block;
+  height: 5px;
+  background-color: #999;
+
+  position: absolute;
+  top: 0;
+  width: 0%;
+
+  transition: all ease-in-out 250ms;
+}
+
+nav a:hover::before {
+  width: 100%;
+}
+
+
+#content 
+{
+
+	font-family: 'Titillium Web';
+	padding: 1% 5%;
+	background: rgb(0,0,0);
+
+}
+
+#body 
+{
+
+	background: #111;
+}
+
+#container
+{
+    width: 80%;
+    margin: 0 auto ;
+
+}
+
+header
+{
+	 background: #111;
+}
+
+h1
+{
+   color: rgb(255,255,255);
+   font-size: 30px;
+   font-weight: 700;
+   padding-left: 6%;
+}
+h2
+{
+   color: rgb(255,255,255);
+   font-size: 30px;
+   font-weight: 700;
+}
+h3
+{
+   color: rgb(255,255,255);
+   padding-left: 6%;
+}
+
+h4
+{
+   color: rgb(255,255,255);
+   font-size: 15px;
+   font-weight: 700;
+   padding-left: 6%;
+}
+
+h6
+{
+   color: rgb(255,255,255);
+   font-size: 30px;
+   font-weight: 700;
+   padding-left:6%;
+}
+
+/*h7
+{
+   color: rgb(255,255,255);
+   font-size: 30px;
+   font-weight: 700;
+}*/
+
+content li
+{
+  list-style: none;
+}
+
+
+p 
+{
+  font-weight:400; 
+	color: rgb(255,255,255);
+	font-size: 15px;
+  padding-left:6%;
+}
+
+#sidepic
+{
+  float: right;
+  color: rgb(255,255,255);
+
+}
+
+#tangcomp
+{
+   float: left;
+   padding-left: 10%;
+   padding-top: 8%;
+}
+
+#tangcomph
+{
+   padding-top: 8%;
+   padding-left: 5%;
+}
+
+#tableofcontent
+{
+   padding-left: 13%;
+}
+
+#humfact
+{
+   float: left;
+   padding-left: 10%;
+   padding-top: 11%;
+}
+
+#humfacth
+{
+   padding-top: 11%;
+   padding-left: 5%;
+}
