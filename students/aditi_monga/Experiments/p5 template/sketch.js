@@ -14,11 +14,11 @@ function setup(){
 	textSize(20)
 
 	var x = 0
-	text(x,width/2+x*5,height/2)
+	text(x,x*step,height/2)
 	x++
-	text(x,width/2+x*5,height/2)
+	text(x,x*step,height/2)
 	x++
-	text(x,width/2+x*5,height/2)
+	text(x,x*step,height/2)
 
 }
 
