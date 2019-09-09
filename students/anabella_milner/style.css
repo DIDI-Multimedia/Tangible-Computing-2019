@@ -13,3 +13,23 @@ p {
 	color: #000 !important; 
 
 }
+
+ul{
+	float: top;
+	list-style-type: none;
+
+	}
+
+
+ul{
+	display: inline-block;
+
+	}
+
+	ul{
+		text-decoration: none;
+		color: #fff;
+		padding: 5px 20px;
+		border: 1px solid #fff;
+
+		}
