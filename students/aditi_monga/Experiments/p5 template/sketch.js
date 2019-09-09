@@ -21,7 +21,7 @@ function setup(){
 }
 
 function draw(){
-	background(34,155,215)
+	background(mouseX,mouseY,215)
 
 	var numElements = 25
 
