@@ -15,24 +15,32 @@ background(random(255),155,215)
 	// text(x,x*step,height/2)
 	// x++
 	// text(x,x*step,height/2)
-	var numElements = 3
+
+}
+
+
+function draw(){
+	var numElements = 10
 	textSize(10)
 	var step = width/numElements
+	var colourStep = 255/numElements
 	textAlign(CENTER,CENTER)
-	console.log(step)
+	// console.log(step)
 
 	for (var x = 0 ; x < numElements; x++){
 		for (var y = 0 ; y < numElements; y++){
-			fill(random(255), random(255),random(255))
-			rect(x*step,y*step,step,step)
-			fill(0)
-		var string = x + "," + y
-		text(string,x*step+25,y*step+25)
+			
+			stroke(255)
+			strokeWeight(second()/2)
+			// noStroke()
+			fill(mouseX,y*colourStep,50)
+			ellipse(x*step,y*step,step,step)
+			// fill(0)
+// 		var string = x + "," + y
+// 		text(string,x*step+25,y*step+25)
 }
 }
 }
-// function draw(){
-
 // 	// background(mouseX,mouseY,215)
 
 
