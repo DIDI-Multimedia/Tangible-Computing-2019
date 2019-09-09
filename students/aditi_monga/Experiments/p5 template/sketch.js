@@ -34,7 +34,7 @@ function draw(){
 	for (var x = 0 ; x < numElements; x++){
 		for (var y = 0 ; y < numElements; y++){
 		var string = x + "," + y
-		text(string,x*step+50,y*step+50)
+		text(string,x*step+40,y*step+40)
 		// fill(random(255), random(255), random(255))
 		// ellipse(mouseX,mouseY/2,step/2,step/2)
 }
