@@ -21,20 +21,22 @@ function setup(){
 }
 
 function draw(){
+
 	background(mouseX,mouseY,215)
+	var numElements = 3
+	textSize(20)
+	var step = 25
 
-	var numElements = 25
 
-	var step = width/numElements
-
-	textSize(step)
 
 	// var x = 0
 	
 	for (var x = 0 ; x < numElements; x++){
-	
-		fill(random(255), random(255), random(255))
-		ellipse(mouseX,mouseY/2,step/2,step/2)
+		for (var y = 0 ; y < numElements; y++){
+		var string = x + "," + y
+		text(string,x*step+50,y*step+50)
+		// fill(random(255), random(255), random(255))
+		// ellipse(mouseX,mouseY/2,step/2,step/2)
 }
-
+}
 }
