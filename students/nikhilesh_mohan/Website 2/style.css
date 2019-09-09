@@ -114,20 +114,42 @@ h1
    color: rgb(255,255,255);
    font-size: 30px;
    font-weight: 700;
+   padding-left: 6%;
 }
 h2
 {
    color: rgb(255,255,255);
+   font-size: 30px;
+   font-weight: 700;
 }
 h3
 {
    color: rgb(255,255,255);
+   padding-left: 6%;
+}
+
+h4
+{
+   color: rgb(255,255,255);
+   font-size: 15px;
+   font-weight: 700;
+   padding-left: 6%;
 }
 
 h6
 {
-   color: rgb(0,0,0);
+   color: rgb(255,255,255);
+   font-size: 30px;
+   font-weight: 700;
+   padding-left:6%;
 }
+
+/*h7
+{
+   color: rgb(255,255,255);
+   font-size: 30px;
+   font-weight: 700;
+}*/
 
 content li
 {
@@ -139,12 +161,44 @@ p
 {
   font-weight:400; 
 	color: rgb(255,255,255);
-	font-size: 17px;
+	font-size: 15px;
+  padding-left:6%;
 }
 
 #sidepic
 {
-  
-  padding-right: 20%;
-   
+  float: right;
+  color: rgb(255,255,255);
+
+}
+
+#tangcomp
+{
+   float: left;
+   padding-left: 10%;
+   padding-top: 8%;
+}
+
+#tangcomph
+{
+   padding-top: 8%;
+   padding-left: 5%;
+}
+
+#tableofcontent
+{
+   padding-left: 13%;
+}
+
+#humfact
+{
+   float: left;
+   padding-left: 10%;
+   padding-top: 11%;
+}
+
+#humfacth
+{
+   padding-top: 11%;
+   padding-left: 5%;
 }
