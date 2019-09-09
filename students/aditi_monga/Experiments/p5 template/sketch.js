@@ -11,13 +11,18 @@ function setup(){
 	canvas.parent('sketch-holder');
 	background(34,155,215)
 
-	textSize(20)
+	var numElements = 25
+
+	var step = width/numElements
+
+	textSize(step)
 
 	// var x = 0
-	var step = 10
-
-	for (var x = 0 ; x < 100; x++){
-	text(x,x*step,height/2)
+	
+	for (var x = 0 ; x < numElements; x++){
+	
+		fill(random(255), random(255), random(255))
+		ellipse(x*step,height/2,step/2,step/2)
 }
 
 	// text(x,x*step,height/2)
