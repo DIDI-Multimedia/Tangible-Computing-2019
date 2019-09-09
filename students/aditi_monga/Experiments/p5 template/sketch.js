@@ -25,7 +25,7 @@ function draw(){
 	background(mouseX,mouseY,215)
 	var numElements = 3
 	textSize(20)
-	var step = 25
+	var step = width/numElements
 
 
 
