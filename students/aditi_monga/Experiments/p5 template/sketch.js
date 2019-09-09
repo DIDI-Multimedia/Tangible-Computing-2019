@@ -1,7 +1,7 @@
 // Sketch Title - for MuW201 Tangible Computing, 2019
-// Firstname Lastname 
-// GitHub Username
-// Date 
+// Aditi Monga
+// GitHub Username: aditimonga
+// 9th September 
 
 function setup(){
 
