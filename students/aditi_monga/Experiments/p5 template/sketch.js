@@ -11,10 +11,18 @@ function setup(){
 	canvas.parent('sketch-holder');
 	background(34,155,215)
 
+	textSize(20)
+
+	var x = 0
+	text(x,width/2+x*5,height/2)
+	x++
+	text(x,width/2+x*5,height/2)
+	x++
+	text(x,width/2+x*5,height/2)
 
 }
 
-function draw(){
+// function draw(){
 
 
-}
+// }
