@@ -13,13 +13,18 @@ function setup(){
 
 	textSize(20)
 
-	var x = 0
+	// var x = 0
 	var step = 10
+
+	for (var x = 0 ; x < 100; x++){
 	text(x,x*step,height/2)
-	x++
-	text(x,x*step,height/2)
-	x++
-	text(x,x*step,height/2)
+}
+
+	// text(x,x*step,height/2)
+	// x++
+	// text(x,x*step,height/2)
+	// x++
+	// text(x,x*step,height/2)
 
 }
 
