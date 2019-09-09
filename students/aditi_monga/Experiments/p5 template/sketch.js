@@ -14,6 +14,7 @@ function setup(){
 	textSize(20)
 
 	var x = 0
+	var step = 10
 	text(x,x*step,height/2)
 	x++
 	text(x,x*step,height/2)
