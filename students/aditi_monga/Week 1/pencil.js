@@ -6,7 +6,7 @@ function setup(){
 }
 
 function draw(){
-	if mousePressed {
+	if (mouseIsPressed) {
 		noStroke()
 		fill(0)
 		ellipse (mouseX, mouseY, 3, 3,)
