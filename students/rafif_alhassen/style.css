@@ -2,14 +2,32 @@
 
 #content {
 
-	font-family: 'arial';
+	font-family: 'Arial';
 	padding: 5%;
 
 }
+h1{
+	color: rgb(255,255,255);
+	text-align: center;
+	font-family: 'Arial';
+	font-size: 150%;
+}
 
+h2{
+	color: rgb(255,255,255);
+	text-align: left;
+	font-family: 'Arial';
+	font-size: 100%;
+}
+
+body{
+	background-color:#0B0C10;
+	color: rgb(255,255,255);
+}
 
 p {
-
-	color: #000 !important; 
-
+	color: rgb(207,198,199);
+	font-family: 'Arial';
+	
 }
+
