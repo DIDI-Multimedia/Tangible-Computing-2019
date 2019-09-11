@@ -19,7 +19,7 @@ function draw(){
 
 
 
-	background(random(255),155,215)
+	background(random(255),255,215)
 
 		// var string = x + "," + y
 		// text(string,x*step+20,y*step+20)
@@ -38,12 +38,12 @@ function draw(){
 
 function draw(){
 
-	var numElements = 50
+	var numElements = 10
 
 var step= width/numElements
 textSize(10)
 textAlign(CENTER,CENTER)
-var colorstep = 255/numElements
+var colorstep = (HSB, 100)
 //console.log(step)
 
 //var x =0
@@ -54,10 +54,21 @@ var colorstep = 255/numElements
 for (var x = 0 ;x < numElements; x++){
 	for (var y = 0 ; y< numElements; y++){
 
+		stroke(x, y, numElements)
+		point(x, y)
+
 noStroke(255)
 strokeWeight(3)
+let c = color(random(255), 200, 255);
 fill(x*colorstep,mouseX,y*colorstep)
 rect(x*step,y*step,step,step)
+rect(x*step,y*step,step,step)
+fill(c);
+rect(x+step,y+step,step,step)
+let value = brightness(c);
+fill(value);
+fill(c);
+triangle(40, 90, 60, 30, 90, 90)
 fill(0)
 
 
