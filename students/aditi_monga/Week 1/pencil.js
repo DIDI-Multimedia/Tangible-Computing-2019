@@ -8,7 +8,7 @@ function setup(){
 function draw(){
 	if (mouseIsPressed) {
 		noStroke()
-		fill(0)
+		fill(0,0,0)
 		ellipse (mouseX, mouseY, 3, 3,)
 	}
 	else {
