@@ -12,37 +12,11 @@ function setup(){
 	// Move the canvas so it's inside our <div id="sketch-holder">.
 	canvas.parent('sketch-holder');
 	
-function draw(){		
-	background(0)
-	var numElements = 25
-	textSize(10)
-	var step = width/numElements
-	var colorStep = 255/numElements
-	textAlign(CENTER,CENTER)
-	//console.log(step)
+function draw(){
+	background(220, 0, 200);
+	line(0,0,windowWidth/4,windowWidth/4)
+	rect(200,200,25,75,5);
+	rectMode(CENTER);
+	quad(38,31,86,20,69,63,30,76);
 
-	for (var x = 0 ; x < numElements; x++){
-			for (var y = 0; y <numElements; y++){
-
-				stroke(255)
-				strokeWeight(second()/3)
-				fill(x*colorStep,y*colorStep,200)
-				rect(x*step,y*step,step,step)
-				//fill(0)
-				//var string = x + "," + y
-				//text(string,x*step+25,y*step+25)	
-			}
-		}
-	}
-	//	text(x,x*step,height/2)
-	//text(x,x*step,height/2)
-	//x++
-	//text(x,x*step,height/2)
-	//x++
-	//text(x,x*step,height/2)
-	//
-
-//function draw(){
-
-
-//}
+}
