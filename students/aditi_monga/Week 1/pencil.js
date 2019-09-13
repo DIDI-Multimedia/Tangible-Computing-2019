@@ -1,6 +1,6 @@
 function setup(){
 
-	let canvas = createCanvas(windowHeight,windowWidth)
+	let canvas = createCanvas(windowHeight*0.8,windowWidth*0.74)
 	canvas.parent('sketch-holder');
 	background(255)
 }
