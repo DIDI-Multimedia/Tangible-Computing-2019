@@ -13,7 +13,7 @@ function setup(){
 
 function draw(){
 
-	stroke(a++,random(255),a++)
-	ellipse (circleX++, windowHeight/2, circleX++, circleX++)
+	stroke(a+0.25,random(255),a++)
+	ellipse (circleX+0.5, windowHeight/2, circleX++, circleX++)
 
 }
