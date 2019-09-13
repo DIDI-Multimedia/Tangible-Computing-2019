@@ -7,6 +7,10 @@
 
 }
 
+h1 {
+	font-family: 'papyrus'
+}
+
 .disable-select {
     user-select: none; /* supported by Chrome and Opera */
    -webkit-user-select: none; /* Safari */
@@ -16,7 +20,7 @@
 }
 
 #sketch-holder {
-/*	position: absolute;*/
+	position: absolute;
 	z-index: -5
 	left: 5%;
 	top: 5%;
