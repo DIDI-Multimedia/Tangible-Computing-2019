@@ -22,6 +22,7 @@ function setup(){
 	// for (var x=0 ; x < 100; x++){
 	// 	text(x,x*step,height/2)
 	
+	
 	// text(x,x*step,height/2)
 	// x++
 	// text(x,x*step,height/2)
@@ -31,7 +32,7 @@ function setup(){
 
 function draw(){
 
-background(0)
+background(255)
 
 fill(random(255),random(255),random(255))
 ellipse(50,50,random(0,width),random(0,height))
