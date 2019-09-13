@@ -35,3 +35,7 @@ function draw(){
 	
 
 }
+
+function mousePressed(){
+	background(100,100,100);
+}
