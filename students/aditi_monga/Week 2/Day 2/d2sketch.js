@@ -14,6 +14,6 @@ function setup(){
 function draw(){
 
 	stroke(a+0.25,random(255),a++)
-	ellipse (circleX+0.5, windowHeight/2, circleX++, circleX++)
+	rect (circleX+0.5, windowHeight/2, circleX++, circleX++)
 
 }
