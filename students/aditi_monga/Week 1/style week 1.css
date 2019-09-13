@@ -17,8 +17,10 @@
 
 #sketch-holder {
 	position: absolute;
+	z-index: -5
 	left: 5%;
 	top: 5%;
+
 }
 
 p {
