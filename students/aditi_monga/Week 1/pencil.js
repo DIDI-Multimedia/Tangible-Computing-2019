@@ -1,5 +1,7 @@
 function setup(){
 
+	const heightProp = 0.8
+	const widthProp = 0.74
 	let canvas = createCanvas(windowHeight,windowWidth)
 	canvas.parent('sketch-holder');
 	background(255)
