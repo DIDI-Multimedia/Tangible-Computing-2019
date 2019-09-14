@@ -1,26 +1,31 @@
 
-function setup(){
+var y = 0.5
+
+
+
+	function setup(){
+
+		let canvas = createCanvas(windowWidth/3,windowWidth/3)
+
+		canvas.parent('sketch-holder');
 	
-	let canvas = createCanvas(windowWidth/3,windowWidth/3)
-	background(255)
-	canvas.parent('sketch-holder');
-	
-}
-	
-function draw() {
-	
-	if (mouseIsPressed) {
- 	
-    stroke(250,224,74);
-	line(250,250,mouseX,mouseY);
- 
-  } else {
-    stroke(22,164,195);
-  }
- 	
-	line(250,250,mouseX,mouseY);
-	
-	
- 	
- 
+	}
+
+	function draw(){
+
+		 background(113,189,58); // Set the background to black
+ 		 y = y + 0.5;
+  		if (y < 0) {
+    	y = height;
+  					}
+
+  		
+ 		fill(147,232,85)
+ 		ellipse(250, 1, 120, y);
+
+ 		fill(156,219,110) 	
+ 		ellipse(170, 1, 150, y);
+ 		 
+ 		 
+ 		 noStroke()
 }
