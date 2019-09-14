@@ -6,7 +6,7 @@
 function setup()
 {
 
-	let canvas = createCanvas(windowWidth/4,windowWidth/4)
+	let canvas = createCanvas(windowWidth-10,windowHeight/2.05)
 	
 	// Move the canvas so it's inside our <div id="sketch-holder">.
 	canvas.parent('sketch-holder')
@@ -30,30 +30,26 @@ function setup()
 
 function draw()
 {
-	var numElement = 100
+	var numElement = 50
    
     textSize(10)
     var step =width/numElement
     var colorstep=255/numElement
 
-
-    for(var x=0; x<numElement; x++)
+   	for(var x=0; x<numElement; x++)
     {
-    	for (var y =0; y<numElement;y++)
-    	{
+   	  for (var y =0; y<numElement;y++)
+      {
+        stroke(0)
+        //strokeWeight(second()*2)
+        fill(x*colorstep+mouseX,y*colorstep+mouseY,200)
 
-             stroke(255)
-             strokeWeight(second()*2)
-    		 fill(x*colorstep,y*colorstep,200)
-    		 //stroke(255,255,255)
-    		 rect(x*step, y*step, step, step)
+        //stroke(255,255,255)
+        rect(x*step, y*step, step, step)
+   	  }
 
 
-    	}
-
-         
     }
-
 
   
 
