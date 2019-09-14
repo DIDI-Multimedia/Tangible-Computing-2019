@@ -6,7 +6,7 @@
 console.log('sketch.js')
 
 let creatures =[]
-let names = ['ayesha','noor','shamma','bella','mona','rafif','nikhilesh','hoor','ashan']
+let names = ['ayesha','noor','shamma','bella','mona','rafif','nikhilesh','hoor','ahsan']
 
 function setup(){
 

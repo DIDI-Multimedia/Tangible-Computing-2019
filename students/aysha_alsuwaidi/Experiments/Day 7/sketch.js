@@ -5,7 +5,7 @@
 
 function setup(){
 
-	let canvas = createCanvas(windowWidth/2,windowWidth/2)
+	let canvas = createCanvas(windowWidth/3,windowWidth/3)
 	
 	// Move the canvas so it's inside our <div id="sketch-holder">.
 	canvas.parent('sketch-holder');
@@ -31,7 +31,7 @@ function setup(){
 
 function draw(){
 
-background(0)
+background(255)
 
 fill(random(255),random(255),random(255))
 ellipse(50,50,random(0,width),random(0,height))
