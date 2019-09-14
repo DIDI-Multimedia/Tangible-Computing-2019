@@ -9,7 +9,7 @@ function setup(){
 	
 	// Move the canvas so it's inside our <div id="sketch-holder">.
 	canvas.parent('sketch-holder');
-background(random(255),155,215)
+	background(random(255),155,215)
 	// text(x,x*step,height/2)
 	// x++
 	// text(x,x*step,height/2)
