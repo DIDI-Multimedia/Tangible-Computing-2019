@@ -1,20 +1,26 @@
+
 function setup(){
-
+	
 	let canvas = createCanvas(windowWidth/3,windowWidth/3)
-	 img = loadImage('faroosh.png');
-	 let value = 0;
-
+	background(255)
 	canvas.parent('sketch-holder');
+	
 }
 	
 function draw() {
-  fill(value);
-  rect(25, 25, 50, 50);
-}
-function mousePressed() {
-  if (value === 0) {
-    value = 255;
+	
+	if (mouseIsPressed) {
+ 	
+    stroke(250,224,74);
+	line(250,250,mouseX,mouseY);
+ 
   } else {
-    value = 0;
+    stroke(22,164,195);
   }
+ 	
+	line(250,250,mouseX,mouseY);
+	
+	
+ 	
+ 
 }
