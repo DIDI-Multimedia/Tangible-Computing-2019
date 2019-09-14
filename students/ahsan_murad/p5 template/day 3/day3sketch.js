@@ -8,7 +8,7 @@ let c3X = 400;
 let c3Y = 400;
 let c4Y = 400;
 let c5Y = 400;
-let c6X = 800;
+let c6X = 800; 
 let c7X = 400;
 let c7Y = 400;
 let lineX = 400;
@@ -77,18 +77,11 @@ function draw(){
 	fill(57,255,20);
 	ellipse(c6X,400,50,50);
 	c6X--;
-	if(c6X<400){
-		c6X++;
-	}
 
 	//middle to top right -> c7Y
 	ellipse(c7X,c7Y,50,50);
 	c7X++; //changing "c7X = c7X + 1" to simply entering "c7X++"" from now
 	c7Y--;
-	if(c7X>800,c7Y<0){
-		c7X=--;
-		c7Y++;
-	}
 
 	//function mousePressed(){
 	fill(252,102,0,200); // for mouseX ellipse change HERE! <---- currently set to Orange same as line
