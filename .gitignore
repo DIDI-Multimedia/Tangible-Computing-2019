@@ -1,6 +1,15 @@
 students/firstname_lastname/examples/03_citygen/procedural-city-js/
 examples/03_citygen/procedural-city-js/
+<<<<<<< Updated upstream
 students/noor_alfahim
+<<<<<<< Updated upstream
 
 template/node template/node_modules
 echo .DS_Store
+=======
+template/node template/node_modules
+=======
+template/node template/node_modules
+echo .DS_Store
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
