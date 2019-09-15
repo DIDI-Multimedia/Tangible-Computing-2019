@@ -38,6 +38,32 @@
  	margin: auto;
 
  }
+.box-6{
+ 	background-color:white;
+ 	font-family: Verdana;
+ 	width: 4%;
+ 	border:groove;
+ 	border-right-color: red;
+ 	border-left-color: red;
+ 	border-top-color: black;
+ 	border-bottom-color: black;
+ 	padding: 1px;
+ 	margin: auto;
+
+
+ }
+ .box-7{
+ 	background-color:white;
+ 	font-family: Verdana;
+ 	width: 4%;
+ 	border:groove;
+ 	border-right-color: red;
+ 	border-left-color: red;
+ 	border-top-color: black;
+ 	border-bottom-color: black;
+ 	padding: 1px;
+ 	margin: auto;
+ }
 
 
 h1{
