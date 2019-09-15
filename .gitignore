@@ -22,9 +22,9 @@ template/node template/node_modules
 # students/mona_itani/Week1 /week1.png
 # students/mona_itani/Week1 /Week2.html
 # students/mona_itani/Week1 /week_01.html
-students/rafif_alhassen/Experiments/p5 template /index1.html
-students/rafif_alhassen/Experiments/p5 template /sketch.js
-students/rafif_alhassen/Experiments/p5 template /style.css
+# students/rafif_alhassen/Experiments/p5 template /index1.html
+# students/rafif_alhassen/Experiments/p5 template /sketch.js
+# students/rafif_alhassen/Experiments/p5 template /style.css
 students/mona_itani/Week1/.DS_Store
 students/mona_itani/Week1/index.html
 students/mona_itani/Week1/Sketch01.html
@@ -44,7 +44,7 @@ students/mona_itani/Week1/Sketch07.js
 students/mona_itani/Week1/style.css
 students/mona_itani/Week1/week1.png
 students/mona_itani/Week1/Week2.html
-students/mona_itani/Week1/week_01.html
-students/rafif_alhassen/Experiments/p5 template/index1.html
-students/rafif_alhassen/Experiments/p5 template/sketch.js
-students/rafif_alhassen/Experiments/p5 template/style.css
+# students/mona_itani/Week1/week_01.html
+# students/rafif_alhassen/Experiments/p5 template/index1.html
+# students/rafif_alhassen/Experiments/p5 template/sketch.js
+# students/rafif_alhassen/Experiments/p5 template/style.css
