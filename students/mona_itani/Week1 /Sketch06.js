@@ -3,7 +3,6 @@
 // GitHub Username
 // Date 
 
-
 function setup() {
   let canvas = createCanvas(windowWidth/3,windowWidth/3)
   
@@ -14,23 +13,22 @@ function setup() {
 
 function draw(){
 
-background(255)
+background(random(255),mouseX, mouseY)
 
 
  translate(width/2,height/2);
 
- for(var a =70; a<220; a += 1){
-   var x = random(32,56);
-   var xx = random(11,2);
+ for(var a =7; a<220; a += 99){
+   var x = random(30,5);
+   var xx = random(90,2);
    push();
-   rotate(radians(a*8));
+   rotate(radians(a*100));
   
 
-   stroke(0);
-   strokeWeight(2);
-   line(250,250,mouseX,mouseY);
-   ellipse(20,20,mouseX,mouseY);
-
+   stroke(90);
+   strokeWeight(100);
+   line(xx,0,20,100);
+   rect(250,250,random(10,width),random(10,height))
    
    
    strokeCap(CORNER);
@@ -38,4 +36,4 @@ background(255)
  }
 }
   
-    
+
