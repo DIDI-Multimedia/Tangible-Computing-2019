@@ -36,7 +36,7 @@ function draw(){
 
 		for (var y = 0; y < numElements; y++) {
 			
-			Stroke(255)
+			stroke(255)
 			strokeWeight(2)
 			fill(x*colorStep, y*colorStep,second()*3)
 			rect(x*step,y*step,step,step)
@@ -47,23 +47,11 @@ function draw(){
 	}
 	
 
-
-	}
-
+}
 
 
 
-		// text(x,x*step,height/2)
-	
-	// text(x,x*2,height/2)
-	// x++
-	// text(x,x*2,height/2)
-	// x++
-	// text(x,x*2,height/2)
-	
-	
 
 
-// function draw(){
 
 

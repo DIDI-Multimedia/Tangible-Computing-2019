@@ -13,11 +13,13 @@ function draw(){
 	strokeWeight(mouseY/30)
 
 	for (var x = 0; x <= width; x+=100) {
+
 		for (var y = 0; y <= height ; y+=100) {
+		
 			fill(x, y, random(mouseX))
 			rect(x, y, 60, 60)
 			
 		}
-	}
+	
 
 }
