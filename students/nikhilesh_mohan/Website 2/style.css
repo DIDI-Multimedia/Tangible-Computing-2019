@@ -61,14 +61,14 @@ nav a
 
 nav a:hover 
 {
-  color: #999;
+  color: rgb(50,210,210);
 }
 
 nav a::before {
   content: '';
   display: block;
   height: 5px;
-  background-color: #999;
+  background-color: rgb(0,210,210);
 
   position: absolute;
   top: 0;
@@ -201,4 +201,9 @@ p
 {
    padding-top: 10%;
    padding-left: 5%;
+}
+
+#week2content
+{
+  padding-left: 10%;
 }
