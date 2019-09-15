@@ -27,8 +27,12 @@ background(random(255),mouseX, mouseY)
 
    stroke(90);
    strokeWeight(100);
-   line(xx,0,20,100);
-   rect(250,250,random(10,width),random(10,height))
+   stroke(random(255),random(255),random(255))
+   rect(250,250,random(0,width),random(0,height))
+
+
+rect(500,150,random(0,width),random(0,height))
+strokeWeight(100)
    
    
    strokeCap(CORNER);

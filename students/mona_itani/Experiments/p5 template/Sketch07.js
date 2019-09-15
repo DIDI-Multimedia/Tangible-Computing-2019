@@ -3,9 +3,8 @@
 // GitHub Username
 // Date 
 
-
 function setup() {
-  let canvas = createCanvas(windowWidth/3,windowWidth/3)
+  let canvas = createCanvas(windowWidth/2,windowWidth/2)
   
   
   canvas.parent('sketch-holder');
@@ -14,28 +13,29 @@ function setup() {
 
 function draw(){
 
-background(255)
+background(0)
 
 
  translate(width/2,height/2);
 
- for(var a =70; a<220; a += 1){
-   var x = random(32,56);
+ for(var a =70; a<140; a += 10){
+   var x = random(1,10);
    var xx = random(11,2);
    push();
-   rotate(radians(a*8));
+   rotate(radians(a*10));
   
 
    stroke(0);
-   strokeWeight(2);
-   line(250,250,mouseX,mouseY);
-   ellipse(20,20,mouseX,mouseY);
-
+   strokeWeight(0.5);
+   fill(random(255),random(255),random(255))
+   rect(250,250,mouseX,mouseY);
+   ellipse(250,250,mouseX,mouseY);
    
    
    strokeCap(CORNER);
    pop();
  }
 }
+
   
-    
+
