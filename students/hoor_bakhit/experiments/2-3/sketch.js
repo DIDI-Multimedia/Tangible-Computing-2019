@@ -4,7 +4,7 @@
 // Date 
 
 function setup(){
-let canvas = createCanvas(windowWidth/2,windowWidth/2)
+let canvas = createCanvas(windowWidth/4,windowWidth/4)
 	
 	// Move the canvas so it's inside our <div id="sketch-holder">.
 	canvas.parent('sketch-holder');
