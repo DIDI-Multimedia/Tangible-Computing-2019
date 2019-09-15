@@ -74,7 +74,7 @@ for (var x = 0 ; x < numElements; x++){
 	for(var y = 0; y < numElements; y++){
 
 		// noStroke()
-		stroke((44),(231),(197))
+		stroke(255)
 		strokeWeight(second()/3)
 		fill(x*colorStep,y*colorStep,200)
 		// fill(random(255),random(255),random(255))
@@ -83,8 +83,10 @@ for (var x = 0 ; x < numElements; x++){
 		rotate(PI/6.0);
 		smooth();
 		triangle(x*step,y*step,step,step)
-		ellipse(130,155,250,25)
-		rect(x*step,y*step,step,step)
+		// ellipse(130,155,250,25)
+		stroke(0)
+		rect(mouseX,50,mouseY,50)
+		fill(50)
 		// text(string,x*step+16, y*step+6)
 		// fill(0)
 		// var string = x + "," + y

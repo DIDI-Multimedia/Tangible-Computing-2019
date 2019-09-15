@@ -67,10 +67,12 @@ function draw(){
 
 
 	noFill();
-	curve(5,26,5,26,73,24,73,61);
-	curve(5,26,73,24,73,61,15,65,);
+	// curve(5,26,5,26,73,24,73,61);
+	// curve(5,26,73,24,73,61,15,65,);
+	// curve(mouseX, 0, mouseX, 100);
+	// curve(mouseY, 0, mouseY,100);
 	fill(random(255),random(255),random(255));
-	strokeWeight(second()/8)
+	strokeWeight(3)
 	stroke(0)
 	ellipseMode(CENTER);
 	let steps = 6;
@@ -78,10 +80,10 @@ function draw(){
 		let t = i / steps;
 		let x = curvePoint(5,5,73,73,t);
 		let y = curvePoint (26,26,24,61,t);
-		ellipse(x,y,50,50);
+		ellipse(mouseX,50,mouseY,50);
 		x = curvePoint (5,73,73,15,t);
 		y = curvePoint (26,24,61,65,t);
-		ellipse(x,y,50,50);
+		ellipse(mouseX,50,mouseY,50);
 
 
 
