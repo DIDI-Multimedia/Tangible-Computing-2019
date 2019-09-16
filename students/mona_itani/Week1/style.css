@@ -10,6 +10,19 @@
 	font-style:oblique; 
 
 }
+.box-2{
+ 	background-color:white;
+ 	width: 20%;
+ 	border:groove;
+ 	box-sizing: border-box;
+ 	padding: 100px 70px;
+ 	font-family: Verdana;
+ 	margin:0 auto;
+ 	border-right-color: black;
+ 	border-left-color: black;
+ 	border-top-color: red;
+ 	border-bottom-color: red;
+ }
 	
 .box-3{
  	background-color:white;
@@ -51,22 +64,10 @@
  	margin: auto;
 
 
- }
- .box-7{
- 	background-color:white;
- 	font-family: Verdana;
- 	width: 4%;
- 	border:groove;
- 	border-right-color: red;
- 	border-left-color: red;
- 	border-top-color: black;
- 	border-bottom-color: black;
- 	padding: 1px;
- 	margin: auto;
- }
 
 
-h1{
+
+h2{
 	color:black;
 	text-align: center;
     font-family:Verdana;
@@ -98,6 +99,7 @@ h1{
 
 h2{
 	color:black;
+	margin:center;
 	text-align: center;
 	font-size: 200%;
 	font-family:Verdana;
