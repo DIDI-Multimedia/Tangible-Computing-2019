@@ -115,7 +115,7 @@ h3{
 
 
 body-2{
-	background-image: url(untitled-1.png);
+	background-image: url(backgroundphoto.png);
 	background-size: 110%;
 
 }
@@ -152,7 +152,8 @@ title{
 
 
 body{
-	background-image: url(week1.png);
+	
+	background-image: url(backgroundphoto.png);
 	background-repeat: no-repeat;
 	background-size: 100%;
 
