@@ -3,7 +3,7 @@
 // GitHub Username
 // Date 
 
-let y = 30 //controls speed
+let y = 30 
 
 function setup(){
 
@@ -17,12 +17,14 @@ stroke(255);
 
 }
 
+let step =2
+
 function draw(){
 
-background(0); // Set the background to black
-  y = y + 2;
-  if (y < 1) {
-    y = height;
+background(0); 
+  y = y + step;
+  if (y > height || y < 0) {
+    step *=-1;
  }
 
   ellipse(50, y, 60, 60);
