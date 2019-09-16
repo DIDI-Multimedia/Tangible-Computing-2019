@@ -12,7 +12,7 @@ function draw() {
 	if (mouseIsPressed) {
  	
     stroke(250,224,74);
-	line(250,250,mouseX,mouseY);
+	line(random(0,width),random(0,height),mouseX,mouseY);
  
   } else {
     stroke(22,164,195);
