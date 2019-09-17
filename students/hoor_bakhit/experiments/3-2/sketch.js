@@ -17,7 +17,8 @@ function setup(){
 	canvas.parent('sketch-holder');
 	background(34,155,215)
 stroke(255); 
-  frameRate(50);
+  frameRate(30);
+
 
     ball1 = new ball();
 	ball2 = new ball();
@@ -29,25 +30,23 @@ let step =2
 
 function draw(){
 background(0)
-ball1.move();
-  ball1.display();
-  ball2.move();
-  ball2.display();
-  ball3.move();
-  ball3.display();
-  ball4.move();
-  ball4.display();
+ 
+ ball()
+ ball()
 }
 
 
 function ball(){
-move() {	
+//move() {	
+
+
 	y = y + step;
   if (y > height || y < 0) {
     step *=-1; }
+
+    ellipse(50, y, 60, 60);
  }
-display() {
-  ellipse(50, y, 60, 60);
-}
-}
+//display() {
+  
+
 
