@@ -136,6 +136,17 @@ h4
    padding-left: 6%;
 }
 
+h5
+{
+   color: rgb(255,255,255);
+   font-size: 25px;
+   font-weight: 700;
+   padding-left: 10%;
+   padding-top:2%;
+}
+
+
+
 h6
 {
    color: rgb(255,255,255);
@@ -176,12 +187,12 @@ p
 {
    float: left;
    padding-left: 10%;
-   padding-top: 8%;
+   padding-top: 7%;
 }
 
 #tangcomph
 {
-   padding-top: 8%;
+   padding-top: 7%;
    padding-left: 5%;
 }
 
@@ -194,16 +205,21 @@ p
 {
    float: left;
    padding-left: 10%;
-   padding-top: 10%;
+   padding-top: 9%;
 }
 
 #humfacth
 {
-   padding-top: 10%;
+   padding-top: 9%;
    padding-left: 5%;
 }
 
 #week2content
 {
   padding-left: 10%;
+}
+
+#bg
+{
+  position: relative;
 }
