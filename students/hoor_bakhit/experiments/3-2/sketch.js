@@ -17,9 +17,8 @@ function setup(){
 	canvas.parent('sketch-holder');
 	background(34,155,215)
   noStroke()
-  // stroke(255); 
-  // frameRate(50);
-
+  // stroke(255)
+  // frameRate(50)
   ball1 = getBall() // you can use a function to create the ball object and initialize it with random values 
   ball2 = getBall()
   ball3 = getBall()
@@ -30,6 +29,7 @@ function setup(){
 
 
 function draw(){
+
 
   background(0)
   ball1.move();
@@ -79,5 +79,3 @@ function getBall(){
   return ball 
 
 }
-
-
