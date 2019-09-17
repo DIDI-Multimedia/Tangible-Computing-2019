@@ -2,56 +2,52 @@
 // Firstname Lastname 
 // GitHub Username
 // Date 
+let ball1; 
+let ball2;
+let ball3;
+let ball4;
+let y = 30 
 
 function setup(){
 
 	let canvas = createCanvas(windowWidth/4,windowWidth/4)
 	
+	
 	// Move the canvas so it's inside our <div id="sketch-holder">.
 	canvas.parent('sketch-holder');
-	background(random(255),155,215)
+	background(34,155,215)
+stroke(255); 
+  frameRate(50);
 
-		// var string = x + "," + y
-		// text(string,x*step+20,y*step+20)
-
-	//text (x,x*step,height/2)
-	
+    ball1 = new ball();
+	ball2 = new ball();
+	ball3 = new ball();
+	ball4 = new ball();
 }
 
-
-//text (x,x*step,height/2)
-//x++
-//text (x,x*step,height/2)
-//x++
-//text (x,x*step,height/2)
-
+let step =2
 
 function draw(){
-
-	var numElements = 50
-
-var step= width/numElements
-textSize(10)
-textAlign(CENTER,CENTER)
-var colorstep = 255/numElements
-//console.log(step)
-
-//var x =0
-//var step =10
-
-// var x is the starting value
-
-for (var x = 0 ;x < numElements; x++){
-	for (var y = 0 ; y< numElements; y++){
-
-noStroke(255)
-strokeWeight(3)
-fill(x*colorstep,mouseX,y*colorstep)
-rect(x*step,y*step,step,step)
-fill(0)
-
-
+background(0)
+ball1.move();
+  ball1.display();
+  ball2.move();
+  ball2.display();
+  ball3.move();
+  ball3.display();
+  ball4.move();
+  ball4.display();
 }
+
+
+function ball(){
+move() {	
+	y = y + step;
+  if (y > height || y < 0) {
+    step *=-1; }
+ }
+display() {
+  ellipse(50, y, 60, 60);
 }
 }
 
