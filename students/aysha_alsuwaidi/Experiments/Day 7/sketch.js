@@ -1,3 +1,19 @@
+<<<<<<< HEAD
+
+var y = 0.5
+	function setup(){
+
+		let canvas = createCanvas(windowWidth/3,windowWidth/3)
+
+		canvas.parent('sketch-holder');
+	
+	}
+
+	function draw(){
+
+		 background(255);
+ 	
+=======
 function setup(){
 
 	let canvas = createCanvas(windowWidth/3,windowWidth/3)
@@ -25,4 +41,5 @@ background(255)
   line(mouseX - 1, mouseY, mouseX + 1, mouseY);
 
 
+>>>>>>> 9c67cebbf31b37ee6f4f0967b00072cbd18c6af5
 }
