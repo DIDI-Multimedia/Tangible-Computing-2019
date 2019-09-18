@@ -12,10 +12,10 @@ let y = 30
 function setup(){
 
 	let canvas = createCanvas(windowWidth/2,windowWidth/2)
-	canvas.parent('sketch-holder');
-	background(0)
+	canvas.parent('myContainer');
+	background(255)
   noStroke()
-  let numBalls = 9
+  let numBalls = random(3,12)
 
   for (var i = 0; i < numBalls; i++){
     let newBall = getBall(i)
@@ -35,8 +35,8 @@ function setup(){
 function draw(){
 
 
-  background(0)
-  stroke(255,50)
+  background(255)
+  stroke(0,50)
   strokeWeight(10)
   noFill()
   ellipse(width/2,height/2,width/2,height/2)
@@ -105,15 +105,18 @@ function getBall(id){
       this.y += this.speedY // 'this' means the variables associate with this specific ball object
 
       if (dist(this.x,this.y,width/2,height/2) > width/4){
-        this.speedX *= -random(.9,1.1)
-         this.speedY *= -random(.9,1.1)
-         this.move()
+        this.speedX *= -random(0.999,1.01)
+         this.speedY *= -random(0.999,1.01)
+         this.size *= 0.99
+         // this.move()
          // balls.push(getBall(balls.length)) // // adds new ball to the array
       }
       if (this.y > height || this.y < 0) {
 
         // this.speedX *=-1; 
         this.speedY *=-1; 
+                this.size *=0.99
+                // this.move()
          // balls.push(getBall(balls.length)) // adds new ball to the array
        // this.size *= 0.99
       }
@@ -121,6 +124,8 @@ function getBall(id){
      if (this.x > width || this.x < 0) {
 
         this.speedX *=-1; 
+        this.size *=0.99
+        this.move()
          // balls.push(getBall(balls.length)) // adds new ball to the array
                // this.size *= 0.99
         // this.speedY *=-1; 
@@ -135,18 +140,21 @@ function getBall(id){
 
         if (i != this.id) { // ball cant collide with itself
           let other = balls[i]
+          
           if (dist(this.x,this.y,other.x,other.y) < this.size/2 + other.size/2){
-
-            // console.log('collide!')
 
             this.speedX *= -.99 
             other.speedX *= -1.01
             this.speedY *= -.99
             other.speedY *= -1.01
-            // this.size *= 0.99
-            // other.size *=0.99
-            // this.move()
-            // other.move()
+            other.move()
+            if (other.size < 25){
+                          other.size *= 1.01
+
+            }
+            this.size *=0.99
+
+
           }
 
         }
