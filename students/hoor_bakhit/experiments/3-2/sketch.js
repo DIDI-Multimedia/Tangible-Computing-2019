@@ -11,9 +11,18 @@ let y = 30
 
 function setup(){
 
+
+  let canvas = createCanvas(windowWidth/2,windowWidth/2)
+  
+  
+  // Move the canvas so it's inside our <div id="sketch-holder">.
+  canvas.parent('sketch-holder');
+  background(34,155,215)
+
 	let canvas = createCanvas(windowWidth/2,windowWidth/2)
 	canvas.parent('sketch-holder');
 	background(0)
+
   noStroke()
   let numBalls = 9
 
@@ -87,6 +96,7 @@ function draw(){
 
 
 function getBall(id){
+
 
   let ball ={
 
@@ -170,3 +180,39 @@ function getBall(id){
   return ball 
 
 }
+
+
+  let ball ={
+    
+    size : random(10,50),
+    x: random(width), // random position width of div
+    y: random(height), // random position height of div
+    speed:random(15),
+    color:[random(255),random(255),random(255)], // this is a way of giving a random colour
+
+    move : function(){
+      //code here
+      this.y += this.speed // 'this' means the variables associate with this specific ball object
+
+      if (this.y > height || this.y < 0) {
+
+        this.speed *=-1.1; 
+
+      }
+      
+    },
+
+    display : function(){
+
+      //more code
+      fill(this.color)
+      ellipse(this.x, this.y, this.size, this.size);
+
+    }
+
+  }
+
+  return ball 
+
+
+
