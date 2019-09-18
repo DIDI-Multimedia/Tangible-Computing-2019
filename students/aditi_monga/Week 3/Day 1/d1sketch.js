@@ -3,7 +3,7 @@
 
 function setup(){
 
-	let canvas = createCanvas(800,800)
+	let canvas = createCanvas(1400,800)
 	canvas.parent('sketch-holder');
 }
 
