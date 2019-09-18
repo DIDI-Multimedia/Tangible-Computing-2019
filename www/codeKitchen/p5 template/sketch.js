@@ -11,7 +11,8 @@ function setup(){
   background(255)
   let flower01 = createFlower() // creates a random flower
   let flower02 = createFlower() // creates a random flower
-  drawFlower(flower)
+  drawFlower(flower01)
+  drawFlower(flower02)
 
   // stroke(255)
 
