@@ -1,57 +1,53 @@
-// Sketch Title - for MuW201 Tangible Computing, 2019
-// Firstname Lastname 
-// GitHub Username
-// Date 
-
 function setup(){
 
-	let canvas = createCanvas(windowWidth/4,windowWidth/4)
-	
-	// Move the canvas so it's inside our <div id="sketch-holder">.
-	canvas.parent('sketch-holder');
-	background(random(255),155,215)
-
-		// var string = x + "," + y
-		// text(string,x*step+20,y*step+20)
-
-	//text (x,x*step,height/2)
-	
-}
-
-
-//text (x,x*step,height/2)
-//x++
-//text (x,x*step,height/2)
-//x++
-//text (x,x*step,height/2)
-
-
-function draw(){
-
-	var numElements = 50
-
-var step= width/numElements
-textSize(10)
-textAlign(CENTER,CENTER)
-var colorstep = 255/numElements
-//console.log(step)
-
-//var x =0
-//var step =10
-
-// var x is the starting value
-
-for (var x = 0 ;x < numElements; x++){
-	for (var y = 0 ; y< numElements; y++){
-
-noStroke(255)
-strokeWeight(3)
-fill(x*colorstep,mouseX,y*colorstep)
-rect(x*step,y*step,step,step)
-fill(0)
+  let canvas = createCanvas(windowWidth/2, windowWidth/2)
+  canvas.parent('sketch-holder');
 
 
 }
+
+function draw()
+{
+  
+  let flower = {}
+  flower.numPetals = 10
+  flower.innerRadius =50
+  flower.outerRadius =100
+  flower.rotation = PI/4
+ flower.scale =12
+  flower.color1  
+  flower.color2 
+  flower.positionX =width/2
+ flower.positionY =height/2
+  flower.speed = 2
+  drawFlower (flower)
 }
+
+
+
+
+
+function drawFlower (flower){
+
+    //ellipse(positionX,positionY-innerRadius, (outerRadius-innerRadius)/2, outerRadius-innerRadius)
+ //fill(random(255),random(255),random(255))
+    //ellipse(positionX,positionY+innerRadius, (outerRadius-innerRadius)/2, outerRadius-innerRadius)
+
+for (var angle = 0; angle < TWO_PI; angle+= TWO_PI/flower.numPetals){
+  console.log(angle)
+
+  push()
+  translate(flower.positionX,flower.positionY)
+  rotate(angle)
+  fill(random(255),random(255),random(255))
+  ellipse(0,flower.innerRadius,(flower.outerRadius-flower.innerRadius+400)/2,flower.outerRadius-flower.innerRadius)
+  fill(random(255),random(255),random(255))
+  ellipse(0,flower.innerRadius,(flower.outerRadius+flower.innerRadius)/4,flower.outerRadius+flower.innerRadius)
+  
+  pop()
+}
+
+    fill(255)
+    ellipse(flower.positionX,flower.positionY,flower.innerRadius,flower.innerRadius)
 }
 
