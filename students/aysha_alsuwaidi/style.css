@@ -10,8 +10,8 @@
 }
 body {
 	
- /* background-image:  repeating-radial-gradient(yellow, rgb(255, 98, 131), red 15%);*/
- animation: change 10s infinite;
+/*  background-image:  repeating-radial-gradient(yellow, rgb(255, 98, 131), red 15%);*/
+/* animation: change 10s infinite;
 }
 @keyframes change{
   0%{background-color: #1abc9c;}
@@ -19,7 +19,15 @@ body {
   50%{background-color: #3498db;}
   75%{background-color: #9b59b6;}
   100%{background-color: #e74c3c;}
+*/
 }
+
+.header {
+  padding: 60px;
+  background: linear-gradient(#bb9ae7,#b2ccf9,#f9b2e1);
+  
+}
+
 .springy-text {
  
   animation-name: springy-text;
