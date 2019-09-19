@@ -240,7 +240,7 @@ fly-in-text {
   border-bottom-color: pink;
 }
 
-a:link, a:visited {
+/*a:link, a:visited {
   background-color: #FDA3C0;
   color: white;
   padding: 14px 25px;
@@ -251,4 +251,4 @@ a:link, a:visited {
 
 a:hover, a:active {
   background-color: #ED3F76;
-}
+}*/
