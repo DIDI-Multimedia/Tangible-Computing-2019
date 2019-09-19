@@ -36,6 +36,7 @@ function drawFlower(pistilX,pistilY,numPetals,innerRadius,outerRadius,color1,col
 	strokeWeight(4)
 	stroke(255)
 	push()
+
 	translate(pistilX,pistilY/8)
 	for(var angle=0; angle < TWO_PI; angle += TWO_PI/numPetals){
 		console.log(angle)
