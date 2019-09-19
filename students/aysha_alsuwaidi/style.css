@@ -51,6 +51,8 @@ body {
   padding: 100px 20px;
   height: 100%;
 
+}
+
 .springy-text {
  
   animation-name: springy-text;
@@ -252,3 +254,33 @@ fly-in-text {
 a:hover, a:active {
   background-color: #ED3F76;
 }*/
+.container {
+  position: relative;
+  width: 50%;
+  max-width: 400px;
+}
+
+.container img {
+  width: 50%;
+  height: auto;
+}
+
+.container .btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #b2ccf9;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.container .btn:hover {
+  background-color: white;
+}
