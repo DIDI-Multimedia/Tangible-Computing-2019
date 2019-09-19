@@ -11,21 +11,21 @@
 }
 body {
 	
-/*  background-image:  repeating-radial-gradient(yellow, rgb(255, 98, 131), red 15%);*/
-/* animation: change 10s infinite;
-}
-@keyframes change{
-  0%{background-color: #1abc9c;}
-  25%{background-color: #2ecc71;}
-  50%{background-color: #3498db;}
-  75%{background-color: #9b59b6;}
-  100%{background-color: #e74c3c;}
-*/
+  background: linear-gradient(to right, #bb9ae7,#b2ccf9,#f9b2e1);
 }
 
 .header {
   padding: 60px;
-  background: linear-gradient(to right, #bb9ae7,#b2ccf9,#f9b2e1);
+
+   animation: change 10s infinite;
+}
+@keyframes change{
+  0%{background-color: #F9D7ED;}
+  25%{background-color: #FBCDEB;}
+  50%{background-color: #F9D7ED;}
+  75%{background-color: #FBCDEB;}
+  100%{background-color: #F9D7ED;}
+
   
 }
 
