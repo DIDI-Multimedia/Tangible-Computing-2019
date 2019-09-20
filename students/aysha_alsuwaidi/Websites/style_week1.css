@@ -1,11 +1,42 @@
 #content {
-	background-image: url("r1.jpg");
+	
 	text-align: center;
 	font-family: 'Verdana';
  	font-style: oblique;
+  padding: 50px
+}
+body {  background: linear-gradient(to right, #bb9ae7,#b2ccf9,#f9b2e1); }
+
+.springy-text {
+ 
+  animation-name: springy-text;
+  animation-duration: 3s;
+  animation-timing-function: ease-in;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  animation-play-state: running;
+  animation-fill-mode: backwards;
+  font-family: verdana;
+}
+@keyframes springy-text {
+  0%   {
+    letter-spacing: 0.7em;
+    color: white;
+  }
+  100%   {
+    letter-spacing: 0.1em;
+    color: white;
+  }
 }
 
+}
 
+p {
+
+  color: #000 !important; 
+
+}
 .box{
   background-color:white;
 
