@@ -1,6 +1,6 @@
 /* style.css */
 #content{
-	background-image: url("r1.jpg");
+	
 	text-align: center;
 	font-family: 'Verdana';
  	font-style: oblique;
@@ -9,6 +9,8 @@
 html, body {
 
   height: 50%;
+  background-image: url("../../../pictures/r1.jpg");
+  background-repeat: repeat-y;
 
 
 

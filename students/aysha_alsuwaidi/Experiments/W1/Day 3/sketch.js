@@ -13,7 +13,7 @@ var y = 10
 
 	function draw(){
 
-		 background(255,228,57); // Set the background to black
+		 background(255,228,57); 
  		 y = y - 1;
   		if (y < 3) {
     	y = height;
