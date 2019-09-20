@@ -13,14 +13,13 @@ var y = 0.5
 
 	function draw(){
 
-<<<<<<< HEAD
 		 background(113,189,58); 
  		 y = y + 0.5;
-=======
+
 		background(113,189,58); 
 		y = y + 0.5;
 
->>>>>>> 9c67cebbf31b37ee6f4f0967b00072cbd18c6af5
+
   		if (y < 0) {
 
   			y = height;
