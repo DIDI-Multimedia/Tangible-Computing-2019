@@ -33,7 +33,7 @@ class Jitter {
   display() {
     for (var angle=1; angle < TWO_PI; angle+= TWO_PI/con){
       push()
-    translate(width/2,height/3)
+    translate(150,10)
     rotate(angle)
     fill(random(255),random(255),random(255))
     noStroke()
