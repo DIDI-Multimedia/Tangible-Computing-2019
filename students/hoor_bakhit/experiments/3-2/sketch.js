@@ -17,15 +17,12 @@ function setup(){
   
   // Move the canvas so it's inside our <div id="sketch-holder">.
   canvas.parent('sketch-holder');
-  background(34,155,215)
+  background(0)
 
 
 	
 
-	let canvas = createCanvas(windowWidth/2,windowWidth/2)
-	canvas.parent('sketch-holder');
-	background(0)
-
+	
 
   noStroke()
   let numBalls = 9
