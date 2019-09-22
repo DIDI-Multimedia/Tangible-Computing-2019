@@ -1,7 +1,7 @@
 var square1;
 
 function setup() {
-  let canvas = createCanvas(windowWidth/4,windowWidth/4)
+  let canvas = createCanvas(windowWidth/3,windowWidth/3)
   
   
   
