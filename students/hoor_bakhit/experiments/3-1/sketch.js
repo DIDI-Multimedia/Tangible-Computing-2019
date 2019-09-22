@@ -7,7 +7,7 @@ let y = 30
 
 function setup(){
 
-	let canvas = createCanvas(windowWidth/4,windowWidth/4)
+	let canvas = createCanvas(windowWidth/3,windowWidth/3)
 	
 	// Move the canvas so it's inside our <div id="sketch-holder">.
 	canvas.parent('sketch-holder');

@@ -1,21 +1,21 @@
-function setup(){
+var x = 1
 
-	let canvas = createCanvas(1400,800)
-	canvas.parent('sketch-holder');
+function setup() {
+  createCanvas(720, 400);
 }
 
-function draw(){
+function draw() {
+  background(0);
+  noStroke();
+  for (let i = 0; i < width; i += 20) {
+    fill(10, 100, 255);
+    ellipse(0, i, x++, 10);
+    fill(255);
+    ellipse(i, 0, x++, height);
+  }
 
-	background(255)
-
-	for (var angle = 0; angle < PI*3; angle+=10) {
-		push()
-		rotate(angle)
-		triangle (20,20,50,50,mouseX,mouseY)
-
-		pop()
-	}
-
-
-
+  if(x >= width)
+    x = 0
 }
+
+//from https://p5js.org/examples/structure-width-and-height.html
