@@ -4,18 +4,24 @@
 // Date 
 
 let balls = []
+let core 
+// let radius 
 // let ball2;
 // let ball3;
 // let ball4;
 let y = 30 
-
+let r = 0
 function setup(){
 
-	let canvas = createCanvas(windowWidth/4,windowWidth/4)
+	let canvas = createCanvas(windowWidth/3,windowWidth/4)
 	canvas.parent('myContainer');
 	background(255)
   noStroke()
-  let numBalls = random(3,12)
+  j = random()
+  k =0
+  let numBalls = random(25,100)
+  
+   core = {x:width/2,y:height/2,radius:windowHeight/4,velocity:1}
 
   for (var i = 0; i < numBalls; i++){
     let newBall = getBall(i)
@@ -31,15 +37,38 @@ function setup(){
 
 }
 
-
+let i = 0
 function draw(){
 
 
   background(255)
   stroke(0,50)
   strokeWeight(10)
-  noFill()
-  ellipse(width/2,height/2,width/2,height/2)
+
+  // console.log(core)
+  // noFill()
+  fill(255,0,0)
+  ellipse(core.x,core.y,core.radius,core.radius)
+
+  let max = windowWidth/3- core.radius/2
+
+  // console.log(max,core.x)
+
+
+  if (core.x > max){
+    core.velocity = -1
+  } else if (core.x < core.radius/2){
+    core.velocity = 1
+  }
+
+  core.x += core.velocity
+  core.y = sin(r)*(height-core.radius)+core.radius
+  console.log(core.y,r)
+
+  r = r + 0.02
+
+  // i += 0.01
+  // k += 0.02
   // ball1.move();
   // ball1.display();
   // ball2.move();
@@ -91,7 +120,7 @@ function getBall(id){
   let ball ={
 
     id:id,
-    size : random(3,9),
+    size : random(3,15),
     x: width/2+random(-100,100), // random position width of div
     y: height/2+random(-100,100), // random position height of div
     speedX:random(-1,1),
@@ -104,10 +133,12 @@ function getBall(id){
       this.x += this.speedX // 'this' means the variables associate with this specific ball objec
       this.y += this.speedY // 'this' means the variables associate with this specific ball object
 
-      if (dist(this.x,this.y,width/2,height/2) > width/4){
-        this.speedX *= -random(0.999,1.01)
-         this.speedY *= -random(0.999,1.01)
-         this.size *= 0.99
+      // console.log(core.x,core.y)
+      if (dist(this.x,this.y,core.x,core.y) > core.radius/2){
+        // console.log('collide!')
+        this.speedX *= -1
+         this.speedY *= -1
+         // this.size *= 0.99
          // this.move()
          // balls.push(getBall(balls.length)) // // adds new ball to the array
       }
@@ -115,7 +146,7 @@ function getBall(id){
 
         // this.speedX *=-1; 
         this.speedY *=-1; 
-                this.size *=0.99
+                // this.size *=0.99
                 // this.move()
          // balls.push(getBall(balls.length)) // adds new ball to the array
        // this.size *= 0.99
@@ -124,7 +155,7 @@ function getBall(id){
      if (this.x > width || this.x < 0) {
 
         this.speedX *=-1; 
-        this.size *=0.99
+        // this.size *=0.99
         this.move()
          // balls.push(getBall(balls.length)) // adds new ball to the array
                // this.size *= 0.99
@@ -148,11 +179,11 @@ function getBall(id){
             this.speedY *= -.99
             other.speedY *= -1.01
             other.move()
-            if (other.size < 25){
-                          other.size *= 1.01
-
-            }
-            this.size *=0.99
+            // if (other.size < 25){
+                          // other.size *= 1.01
+// 
+            // }
+            // this.size *=0.99
 
 
           }
