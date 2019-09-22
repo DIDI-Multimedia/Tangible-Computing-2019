@@ -12,8 +12,8 @@ function setup(){
 function draw(){
 
 	stroke(random(255),random(255),mouseX/2)
-	noFill()
-	strokeWeight(2)
+	fill(0,0,0,random(0,255))
+	strokeWeight(8)
 
 	triangle(pmouseX,pmouseY,mouseX,mouseY,a++,b--)
 
