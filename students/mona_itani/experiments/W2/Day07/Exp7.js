@@ -1,41 +1,54 @@
-// Sketch Title - for MuW201 Tangible Computing, 2019
-// Firstname Lastname 
-// GitHub Username
-// Date 
+function setup(){
 
-function setup() {
-  let canvas = createCanvas(windowWidth/2,windowWidth/2)
-  
-  
+  let canvas = createCanvas(windowWidth/3, windowWidth/3)
   canvas.parent('sketch-holder');
-  var a = 99
+
+
 }
 
-function draw(){
-
-background(0)
-
-
- translate(width/2,height/2);
-
- for(var a =70; a<140; a += 10){
-   var x = random(1,10);
-   var xx = random(11,2);
-   push();
-   rotate(radians(a*10));
+function draw()
+{
   
-
-   stroke(0);
-   strokeWeight(0.5);
-   fill(random(255),random(255),random(255))
-   rect(250,250,mouseX,mouseY);
-   ellipse(250,250,mouseX,mouseY);
-   
-   
-   strokeCap(CORNER);
-   pop();
- }
+    var numPetals = 10
+  var innerRadius =50
+  var outerRadius =100
+  var rotation = PI/8
+  var scale =12
+  var color1  
+  var color2 
+  var positionX =width/2
+  var positionY =height/2
+  var speed = 2
+  drawFlower (numPetals,innerRadius,outerRadius,rotation,scale,color1,color2,positionX,positionY)
 }
 
+
+
+
+
+function drawFlower (numPetals,innerRadius,outerRadius,rotation,scale,color1,color2,positionX,positionY,speed){
+
+    fill(random(255),random(255),random(255))
+    //ellipse(positionX,positionY-innerRadius, (outerRadius-innerRadius)/2, outerRadius-innerRadius)
+    //fill(random(255),random(255),random(255))
+    //ellipse(positionX,positionY+innerRadius, (outerRadius-innerRadius)/2, outerRadius-innerRadius)
+
+for (var angle = 0; angle < TWO_PI; angle+= TWO_PI/numPetals){
+  console.log(angle)
+  push()
+  translate(positionX,positionY)
+  rotate(angle)
+  fill(0)
+  ellipse(0,innerRadius,(outerRadius-innerRadius),outerRadius-innerRadius/4)
+  fill(random(255),random(255),random(255))
+  ellipse(0,innerRadius,(outerRadius+innerRadius)/60,outerRadius+innerRadius/10)
+  pop()
+}
+
+    fill(0)
+    ellipse(positionX,positionY,innerRadius*90,innerRadius/8)
+    fill(255)
+    ellipse(positionX,positionY,innerRadius,innerRadius)
+}
   
 

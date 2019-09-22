@@ -1,38 +1,50 @@
-// Sketch Title - for MuW201 Tangible Computing, 2019
-// Firstname Lastname 
-// GitHub Username
-// Date 
+function setup(){
 
-function setup() {
-  let canvas = createCanvas(windowWidth/3,windowWidth/3)
-  
-  
+  let canvas = createCanvas(windowWidth/3, windowWidth/3)
   canvas.parent('sketch-holder');
-  var a = 99
+
+
 }
 
-function draw(){
-
-background(random(255),mouseX, mouseY)
-
-
- translate(width/2,height/2);
-
- for(var a =7; a<220; a += 99){
-
-   var x = random(30,5);
-   var xx = random(90,2);
-   push();
-
-   rotate(radians(a*100));
-   stroke(90);
-   strokeWeight(100);
-   line(xx,0,20,100);
-   rect(250,250,random(10,width),random(10,height))
-   strokeCap(CORNER);
-   
-   pop();
- }
-}
+function draw()
+{
   
+    var numPetals = 10
+  var innerRadius =50
+  var outerRadius =100
+  var rotation = PI/4
+  var scale =12
+  var color1  
+  var color2 
+  var positionX =width/2
+  var positionY =height/2
+  var speed = 2
+  drawFlower (numPetals,innerRadius,outerRadius,rotation,scale,color1,color2,positionX,positionY)
+}
+
+
+
+
+
+function drawFlower (numPetals,innerRadius,outerRadius,rotation,scale,color1,color2,positionX,positionY,speed){
+
+    fill(random(255),random(255),random(255))
+    //ellipse(positionX,positionY-innerRadius, (outerRadius-innerRadius)/2, outerRadius-innerRadius)
+    //fill(random(255),random(255),random(255))
+    //ellipse(positionX,positionY+innerRadius, (outerRadius-innerRadius)/2, outerRadius-innerRadius)
+
+for (var angle = 0; angle < TWO_PI; angle+= TWO_PI/numPetals){
+  console.log(angle)
+  push()
+  translate(positionX,positionY)
+  rotate(angle)
+  ellipse(90,innerRadius,(outerRadius-innerRadius)/90,outerRadius-innerRadius/4)
+  fill(0)
+  ellipse(0,innerRadius,(outerRadius+innerRadius)/10,outerRadius+innerRadius/2)
+  pop()
+}
+
+    fill(0)
+    ellipse(positionX,positionY,innerRadius*90,innerRadius/8)
+}
 

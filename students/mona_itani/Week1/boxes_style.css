@@ -1,0 +1,75 @@
+/* div class based on id */
+
+.box-2{
+ 	background-color:white;
+ 	width: 40%;
+ 	border:groove;
+ 	box-sizing: border-box;
+ 	padding: 10px 30px;
+ 	font-family: Verdana;
+ 	margin:0 auto;
+ 	border-right-color: black;
+ 	border-left-color: black;
+ 	border-top-color: red;
+ 	border-bottom-color: red;
+ }
+	
+.box-3{
+ 	background-color:white;
+ 	font-family: Verdana;
+ 	width: 6%;
+ 	border:groove;
+ 	border-right-color: red;
+ 	border-left-color: red;
+ 	border-top-color: black;
+ 	border-bottom-color: black;
+ 	padding: 1px;
+ 	margin: auto;
+
+ }
+
+.box-5{
+ 	background-color:white;
+ 	font-family: Verdana;
+ 	width: 6%;
+ 	border:groove;
+ 	border-right-color: red;
+ 	border-left-color: red;
+ 	border-top-color: black;
+ 	border-bottom-color: black;
+ 	padding: 1px;
+ 	margin: auto;
+
+ }
+.box-6{
+ 	background-color:white;
+ 	font-family: Verdana;
+ 	width: 6%;
+ 	border:groove;
+ 	border-right-color: red;
+ 	border-left-color: red;
+ 	border-top-color: black;
+ 	border-bottom-color: black;
+ 	padding: 1px;
+ 	margin: auto
+ }
+
+
+
+
+
+
+	
+.box-7{
+	background-color:white;
+ 	font-family: Verdana;
+ 	width: 6%;
+ 	border:groove;
+ 	border-right-color: red;
+ 	border-left-color: red;
+ 	border-top-color: black;
+ 	border-bottom-color: black;
+ 	padding: 1px;
+ 	margin: auto
+ 
+ }
