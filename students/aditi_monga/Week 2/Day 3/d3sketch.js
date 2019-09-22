@@ -20,6 +20,5 @@ function draw(){
 			rect(x, y, 60, 60)
 			
 		}
-	
-
+	}
 }
