@@ -11,7 +11,7 @@ function setup()
   
   // Move the canvas so it's inside our <div id="sketch-holder">.
   canvas.parent('sketch-holder')
-  frameRate(120)
+  frameRate(30)
 
   angleMode(DEGREES)
   //background(255,255,255)
@@ -27,7 +27,7 @@ function setup()
 function draw()
 {
 
-  background(0,3)
+  background(0,5)
   rectMode(CENTER)
 
   translate(windowWidth/2.1,windowHeight/4)
