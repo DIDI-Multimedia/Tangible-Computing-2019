@@ -63,7 +63,7 @@ function setup(){
 function draw(){
 
 	background(0)
-	var numElements = 25
+	var numElements = 15
 	textSize(10)
 	var step = width/numElements
 	var colorStep = 255/numElements
@@ -75,11 +75,12 @@ for (var x = 0 ; x < numElements; x++){
 
 		// noStroke()
 		stroke(255)
-		strokeWeight(second()/3)
+		strokeWeight(second()/5)
 		fill(x*colorStep,y*colorStep,200)
 		// fill(random(255),random(255),random(255))
 		// var string = x + "," + y
 		rect(x*step,y*step,step,step)
+		circle(x*step+2,y*step+2,step,step)
 		// text(string,x*step+16, y*step+6)
 		// fill(0)
 		// var string = x + "," + y
