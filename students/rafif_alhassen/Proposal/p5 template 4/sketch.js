@@ -24,8 +24,8 @@ function createFlower(){
   flower.outerRadius = 100
   flower.rotation = PI/4
   flower.scale = 10
-  flower.color1  = [123,36,222]
-  flower.color2 = [123,36,222]
+  flower.color1  = [random(255),random(255),random(255)]
+  flower.color2 = [random(255),random(255),random(255)]
   flower.posX = width/2
   flower.posY = height/2
   flower.speed = 2
@@ -55,17 +55,18 @@ for (var angle = 0; angle < TWO_PI*4; angle+= TWO_PI/flower.numPetals){
   translate(flower.positionX,flower.positionY)
   rotate(angle)
 
-  ellipse(0,flower.innerRadius,(flower.outerRadius-flower.innerRadius)/2,flower.outerRadius-flower.innerRadius)
+  line(mouseX,flower.innerRadius,(flower.outerRadius-flower.innerRadius)/2,flower.outerRadius-flower.innerRadius)
   fill(random(255),random(255),random(255))
-  ellipse(0,flower.innerRadius,(flower.outerRadius/flower.innerRadius)/4,flower.outerRadius+flower.innerRadius)
+  line(235,flower.innerRadius,(flower.outerRadius/flower.innerRadius)/4,flower.outerRadius+flower.innerRadius)
   fill(random(255),random(255),random(255))
-  ellipse(0,flower.innerRadius++,(flower.outerRadius/flower.innerRadius)/4,flower.outerRadius+flower.innerRadius)
+  line(235,flower.innerRadius++,(flower.outerRadius/flower.innerRadius)/4,flower.outerRadius+flower.innerRadius)
+  // line(235,flower.innerRadius--,(flower.outerRadius+flower.innerRadius)/4,flower.outerRadius+flower.innerRadius)
 
   pop()
 }
 
     fill(0)
-    ellipse(flower.positionX,flower.positionY,flower.innerRadius,flower.innerRadius)
+    rect(flower.positionX,flower.positionY,flower.innerRadius,flower.innerRadius)
 }
 
 

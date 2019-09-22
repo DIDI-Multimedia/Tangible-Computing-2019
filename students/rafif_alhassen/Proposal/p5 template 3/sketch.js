@@ -22,7 +22,7 @@ function createFlower(){
   flower.numPetals = 20
   flower.innerRadius = 50
   flower.outerRadius = 100
-  flower.rotation = PI/4
+  flower.rotation = PI/10
   flower.scale = 10
   flower.color1  = [123,36,222]
   flower.color2 = [123,36,222]
@@ -59,7 +59,7 @@ for (var angle = 0; angle < TWO_PI*4; angle+= TWO_PI/flower.numPetals){
   fill(random(255),random(255),random(255))
   ellipse(0,flower.innerRadius,(flower.outerRadius/flower.innerRadius)/4,flower.outerRadius+flower.innerRadius)
   fill(random(255),random(255),random(255))
-  ellipse(0,flower.innerRadius++,(flower.outerRadius/flower.innerRadius)/4,flower.outerRadius+flower.innerRadius)
+  ellipse(0,flower.innerRadius++,(flower.outerRadius*flower.innerRadius)/4,flower.outerRadius+flower.innerRadius)
 
   pop()
 }
