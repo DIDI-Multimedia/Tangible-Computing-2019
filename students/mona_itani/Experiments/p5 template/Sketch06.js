@@ -1,7 +1,3 @@
-// Sketch Title - for MuW201 Tangible Computing, 2019
-// Firstname Lastname 
-// GitHub Username
-// Date 
 
 function setup() {
   let canvas = createCanvas(windowWidth/3,windowWidth/3)

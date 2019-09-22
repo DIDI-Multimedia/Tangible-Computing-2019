@@ -1,7 +1,3 @@
-// Sketch Title - for MuW201 Tangible Computing, 2019
-// Firstname Lastname 
-// GitHub Username
-// Date 
 
 
 function setup() {
@@ -9,33 +5,20 @@ function setup() {
   
   
   canvas.parent('sketch-holder');
-  var a = 99
+  var x = 999
 }
 
 function draw(){
 
 background(255)
 
+stroke(random(255),random(255),random(255))
+line(250,250,random(0,width),random(0,height))
+strokeWeight(100)
 
- translate(width/2,height/2);
+stroke(random(255),random(255),random(255))
+line(500,150,random(0,width),random(0,height))
+strokeWeight(100)
 
- for(var a =70; a<220; a += 1){
-   var x = random(32,56);
-   var xx = random(11,2);
-   push();
-   rotate(radians(a*8));
   
-
-   stroke(0);
-   strokeWeight(2);
-   line(250,250,mouseX,mouseY);
-   ellipse(20,20,mouseX,mouseY);
-
-   
-   
-   strokeCap(CORNER);
-   pop();
- }
-}
-  
-    
+    }
