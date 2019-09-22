@@ -5,7 +5,7 @@
 
 function setup(){
 
-	let canvas = createCanvas(windowWidth/4,windowWidth/4)
+	let canvas = createCanvas(windowWidth/3,windowWidth/3)
 	
 	// Move the canvas so it's inside our <div id="sketch-holder">.
 	canvas.parent('sketch-holder');
@@ -13,7 +13,7 @@ function setup(){
 
 		// var string = x + "," + y
 		// text(string,x*step+20,y*step+20)
-
+frameRate(10)
 	//text (x,x*step,height/2)
 	
 }
@@ -28,30 +28,18 @@ function setup(){
 
 function draw(){
 
-	var numElements = 50
+    
+   
 
-var step= width/numElements
-textSize(10)
-textAlign(CENTER,CENTER)
-var colorstep = 255/numElements
-//console.log(step)
-
-//var x =0
-//var step =10
-
-// var x is the starting value
-
-for (var x = 0 ;x < numElements; x++){
-	for (var y = 0 ; y< numElements; y++){
-
-noStroke(255)
-strokeWeight(3)
-fill(x*colorstep,mouseX,y*colorstep)
-rect(x*step,y*step,step,step)
-fill(0)
+    background(random(225),155,215);
 
 
-}
-}
-}
+    fill(255);
 
+   for(var i = 0; i < 20; i++) {
+    	var x = random(400) + 1;
+      var y = random(400) + 1;
+      ellipse(x, y, 20, 20);
+   
+    }
+  }
