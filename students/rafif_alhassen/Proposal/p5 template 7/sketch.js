@@ -19,12 +19,12 @@ function setup(){
 function createFlower(){
   
   let flower = {}
-  flower.numPetals = 20
-  flower.innerRadius = 50
-  flower.outerRadius = 100
+  flower.numPetals = 500
+  flower.innerRadius = 40
+  flower.outerRadius = 40
   flower.rotation = PI/4
-  flower.scale = 10
-  flower.color1  = [123,36,222]
+  flower.scale = 8
+  flower.color1  = [151,177,255]
   flower.color2 = [123,36,222]
   flower.posX = width/2
   flower.posY = height/2

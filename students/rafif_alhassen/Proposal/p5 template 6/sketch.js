@@ -55,11 +55,11 @@ for (var angle = 0; angle < TWO_PI*4; angle+= TWO_PI/flower.numPetals){
   translate(flower.positionX,flower.positionY)
   rotate(angle)
 
-  ellipse(0,flower.innerRadius,(flower.outerRadius-flower.innerRadius)/2,flower.outerRadius-flower.innerRadius)
+  line(236,flower.innerRadius*2,(flower.outerRadius-flower.innerRadius)/2,flower.outerRadius-flower.innerRadius)
   fill(random(255),random(255),random(255))
-  ellipse(0,flower.innerRadius,(flower.outerRadius/flower.innerRadius)/4,flower.outerRadius+flower.innerRadius)
+  rect(236,flower.innerRadius+3,(flower.outerRadius/flower.innerRadius)/4,flower.outerRadius+flower.innerRadius)
   fill(random(255),random(255),random(255))
-  ellipse(0,flower.innerRadius++,(flower.outerRadius/flower.innerRadius)/4,flower.outerRadius+flower.innerRadius)
+  rect(236,flower.innerRadius++,(flower.outerRadius/flower.innerRadius)/4,flower.outerRadius+flower.innerRadius)
 
   pop()
 }
@@ -68,31 +68,7 @@ for (var angle = 0; angle < TWO_PI*4; angle+= TWO_PI/flower.numPetals){
     ellipse(flower.positionX,flower.positionY,flower.innerRadius,flower.innerRadius)
 }
 
-
-// function draw(){
-
-// 	background(0)
-// 	var numElements = 15
-// 	textSize(10)
-// 	var step = width/numElements
-// 	var colorStep = 255/numElements
-// 	textAlign(CENTER,CENTER)
-
-// for (var x = 0 ; x < numElements; x++){
-
-// 	for(var y = 0; y < numElements; y++){
-
-// 		stroke(255)
-// 		strokeWeight(second()/5)
-// 		fill(x*colorStep,y*colorStep,200)
-
-// 		rect(x*step,y*step,step,step)
-// 		circle(x*step+2,y*step+2,step,step)
-
-
-// 		}
-
-// 	}
-// }
-
-
+    if (mouseIsPressed){
+    line(+2,flower.innerRadius+1,(flower.outerRadius-flower.innerRadius)/2,flower.outerRadius-flower.innerRadius)
+      
+}
