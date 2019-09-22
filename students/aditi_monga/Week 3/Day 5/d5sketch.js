@@ -15,7 +15,7 @@ function draw(){
 	noFill()
 	strokeWeight(2)
 
-	ellipse(mouseX,mouseY,a++,b--)
+	triangle(pmouseX,pmouseY,mouseX,mouseY,a++,b--)
 
 	if (a >= 201) {
 		a = 0
