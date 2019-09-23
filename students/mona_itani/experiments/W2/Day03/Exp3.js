@@ -1,44 +1,32 @@
-// Sketch Title - for MuW201 Tangible Computing, 2019
-// Firstname Lastname 
-// GitHub Username
-// Date 
+var speed = 10
+var a = 90
+var positionX= 30
 
-function setup(){
-
-  let canvas = createCanvas(windowWidth/4,windowWidth/4)
-  // Move the canvas so it's inside our <div id="sketch-holder">.
+function setup() {
+let canvas = createCanvas(windowWidth/2, windowWidth/2)
   canvas.parent('sketch-holder');
-  background(0)
-  rectMode(RADIUS) // SP: Moved to setup so runs once 
-  noStroke()
-  noLoop()
+  background(255)
 
 }
 
 function draw(){
 
-  fill(100)
-  drawTarget(width*0.25, height*0.4,300,4)
-  drawTarget(width*0.5, height*0.5,400,10)
-  drawTarget(width*0.75, height*0.3,100,6)  
-  //drawTarget(width*0.1, height*10,700,7)
+stroke(a,0)
+strokeWeight(1)
+ellipse(5,7,mouseX,mouseY)
 
-}
 
-function drawTarget( height, width, size, num){
-  
-  const grayvalues = 110/num;
-  const steps = size/num;
-  
-  for (let i = 0; i < num; i++) {
-
-    fill(i*grayvalues/1);
-    circle(height, width, size - i * steps)
-    circle(height, width/ size - i * steps,)
-    circle(height/2, width/2, size - i * steps/2)
-    rect(height/2, width/2, size - i * steps, size - i *steps)
-
+  if (positionY = windowWidth) {
+    speed = 0
   }
 
+  positionX = speed
+
+  if (a >= 100) {
+    a = 6
+  }
+  if (mouseIsPressed)
+    background(random(255),random(255),random(255))
 }
+
 

@@ -19,16 +19,18 @@ function draw(){
 
  for(var a =70; a<220; a += 1){
 
-   var x = random(32,56);
+   var x = random(10,80);
    var xx = random(11,2);
    
    push();
    
-   rotate(radians(a*8));
-   stroke(0);
-   strokeWeight(2);
-   line(250,250,mouseX,mouseY);
-   ellipse(20,20,mouseX,mouseY);
+   rotate(radians(a*2));
+   stroke(random(255),random(255),random(255));
+   strokeWeight(0.5);
+   rect(250,250,mouseX,mouseY);
+   circle(20,20,mouseX,mouseY);
+   rect(20,70,mouseX,mouseY);
+   circle(60,10,mouseX,mouseY);
    strokeCap(CORNER);
 
    pop();
