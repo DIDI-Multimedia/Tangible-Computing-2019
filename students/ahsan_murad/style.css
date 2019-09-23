@@ -86,24 +86,24 @@ section {
 h1{
 	top: 20rem;
 	color: #fff;
-	font-size: 30px;
+	font-size: 40px;
 	font-family: 'Roboto Slab';
 	position: absolute;
 	left:50%;
 	transform: translate(-50%,-50%);
 }
 
-h2{
+h4{
 	top: 25rem;
 	color: #fff;
-	font-size: 70px;
+	font-size: 20px;
 	font-family: 'Roboto Slab';
 	position: absolute;
 	left:50%;
 	transform: translate(-50%,-50%);
 }
 #sec{
-	padding-top: 20rem;
+	padding-top: 10rem;
 	color: #fff;
 	font-size: 70px;
 	font-family: 'Roboto Slab';
@@ -121,7 +121,7 @@ footer {
   	 
 }
 footer h3{
-	top: 5rem;
+	top: 15rem;
 	color: #fff;
 	font-size: 25px;
 	font-family: 'Open Sans', sans-serif;

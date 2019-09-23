@@ -199,18 +199,19 @@ p
 #tableofcontent
 {
    padding-left: 13%;
+   font-size: 13px
 }
 
 #humfact
 {
    float: left;
    padding-left: 10%;
-   padding-top: 9%;
+   padding-top: 8%;
 }
 
 #humfacth
 {
-   padding-top: 9%;
+   padding-top: 8%;
    padding-left: 5%;
 }
 
