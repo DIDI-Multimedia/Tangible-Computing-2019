@@ -1,34 +1,27 @@
-// Sketch Title - for MuW201 Tangible Computing, 2019
-// Firstname Lastname 
-// GitHub Username
-// Date 
+let y = 100;
 
-let y = 30 
-
-function setup(){
-
-	let canvas = createCanvas(windowWidth/3,windowWidth/3)
-	
-	// Move the canvas so it's inside our <div id="sketch-holder">.
-	canvas.parent('sketch-holder');
-	background(34,155,215)
-stroke(255); 
-  frameRate(50);
-
+function setup() {
+  let canvas = createCanvas(windowWidth/2,windowWidth/2,WEBGL)
+  canvas.parent('sketch-holder');
 }
 
-let step =2
+function draw() {
+  background(0);
 
-function draw(){
+  normalMaterial();
+  
 
-background(0); 
-  y = y + step;
-  if (y > height || y < 0) {
-    step *=-1;
- }
-
-  ellipse(50, y, 60, 60);
-
-
+  translate(-40, 0, 0);
+  push();
+  rotateZ(frameCount * 0.02);
+  rotateX(frameCount * 0.02);
+  rotateY(frameCount * 0.02);
+  y = y - 1;
+  if (y < 0) {
+    y = height;
+  }
+  
+  torus(70, 20,width, y,);
+  pop();
 
 }
