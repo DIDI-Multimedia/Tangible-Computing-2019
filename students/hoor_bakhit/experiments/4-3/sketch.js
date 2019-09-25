@@ -3,7 +3,7 @@
 // GitHub Username
 // Date 
 
-let y = 30 
+
 
 function setup(){
 
@@ -12,23 +12,15 @@ function setup(){
 	// Move the canvas so it's inside our <div id="sketch-holder">.
 	canvas.parent('sketch-holder');
 	background(34,155,215)
-stroke(255); 
-  frameRate(50);
-
+ noStroke();
+  rectMode(CENTER);
 }
 
-let step =2
-
-function draw(){
-
-background(0); 
-  y = y + step;
-  if (y > height || y < 0) {
-    step *=-1;
- }
-
-  ellipse(50, y, 60, 60);
-
-
-
+function draw() {
+  background(0);
+  fill(255);
+  ellipse(mouseX, height / 2, mouseY / 2 + 10, mouseY / 2 + 10);
+  
 }
+
+
