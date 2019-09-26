@@ -3,32 +3,31 @@
 // GitHub Username
 // Date 
 
-let y = 30 
+
 
 function setup(){
 
-	let canvas = createCanvas(windowWidth/3,windowWidth/3)
+	let canvas = createCanvas(windowWidth/2,windowWidth/2)
 	
 	// Move the canvas so it's inside our <div id="sketch-holder">.
 	canvas.parent('sketch-holder');
-	background(34,155,215)
+	background(0)
 stroke(255); 
-  frameRate(50);
+strokeWeight(2);
+  
 
 }
 
-let step =2
 
-function draw(){
-
-background(0); 
-  y = y + step;
-  if (y > height || y < 0) {
-    step *=-1;
- }
-
-  ellipse(50, y, 60, 60);
-
-
-
+function draw() {
+  if (mouseIsPressed) {
+    stroke(255);
+  } else {
+    stroke(237, 34, 93);
+    fill(128, 128, 128)
+  }
+  rect(mouseX - 33, mouseY, mouseX + 33, mouseY);
+  
 }
+
+
