@@ -1,54 +1,58 @@
-/* div class based on id */
 
 #content {
 
 	font-family: 'Verdana';
   font-style: oblique;
-	/*padding: 6%;*/
+  cursor:url('nyan_cat.png');
+
 
 
 }
 body {
 	
- /* background-image:  repeating-radial-gradient(yellow, rgb(255, 98, 131), red 15%);*/
- animation: change 10s infinite;
+  background: linear-gradient(to right, #bb9ae7,#b2ccf9,#f9b2e1);
+}
+
+.header {
+  padding: 60px;
+
+   animation: change 10s infinite;
 }
 @keyframes change{
-  0%{background-color: #1abc9c;}
-  25%{background-color: #2ecc71;}
-  50%{background-color: #3498db;}
-  75%{background-color: #9b59b6;}
-  100%{background-color: #e74c3c;}
+  0%{background-color: #F9D7ED;}
+  25%{background-color: #FBCDEB;}
+  50%{background-color: #F9D7ED;}
+  75%{background-color: #FBCDEB;}
+  100%{background-color: #F9D7ED;}
+
+  
 }
-.springy-text {
- 
-  animation-name: springy-text;
-  animation-duration: 2s;
-  animation-timing-function: ease-in;
-  animation-delay: 0s;
-  animation-iteration-count: infinite;
-  animation-direction: alternate-reverse;
-  animation-play-state: running;
-  animation-fill-mode: backwards;
+
+.tablink {
+  background-color: #f9b2e1;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 25%;
 }
-@keyframes springy-text {
-  0%   {
-    letter-spacing: 1.0em;
-    color: white;
-  }
-  100%   {
-    letter-spacing: 0.1em;
-    color: white;
-  }
+
+.tablink:hover {
+  background-color: #FF62B6;
 }
+
+
+.tabcontent {
+  color: black;
+  display: none;
+  padding: 100px 20px;
+  height: 100%;
 
 }
 
-p {
 
-	color: #000 !important; 
-
-}
 
 /*div.bounce {
   width: 100px;
@@ -77,9 +81,9 @@ fly-in-text {
             .fly-in-text li {
                 display: inline-block;
                 margin-right: 50px;
-                font-family: Open Sans, Arial;
-                font-weight: 300;
-                font-size: 4em;
+                font-family: Verdana;
+                font-weight: 500;
+                font-size: 5em;
                 color: #fff;
                 opacity: 1;
                 transition: all 5s ease;
@@ -98,77 +102,15 @@ fly-in-text {
             .fly-in-text.hidden li:nth-child(6) { transform: translateX(20px) translateY(-20px); }
             .fly-in-text.hidden li:nth-child(7) { transform: translateX(30px) translateY(200px); }
 
-            
-       /*     .box{
-  width: 500px;
-  background color: white;
-  border: 15px black;
-  padding: .1px;
-  margin: 20px;*/
-.week {  ul {
-              position: relative;
-              width: 450px;
-              margin: 100px auto 0;
-              padding: 10px;
-              box-sizing: border-box;
-              background: rgba(0,0,0,.1);
-              box-shadow: inset 0 0 15px rgba(0,0,0,.2);
-              border-radius: 5px;
-              overflow: hidden;
-            }
-            ul li
-            {
-              display: flex;
-              background: rgba(255,255,255,.1);
-              padding: 10px 20px;
-              color: #fff;
-              margin: 5px 0;
-              transition: .5s;
-            }
-            ul li:nth-child(1)
-            {background: rgba(255,255,255,6);}
-             ul li:nth-child(2)
-            {background: rgba(255,255,255,4);}
-             ul li:nth-child(3)
-            {background: rgba(255,255,255,2);}
-
-            ul li span:nth-child(1)
-            {width: 30px;}
-            ul li span:nth-child(2)
-            {width: 200px;}
-            ul li span:nth-child(3)
-            {width: 100px; text-align: right;}
-            ul li span:nth-child(4)
-            {width: 70px; text-align: right;}
-
-          ul li:hover
-          { transform: scale(1.06);
-          background: #ff3772; }
-        }
-    /*   #runner{
-          background:url("http://jsmovieclip.jeremypetrequin.fr/samples/basic/poulpe.png");
-          width: 250px;
-          height: 330px;
-          animation: walk 1s steps(12) infinite,
-          forward 5s linear infinite;
-        }
-        @keyfarmes walk{
-          0%{ background-position: 0px; }
-          100% {background-position: 3000px;}
-        }
-        @keyframes forward{
-          0% { transform: translateX(-100px); }
-          100%{transform: translateX(1200px);}
-        }*/
         .octo
         {
           position: absolute;
           top: 50%
-          left: 50%;
-          transform: translate(-50%.50%);
+          right: 50%;
+          transform: translate(50%.50%);
           width: calc(600px / 4);
           height: 198px;
-          background: url(prof.png);
+          background: url(pictures/prof.png);
           animation: animate 1s steps(4) infinite; 
         }
         @keyframes animate
@@ -209,7 +151,7 @@ fly-in-text {
   border-bottom-color: pink;
 }
 
-a:link, a:visited {
+/*a:link, a:visited {
   background-color: #FDA3C0;
   color: white;
   padding: 14px 25px;
@@ -220,4 +162,4 @@ a:link, a:visited {
 
 a:hover, a:active {
   background-color: #ED3F76;
-}
+}*/

@@ -1,0 +1,62 @@
+/* div class based on id */
+
+
+#content {
+
+	color:black;
+	text-align: center;
+    font-family:Verdana;
+	font-size: 100%;
+	font-style:oblique; 
+
+}
+
+h1{
+	color:black;
+	text-align: center;
+    font-family:Verdana;
+	font-size: 100%;
+	font-style:oblique; 
+
+}
+
+h2{color:black;
+	text-align: center;
+    font-family:Verdana;
+	font-size: 90%;
+ }
+
+ h3{color:black;
+	text-align: center;
+    font-family:Verdana;
+	font-size: 90%;
+ }
+
+
+
+
+p {
+
+	color: #000 !important; 
+	font-size: 10%;
+}
+
+title{
+	font-family:Verdana;
+	text-align: left;
+	font-size: 100%;
+	font-style: oblique;
+}
+
+
+body{
+	
+	background-image: url(backgroundphoto.png);
+	background-repeat: no-repeat;
+	background-size: 160%;
+
+	
+
+
+
+}
