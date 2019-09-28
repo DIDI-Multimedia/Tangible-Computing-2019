@@ -16,30 +16,40 @@ function setup()
   
   // Move the canvas so it's inside our <div id="sketch-holder">.
   canvas.parent('sketch-holder')
-  frameRate(12)
+  frameRate(10)
 
 
 }
+
+
 
 var noiseMax = 0.1
 
+var r1=10
+var r2=30
+var s =1
+var counter = 0
+
+
+
 function draw()
 {
-  background(0)
+  background(0,10)
   translate(windowWidth/2, windowHeight/4)
-  perlin()
+  perlin(r1, r2)
 
-  translate(-700, -150)
-  perlin()
+  r1+=20
+  r2+=20
 
-  translate(300, 70)
-  perlin()
+  counter++
 
-  translate(800, 0)
-  perlin()
+  if(counter == 40)
+  {
+    r1 = 10
+    r2 = 10
+    counter = 0
+  }
 
-  translate(300, -40)
-  perlin()
 
 
 
@@ -47,32 +57,36 @@ function draw()
 }
 
 
-function perlin()
+function perlin(r1, r2)
 {
 
-  stroke(0,210,230)
+  //stroke(0,210,230)
   //ill()
+
 
   var t =0
   var r=100
 
-  beginShape 
-  for(var i=0; i<200; i+=10)
-  {
-    var r = map(noise(t),0,1,30,70)
+  beginShape
+  stroke(0,210,230)
+  noFill() 
+  // for(var i=0; i<200; i+=10)
+  // {
+  //   var r = map(noise(t),0,1,30,70)
     for( var a=0; a<TWO_PI; a+=0.1)
     {
       var xoff = map(cos(a),-1,1,0,noiseMax)
       var yoff = map(sin(a),-1,1,0,noiseMax)
-      var r = map(noise(xoff,yoff),0,1,50,100) 
-      var x= (r+i) * cos(a)
-      var y= (r+i) * sin(a)
-      ellipse(x,y,4,4)
+      var r = map(noise(xoff,yoff),0,1,r1,r2) 
+      var x= r * cos(a)
+      var y= r * sin(a)
+      ellipse(x,y,2,2)
     }
 
-    noiseMax+=0.1
+    noiseMax+=0.01
 
-  }
+
  
   endShape(CLOSE)
 }
+
