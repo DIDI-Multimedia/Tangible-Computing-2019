@@ -1,20 +1,17 @@
+var mic;
+
 function setup(){
+	createCanvas(windowWidth/2,windowWidth/2)
+		canvas.parent('sketch-holder');
 
-	let canvas = createCanvas(windowWidth/2,windowWidth/2)
-	canvas.parent('sketch-holder');
-
+	mic = new p5.AudioIn()
+	mic.start()
 }
 
-
 function draw(){
-
-	noFill()
-	background(255)
-
-	for (var x = 10; x <= width; x+=40) {
-		for (var y = 10; y <= height; y+=40)
-
-			rect (x, y, mouseX/2, mouseY/2)
-	}
-
+  	background(0)
+	var vol = mic.getLevel();
+	fill(vol*255,vol*59,vol*200)
+	// rectMode(CENTER)
+	ellipse(width/2, width/2,200,200)
 }

@@ -1,21 +1,21 @@
-function setup(){
 
-	let canvas = createCanvas(windowWidth,windowWidth/2)
-	canvas.parent('sketch-holder');
-	
+var mic;
+
+
+function setup(){
+	createCanvas(windowWidth/2,windowWidth/2)
+canvas.parent('sketch-holder');
+	mic = new p5.AudioIn()
+	mic.start()
 }
 
-
-
 function draw(){
-	background(0)
-
-	for (var x = 10; x < width; x+=40+mouseX/5) {
-		for (var y = 10; y < width; y+=40+mouseY/5){
-				stroke(random(255),random(255),random(255))
-				strokeWeight(3)
-				fill(random(255),random(255),random(255))
-				rect (x,y,20-random(-3,3),20)
-			}
-		}
-	}
+  var vol = mic.getLevel();
+  	background(0)
+    ellipseMode(CENTER)
+  noStroke()
+  fill (227,107,38)
+    ellipse(width/2, width/2, vol*300, height+500)
+    fill (38,107,227)
+    ellipse(width/2, width/2, width+500, vol*300)
+}
