@@ -1,0 +1,135 @@
+<!-- boilerplate p5 example -->
+<!DOCTYPE html>
+
+<head>
+   <title> p5 sketch </title>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script> 
+
+
+   </head>
+
+<body>
+   <h1> Buttons, Week 2, Day 2 </h1>
+   <div id="sketch-holder"></div>
+</body>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+
+  <style>
+    body {
+      background-color: #FFF;
+      margin: 30px;
+      margin-top: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    #contentContainer {
+      width: 550px;
+      height: 350px;
+      border: 5px coral solid;
+      overflow: hidden;
+      background-color: #DFF2FF;
+      display: flex;
+      align-items: center;
+    }
+
+    #circle {
+      width: 50px;
+      height: 50px;
+      background-color: #4FD0FF;
+      border-radius: 50%;
+    }
+
+    #move {
+      background-color: #FFCFA0;
+      margin-top: 20px;
+      font-size: 16px;
+      font-weight: bold;
+      border: 5px solid #FF7F50;
+      outline: none;
+    }
+    #move:hover {
+      background-color: gold;
+    }
+    #move:active {
+      background-color: yellowgreen;
+    }
+
+ #back {
+      background-color: #FFCFA0;
+      margin-top: 20px;
+      font-size: 16px;
+      font-weight: bold;
+      border: 5px solid #FF7F50;
+      outline: none;
+    }
+    #back:hover {
+      background-color: gold;
+    }
+    #back:active {
+      background-color: yellowgreen;
+    }
+
+  </style>
+</head>
+<body>
+  <div id="contentContainer">
+    <div id="circle"></div>
+  </div>
+  <input id="move" type="button" value="move">
+     
+
+  <script>
+    var circle = document.querySelector("#circle");
+
+    var button = document.querySelector("#move");
+    button.addEventListener("click", animate, false);
+    var xPos = 0;
+
+    function animate() {
+      xPos += 30;
+      circle.style.transform = `translate3d(${xPos}px, 0, 0)`;
+      if (Math.abs(xPos) >= 500) {
+        xPos = -500;
+
+      }
+    }
+  </script></input>
+
+</body>
+  <input id="back" type="button" value="back">
+     
+
+  <script>
+
+
+    var circle = document.querySelector("#circle");
+    var button = document.querySelector("#back");
+    button.addEventListener("click", animate, false);
+    var xPos = 0;
+
+    function animate() {
+      xPos += -30;
+      circle.style.transform = `translate3d(${xPos}px, 0, 0)`;
+      if (Math.abs(xPos) >= 500) {
+        xPos = -500;
+
+      }
+    }
+
+    </script></input>
+</html>
+
+</html>
+
+<footer>
+   <a href="../../index.html"> back to home </a>
+</footer>
+

@@ -1,0 +1,104 @@
+<!-- boilerplate p5 example -->
+<!DOCTYPE html>
+
+
+  
+   <head>
+  <title> p5 sketch </title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script> 
+  <link rel="stylesheet" type="text/css" href="style.css"> 
+  <script src="sketch.js"></script>
+
+
+   </head>
+
+<body>
+   <h1> Bee Happy, Week 2, Day 4 </h1>
+   <div id="sketch-holder"></div>
+</body>
+
+<html>
+ 
+ <div id="bee"> 
+  <img src="https://papermilkdesign.com/images/spring-clipart-bee-1.png" width="150"height="150"  />
+</div>
+
+
+
+<script>
+
+var bee = document.getElementById("bee");
+    document.addEventListener("mousemove", getMouse); 
+
+
+    bee.style.position = "absolute";    
+    var beepos = {x:0, y:0};
+    setInterval(followMouse, 50);
+    var mouse = {x:0, y:0}; 
+    var dir = "right";
+
+    var col = {
+    r:255,
+    g:0,
+    b:0
+};
+
+function setup (){
+  createCanvas(2000,500);
+  // background
+ 
+}
+
+function draw() {
+ // col.r = random(100,500);
+    col.g = random(100,500);
+    //col.b = random(100,500);
+  
+  fill(col.r, col.g, col.b, 100);
+  ellipse(mouseX, mouseY, 35, 35);
+ 
+}
+
+//function mousePressed() {
+  //background(0, 0, 0);
+//}
+
+    function getMouse(e){
+      mouse.x = e.pageX;
+      mouse.y = e.pageY;
+   
+        if(mouse.x > beepos.x){
+          dir = "right";
+        } else {
+          dir = "left";
+        }
+    }
+    
+    function followMouse(){
+      
+      var distX = mouse.x - beepos.x;
+      var distY = mouse.y - beepos.y;
+  
+      beepos.x += distX/5;
+      beepos.y += distY/2;
+      
+      bee.style.left = beepos.x + "px";
+      bee.style.top = beepos.y + "px";
+      
+      
+   
+        if (dir == "right"){
+          bee.setAttribute("class", "right");
+        } else {
+          bee.setAttribute("class", "left");        
+        }
+      
+    }
+
+  </script>
+</html>
+
+<footer>
+   <a href="../../index.html"> back to home </a>
+</footer>
