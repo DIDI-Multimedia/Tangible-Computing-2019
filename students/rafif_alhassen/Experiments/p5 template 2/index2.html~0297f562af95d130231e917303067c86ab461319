@@ -4,27 +4,21 @@
 <html>
 
 <head>
-	<title> FUN CREATIONS </title>
+	<title> p5 sketch </title>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script> 
-	<link rel="stylesheet" type="text/css" href="style_examples.css"> 
+	<link rel="stylesheet" type="text/css" href="style.css"> 
 	<script src="sketch.js"></script>
 
 </head>
 
 <body>
-
-	<div id="content"></div>
-
-
-	<h1 style="color: #F74B80; text-shadow: 5px 5px 10px white; padding: 15px;"> Example 3 - Oh Look! </h1>
-
-
+	<h1> Week 2, Day 2 </h1>
 	<div id="sketch-holder"></div>
 </body>
 
 <footer>
-	<a href="../../../websites/week_04.html"> More Examples </a>
+	<a href="../../index.html"> back to home </a>
 </footer>
 
 
