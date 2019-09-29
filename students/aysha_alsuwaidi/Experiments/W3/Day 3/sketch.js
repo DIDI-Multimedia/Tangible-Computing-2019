@@ -1,17 +1,19 @@
 
 
 function setup() {
-let canvas = createCanvas(windowWidth/3, windowWidth/3)
+let canvas = createCanvas(windowWidth/1, windowWidth/2)
   canvas.parent('sketch-holder');
   capture = createCapture(VIDEO);
-  capture.size(320, 240);
+  
 
 }
 
 function draw(){
-  background(255);
-  image(capture, 0, 0, 320, 240);
-  filter(INVERT);
-  ellipse(100,100,20,5)
+  background(230,random(255),random(255),random(255));
+  image(capture, 100,50,1000, 500);
+  stroke(255)
+	strokeWeight(70)
+	ellipse(mouseX/2,mouseY/2,24,2)
+  
 
 }
