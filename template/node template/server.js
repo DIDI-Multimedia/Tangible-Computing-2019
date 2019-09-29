@@ -1,17 +1,12 @@
 console.log('my node.js server is running')
 
 
-posX = 5
-posY = 5 
+let express = require('express')
 
-const data = {
+let app = express()
 
-	posX: posX,
-	posY: posY, 
+let server = app.listen(3000)
 
-}
+app.use(express.static('public'))
 
-let data = {}
-
-data.posX = posX 
-data.posY = posY 
+console.log('my socket server is running')

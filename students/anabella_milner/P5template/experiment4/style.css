@@ -1,0 +1,57 @@
+/* style.css */
+
+html, body {
+
+  height: 50%;
+
+
+}
+
+h1 {
+	text-align: center;
+}
+
+body {
+	padding-top: 5%;
+	font-family: 'arial';
+	color: #592C5F; 
+	display: : flex;*/
+
+
+}
+
+ body { background-color:#E8ADAA; }
+.left {
+        -moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        filter: FlipH;
+        -ms-filter: "FlipH";
+}
+.right {
+        -moz-transform: scaleX(1);
+        -o-transform: scaleX(1);
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1);
+        filter: FlipH;
+        -ms-filter: "FlipH";
+}
+#bee {transition: transform .1s}
+
+#sketch-holder{
+	padding-top: 5%;
+	width: 100%;
+	position:relative;
+	left:37.5vw;
+}
+
+footer {
+
+   width: 100%;
+   padding-top: 5%;
+   position: absolute;
+   text-align: center;*/
+
+}
+
