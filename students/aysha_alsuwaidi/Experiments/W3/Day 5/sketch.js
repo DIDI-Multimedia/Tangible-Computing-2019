@@ -27,7 +27,3 @@ function draw(){
 
 
 
-  if (mouseIsPressed){
-    background(random(255),random(255),random(255))
-  }
-
