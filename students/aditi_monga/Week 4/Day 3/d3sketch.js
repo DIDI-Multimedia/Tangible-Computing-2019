@@ -5,6 +5,7 @@ var y = 50
 
 function setup(){
 	createCanvas(windowWidth/2,windowWidth/2)
+    canvas.parent('sketch-holder');
 
 	mic = new p5.AudioIn()
 	mic.start()
