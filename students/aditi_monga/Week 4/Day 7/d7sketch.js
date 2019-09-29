@@ -1,21 +1,21 @@
-var x = 1
+// var angle = 180
+var mic;
 
-function setup() {
-  createCanvas(720, 400);
+
+function setup(){
+  createCanvas(windowWidth/2,windowWidth/2)
+    // angleMode(DEGREES) 
+  mic = new p5.AudioIn()
+  mic.start()
 }
 
-function draw() {
-  background(0);
-  noStroke();
-  for (let i = 0; i < width; i += 20) {
-    fill(10, 100, 255);
-    ellipse(0, i, x++, 10);
-    fill(255);
-    ellipse(i, 0, x++, height);
-  }
-
-  if(x >= width)
-    x = 0
+function draw(){
+  var vol = mic.getLevel();
+    background(0)
+    ellipseMode(CENTER)
+  noStroke()
+  fill (227,107,38)
+    ellipse(width/2, width/2, vol*300, height+500)
+    fill (38,107,227)
+    ellipse(width/2, width/2, width+500, vol*300)
 }
-
-//from https://p5js.org/examples/structure-width-and-height.html
