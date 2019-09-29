@@ -10,12 +10,20 @@ function setup(){
 }
 
 function draw(){
-  var vol = mic.getLevel();
+
     background(0)
-    ellipseMode(CENTER)
-  noStroke()
-  fill (227,107,38)
-    ellipse(width/2, width/2, vol*300, height+500)
-    fill (38,107,227)
-    ellipse(width/2, width/2, width+500, vol*300)
+  eyes ()
+  smile()
+ 
+}
+
+function eyes(){
+    var vol = mic.getLevel();
+   ellipseMode(CENTER)
+  fill(255)
+    ellipse (100,100, width/4, vol*width/2)
+  ellipse ((width/2)+50, 100, width/4, vol*width/2)
+  fill(0)
+  ellipse(100,100,vol*200,vol*200)
+   ellipse((width/2)+50,100,vol*200,vol*200)
 }
