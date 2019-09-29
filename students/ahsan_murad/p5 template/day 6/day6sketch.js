@@ -2,6 +2,18 @@
 // Ahsan Murad 
 // GitHub Username
 // Date 
+let lineX = 400;
+let lineY = 400;
+let lineX2 = 800;
+function setup(){
+
+	let canvas = createCanvas(800,800)
+	background(250, 75, 100);
+}
+
+	// Move the canvas so it's inside our <div id="sketch-holder">.
+	canvas.parent('sketch-holder');
+
 
 let lineX = 400;
 let lineY = 400;
@@ -15,6 +27,7 @@ function setup(){
 
 	background(250, 75, 100);
 }
+
 
 	
 function draw(){
@@ -33,8 +46,9 @@ function draw(){
   	fill(255, random(0,150), random(0,155))
   	noStroke();
   	ellipse(random(0,800),random(0,800),random(40,50),random(40,50));
-  	
-}
+
+  }
+
 
 function mousePressed(){
 	background(random(100),random(100),random(100));
