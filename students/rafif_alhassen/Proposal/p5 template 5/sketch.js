@@ -2,97 +2,56 @@
 // Firstname Lastname 
 // GitHub Username
 // Date 
+let rad = 60;
+let xpos, ypos;
+
+let xspeed = 3;
+let yspeed = 2.2;
+
+let xdirection = 3;
+let ydirection = 1; 
 
 function setup(){
 
-  createCanvas(800,800);
-  background(255)
-  let flower = createFlower()
-  push()
-  translate(width/2,height/2)
-  drawFlower(flower)
-  pop()
-
+  createCanvas(720,400);
+  // background(255)
+  noStroke();
+  frameRate(30);
+  ellipseMode(RADIUS);
+  xpos = width / 4;
+  ypos = height / 2;
 
 }
 
-function createFlower(){
   
-  let flower = {}
-  flower.numPetals = 20
-  flower.innerRadius = 50
-  flower.outerRadius = 100
-  flower.rotation = PI/4
-  flower.scale = 10
-  flower.color1  = [123,36,222]
-  flower.color2 = [123,36,222]
-  flower.posX = width/2
-  flower.posY = height/2
-  flower.speed = 2
-  // drawFlower (numPetals,innerRadius,outerRadius,rotation,scale,color1,color2,positionX,positionY)
+function draw(){
+  background(255);
 
-  return flower
+    xpos = xpos + xspeed * xdirection;
+    ypos = ypos + yspeed * ydirection;
 
-}
+    if (xpos > width - rad || xpos < rad) {
+      xdirection *= -1;
+    }
+    if (ypos > height - rad || ypos < rad) {
+      ydirection *= -1; 
+    }
 
+    rect(xpos, ypos, rad, rad);
+    fill(random(255),random(255),random(255))
 
-
-
-
-function drawFlower (flower){
-
-    fill(flower.color1)
-    //ellipse(positionX,positionY-innerRadius, (outerRadius-innerRadius)/2, outerRadius-innerRadius)
-    //fill(random(255),random(255),random(255))
-    //ellipse(positionX,positionY+innerRadius, (outerRadius-innerRadius)/2, outerRadius-innerRadius)
-
-for (var angle = 0; angle < TWO_PI*4; angle+= TWO_PI/flower.numPetals){
-
-  console.log(angle)
-
-  push()
-
-  translate(flower.positionX,flower.positionY)
-  rotate(angle)
-
-  ellipse(0,flower.innerRadius,(flower.outerRadius-flower.innerRadius)/2,flower.outerRadius-flower.innerRadius)
-  fill(random(255),random(255),random(255))
-  ellipse(0,flower.innerRadius,(flower.outerRadius/flower.innerRadius)/4,flower.outerRadius+flower.innerRadius)
-  fill(random(255),random(255),random(255))
-  ellipse(0,flower.innerRadius++,(flower.outerRadius/flower.innerRadius)/4,flower.outerRadius+flower.innerRadius)
-
-  pop()
-}
-
-    fill(0)
-    ellipse(flower.positionX,flower.positionY,flower.innerRadius,flower.innerRadius)
-}
+    ellipse(xpos, ypos, rad, rad);
+    fill(random(255),random(255),random(255))
 
 
-// function draw(){
+    if (mouseIsPressed){
+    fill(255)
+      ellipse(xpos, ypos, rad, rad);
 
-// 	background(0)
-// 	var numElements = 15
-// 	textSize(10)
-// 	var step = width/numElements
-// 	var colorStep = 255/numElements
-// 	textAlign(CENTER,CENTER)
+    
+    }
 
-// for (var x = 0 ; x < numElements; x++){
+  }
 
-// 	for(var y = 0; y < numElements; y++){
-
-// 		stroke(255)
-// 		strokeWeight(second()/5)
-// 		fill(x*colorStep,y*colorStep,200)
-
-// 		rect(x*step,y*step,step,step)
-// 		circle(x*step+2,y*step+2,step,step)
-
-
-// 		}
-
-// 	}
-// }
-
-
+  // help from: https://p5js.org/examples/motion-bounce.html
+    

@@ -3,7 +3,6 @@
 // GitHub Username
 // Date 
 
-<<<<<<< HEAD
 
 function setup()
 {
@@ -11,7 +10,7 @@ function setup()
 	let canvas = createCanvas(windowWidth-10,windowHeight/2.05, WEBGL)
 	
 	// Move the canvas so it's inside our <div id="sketch-holder">.
-=======
+
 // SP: "Hi Niki - I refactored your code"
 
 
@@ -20,12 +19,12 @@ var c = 100 // var c=100, moved this before setup
 function setup() { // put curly brackets like this
 
 	let canvas = createCanvas(windowWidth-10,windowHeight/2.05, WEBGL)
->>>>>>> 9c67cebbf31b37ee6f4f0967b00072cbd18c6af5
+
 	canvas.parent('sketch-holder')
 	background(0,0,0)
     frameRate(30)
 
-<<<<<<< HEAD
+
   // text(x,x*step, height/2)
 	// x++
 	// text(x,x*step, height/2)
@@ -47,7 +46,7 @@ function draw()
 
     for(var z=1000; z>-1000; z-=40)
     {
-=======
+
 }
 
 
@@ -60,7 +59,7 @@ function draw() {
 
     for(var z = 1000 ; z> - 1000; z-=40) {
 
->>>>>>> 9c67cebbf31b37ee6f4f0967b00072cbd18c6af5
+
         beginShape()
         translate(0,0,z)
         fill(255)
@@ -72,9 +71,6 @@ function draw() {
 
     c+=20
 
-<<<<<<< HEAD
-
-        
 
 
   
@@ -87,7 +83,6 @@ function draw() {
 
 
  
-=======
->>>>>>> 9c67cebbf31b37ee6f4f0967b00072cbd18c6af5
+
 }
 
