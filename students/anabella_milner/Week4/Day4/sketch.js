@@ -1,41 +1,54 @@
-
-let i = 0 
 var video;
 
-function setup(){
+var vScale = 16;
 
-  createCanvas(320,240);
+function setup() {
+  createCanvas(640, 480);
+  pixelDensity(1);
+  video = createCapture(VIDEO);
+  video.size(width/vScale, height/vScale);
+}
+
+function draw() {
   background(51);
- video = createCapture(VIDEO);
- video.size(320,240);
- video.hide();
 
-let numCol = 100
-  let numRow = 100
-  let stepX = width / numCol // height of box 
-  let stepY = height / numRow // width of box 
-}
+  video.loadPixels();
 
-function draw(){
-  tint(255, 0, 150);
-  image(video, 0, 0, mouseX, height);
-  background(255)
-  for (var col = 0; col < numRow; col++){
-    for (var row = 0; row < numCol; row++){
-     //fill(col/numCol*255,row/numRow*255,mouseX/width*255)
-     let r = noise(row/numRow+i)*255
-     let b = noise(row/numRow+i)*100
-     let g = noise(col/numCol+i)*255
-     fill(r,g,b)
-     
-     rect(row*stepX,col*stepY,stepX,stepY) 
+  loadPixels();
+  for (var y = 0; y < video.height; y++){
+    for (var x = 0; x < video.width; x++){
+      var index = (video.width - x + 1 + (y * video.width))*4;
+      var r = video.pixels[index+0];
+      var g = video.pixels[index+1];
+      var b = video.pixels[index+2];
 
-    i += 0.01;
- 
-  
-}
-    
-    }
+      var bright = (r+g+b)/3;
+
+      var w = map(bright, 0, 255, 0, vScale);
+
+      stroke(255);
+
+
+      fill(255);
+      rect(x*vScale, y*vScale, w, w);
+
+
+      //pixels[index+0] = bright;
+      //pixels[index+1] = bright;
+      //pixels[index+2] = bright;
+      //pixels[index+3] = 255;
   }
+
+   }
+
+//updatePixels();
+
+}
+
+
+
+
+
+
 
 
