@@ -54,13 +54,21 @@
  	margin: auto
  }
 
-
-
-
-
-
-	
 .box-7{
+	background-color:white;
+ 	font-family: Verdana;
+ 	width: 6%;
+ 	border:groove;
+ 	border-right-color: red;
+ 	border-left-color: red;
+ 	border-top-color: black;
+ 	border-bottom-color: black;
+ 	padding: 1px;
+ 	margin: auto
+ 
+ }
+
+.box-8{
 	background-color:white;
  	font-family: Verdana;
  	width: 6%;
