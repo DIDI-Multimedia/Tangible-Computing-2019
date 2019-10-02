@@ -1,62 +1,56 @@
 
 
-//function setup(){
 
 
-
-
-
-
-
-let i,j,k
 var video;
+var vScale = 16;
 
-function setup(){
+var particles = [];
 
-  createCanvas(800,800);
-  //noStroke()
-  rectMode(CENTER);
-  // initialize perlin noise values with random parameters
-  i = random()
-  j = random()
-  k = random()
-  noFill()
-  strokeWeight(3)
-  video = createCapture(VIDEO);
- video.size(320,240);
- video.hide();
-}
-function draw(){
+var slider;
 
-  let numCol = 50
-  let numRow = 50
-  let stepX = width / numCol // height of box 
-  let stepY = height / numRow // width of box 
+function Particle(x, y) {
+  this.x = x;
+  this.y = y;
+  this.r = random(4, 200);
   
-   
-  background(255)
+  this.update = function() {
+    this.x += random(-10, 10);
+    this.y += random(-10, 10);
 
-  for (var col = 0; col < numRow; col++ ){
-    for (var row = 0; row < numCol; row++){
-     //fill(col/numCol*255,row/numRow*255,mouseX/width*255)
-     let r = noise(row/numRow+i)*255
-     let b = noise(col/numCol+j)*255
-     let g = noise(col/numCol+k)*255
-     boxWidth = noise(k*row/numRow)*stepX*3
-     boxHeight = noise(j*col/numCol)*stepY*6
-     stroke(r,g,b,200)
-     
-     rect(row*stepX,col*stepY,boxWidth,boxHeight) 
-
-  tint(255, 0, 150);
-  image(video, 0, 0, mouseX, height);
-  
-}
-    
-    }
+    this.x = constrain(this.x, 0, width);    
+    this.y = constrain(this.y, 0, height);    
   }
+  
+  this.show = function() {
+    stroke(255);
+    var px = floor(this.x / vScale);
+    var py = floor(this.y / vScale);
+    var col = video.get(px, py);
+    //console.log(col);
+    fill(col[0], col[1], col[2], slider.value());
+    ellipse(this.x, this.y, this.r, this.r);    
+  }
+  
+}
 
-    j += 0.01
-    k += 0.0025
-    i += 0.005
+function setup() {
+  createCanvas(640, 480);
+  pixelDensity(1);
+  video = createCapture(VIDEO);
+  video.size(width/vScale, height/vScale);
+  for (var i = 0; i < 100; i++) {
+    particles[i] = new Particle(random(width), random(height));
+  }
+  slider = createSlider(0, 255, 127);
+  background(51);
+}
 
+function draw() {
+  //background(51);
+  video.loadPixels();
+  for(var i = 0; i < particles.length; i++) {
+    particles[i].update();
+    particles[i].show();
+  }
+}
