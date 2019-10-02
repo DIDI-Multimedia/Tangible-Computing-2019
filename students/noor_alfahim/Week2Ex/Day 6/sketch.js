@@ -2,61 +2,51 @@
 // Firstname Lastname 
 // GitHub Username
 // Date 
+let X = 800; 
 
+const boxLocX = 50
+const boxLocY = 50
 function setup(){
 
-	createCanvas(1000,1000);
-	background(255)
-
-	let flower01 = createFlower()
-	let flower02 = createFlower()
-	drawFlower (flower01)
-	push()
-	translate(width/2,height/2)
-	drawFlower (flower02)
-	pop()
-
-
-}
+	let canvas = createCanvas(windowWidth/2,windowWidth/3)
 	
-function createFlower(){
+	canvas.parent('sketch-holder');
+	background(180)
 
-	let flower = {}
-	flower.posX = 300
-	flower.posY = 300 
-	flower.numPetals = 20
-	flower.innerRadius = 100
-	flower.outerRadius = 200
-	flower.color1 = [100,150,200]
-	flower.color2 = [200,150,100]
-	flower.rotation = 30
-	flower.speed = 1
-	flower.scale = 1
-	
-	return flower
+
+
+
 
 
 }
 
-function drawFlower(flower){
+function draw(){
 
-	fill(flower.color1)
+     background(180)
 
-	for(var angle = 0; angle < TWO_PI; angle += TWO_PI/flower.numPetals){
+     stroke(255)
+     fill(255,30)
+     
+     ellipse(mouseX, mouseY, 100, 100)
 
-		console.log(angle)
+       let d = int(dist(mouseX, mouseY, boxLocX, boxLocY));
+       console.log('d=',d)
 
-		push()
-		translate(flower.posX,flower.posY)
-		rotate(angle)
-		ellipse(0,flower.innerRadius,(flower.outerRadius-flower.innerRadius)/2,flower.outerRadius-flower.innerRadius)
-		pop()
-
-	}
+     if(d < 50)
+     {
+     	fill(255)
+    	rect(150,150,50,50)
 
 
-fill(flower.color2)
-ellipse(flower.posX, flower.posY, flower.innerRadius, flower.innerRadius)
+
+
+     }
+
+
+
+     
+
+  
 
 }
 
