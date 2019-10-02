@@ -23,8 +23,6 @@ function setup()
 
 
 
-var noiseMax = 2
-
 var r1=10
 var r2=30
 var s =1
@@ -37,7 +35,7 @@ function draw()
   background(0,10)
   translate(windowWidth/2, windowHeight/4)
   perlin(r1, r2)
-
+  
   r1+=20
   r2+=20
 
@@ -49,6 +47,8 @@ function draw()
     r2 = 10
     counter = 0
   }
+
+
 
 
 
@@ -69,7 +69,8 @@ function perlin(r1, r2)
 
   beginShape
   stroke(0,210,230)
-  noFill() 
+  noFill()
+  var noiseMax=random(10) 
   // for(var i=0; i<200; i+=10)
   // {
   //   var r = map(noise(t),0,1,30,70)
@@ -83,8 +84,7 @@ function perlin(r1, r2)
       ellipse(x,y,2,2)
     }
 
-    noiseMax+=2
-
+    
 
  
   endShape(CLOSE)
