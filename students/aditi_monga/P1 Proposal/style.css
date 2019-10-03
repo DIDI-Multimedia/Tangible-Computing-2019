@@ -1,16 +1,24 @@
-/* div class based on id */
+body {
 
-#content {
-
-	color: (255);
 	font-family: 'arial';
-	padding: 5%;
-
+/*	color: #592C5F; */
+	padding: 5vw;
+	background-color: #a4b5a2;
+	justify-content: center;
+	align-items: center;
 }
 
+h1, h5{
+	color: #657a71
+}
 
-p {
+a {
+	color: white
+}
 
-	color: #000 !important; 
+p, h3 {
+
+	color: #64563c; 
+
 
 }
