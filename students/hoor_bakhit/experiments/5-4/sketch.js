@@ -3,116 +3,38 @@
 // GitHub Username
 // Date 
  
-let i,j,k
+let ball;
 
+function setup() {
+  createCanvas(500,500);
+  ball = new Ball();
+  background(205, 208, 234);
+}
 
-function setup(){
+function draw() {
+  ball.walk();
+  ball.display();
+}
 
-  createCanvas(400,400);
-      let critter = {
+class Ball{
+  constructor(){
+    this.position = createVector(width/4,height/4);
+    this.noff = createVector(random(1000),random(1000));
+  }
 
-      name: "Me!", 
-      posX: width/2, 
-      posY: width/2,
-      rot: 0,  
-      size: 50, 
-      color: [215,155,214],
-      draw: drawAngryStickman 
-    
-    }
+ display() {
+    strokeWeight(2);
+    fill(16, 63, 75);
+    stroke(55, 119, 135);
+    ellipse(this.position.x, this.position.y, 60, 60);
+  }
 
-    let critter02 = {
-
-      name: "KITT", 
-      posX: width/4, 
-      posY: width/4,
-      rot: 0,  
-      size: 50, 
-      color: [215,155,214],
-      draw: drawKitt 
-    
-    }
-
-    critter.draw()
-    critter02.draw()
-
-
-
+  walk() {
+    this.position.x = map(noise(this.noff.x),0,1,0,width);
+    this.position.y = map(noise(this.noff.y),0,1,0,height);
+    this.noff.add(0.01,0.01,0);
+  }
 }
 
 
-
-// make your own creature using this code, share via whatsapp  
-
-
-    function drawAngryStickman(){
-     
-let c = this
-
-      push()
-    
-      // fill in code here, draw a funny face
-
-      translate(c.posX,c.posY)
-      text(c.name, c.size,-c.size)
-      fill(c.color)
-      ellipse(0,0,c.size,c.size)
-
-fill(0)
-
-      ellipse(10,-10,c.size-40,c.size/16)
-      ellipse(-10,-10,c.size/5,c.size/16)
-
-fill(216,95,125)
-stroke(0)
-strokeWeight(2)
-  arc(0, 10, c.size-20, c.size-30, PI, TWO_PI);
-  
-fill(0)
-  strokeWeight(7)
-  line(0,120,0,26)
-line(1,20,c.size,c.size+10)
-line(1,20,-c.size,c.size+10)
-line(1,120,-c.size,c.size*3.5)
-line(1,120,c.size,c.size*3.5)
-
-
-      pop()
-
-
-    }
-
-     function drawKitt(){
-
-      let c = this
-     
-  push()
-    
-  // fill in code here, draw a funny face
-
-  translate(c.posX,c.posY)
-  fill(255)
-  text(c.name, c.size,-c.size)
-  fill(c.color)
-  ellipse(0,0,c.size,c.size)
-  fill(0)
-  rect(-(c.size-20),-c.size/5,c.size+10,c.size/10)
-  rect(-(c.size/c.size),-(c.size/12.5),4,2,6)
-  strokeWeight(2)
-  stroke(c.color)
-  noFill()
-  ellipse(0,0,c.size,c.size)
-  fill(0)
-  ellipse(0,15,15,15)
-  fill(c.color)
-  triangle(-12,-28,-18,-15,-2,-15,)
-  rect(-12,-40,0.4,15)
-  ellipse(-12,-43,4,4)
-
-
-  pop()
-
-
-}
-  
 
