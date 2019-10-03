@@ -3,30 +3,59 @@
 // GitHub Username
 // Date 
 
+  let numCol = 5
+  let numRow = 5
+  let step = 1
+  let counter = 0
+
+
 function setup(){
 
-    let canvas = createCanvas(windowWidth/2,windowWidth/3)
-    
-    canvas.parent('sketch-holder');
-    background(random(100), random(50), random(10))
-
-
-
+  createCanvas(800,800);
+  stroke(255)
 
 }
-
 function draw(){
-    background(255, 100, random(150))
-    a = 10
 
-    strokeWeight(mouseX/20)
-    fill (mouseY/2, mouseX/7,100)
-    line(mouseY,mouseY*50, mouseX,mouseX/100)
+
+   
+  background(255)
+
+  counter ++ 
+
+  if (counter > 5){
     
-if (a >= 255) {
-    a = 10
+    numCol+= step
+    numRow+= step  
+    counter = 0
+
+  }
+
+
+
+
+
+  let stepX = width / numCol // height of box 
+  let stepY = height / numRow // width of box 
+  drawBoxes(numRow,numCol,stepX,stepY)
+
+  if (numCol == 50 || numCol == 1){
+    // reset
+    step *= -1
+  }
+
+
 }
 
+
+function drawBoxes(numRow,numCol,stepX,stepY){
+
+    for (var col = 0; col < numRow; col++){
+    for (var row = 0; row < numCol; row++){
+      fill(col/numCol*255,row/numRow*255,mouseX/width*255)
+      rect(row*stepX,col*stepY,stepX,stepY) 
     }
+  }
+}
 
 

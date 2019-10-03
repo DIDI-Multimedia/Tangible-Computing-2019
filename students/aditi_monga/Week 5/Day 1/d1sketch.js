@@ -1,6 +1,6 @@
   function setup() {
-
-    createCanvas(400, 400);
+let canvas = createCanvas(windowWidth/2,windowWidth/2)
+    canvas.parent('sketch-holder');
     let critter = {
       name: "piggy",
       posX: width / 2,
