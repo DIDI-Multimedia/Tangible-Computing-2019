@@ -3,7 +3,7 @@
 // GitHub Username
 // Date 
 
-let y = 30 
+var s;
 
 function setup(){
 
@@ -11,24 +11,29 @@ function setup(){
 	
 	// Move the canvas so it's inside our <div id="sketch-holder">.
 	canvas.parent('sketch-holder');
-	background(34,155,215)
-stroke(255); 
-  frameRate(50);
-
-}
-
-let step =2
-
-function draw(){
-
-background(0); 
-  y = y + step;
-  if (y > height || y < 0) {
-    step *=-1;
- }
-
-  ellipse(50, y, 60, 60);
-
+	
+	 s = 150;
+  mouseX = width/2;
+  mouseY = height/2;
+  background(0);
 
 
 }
+
+function draw() {
+  //background(255);
+  noStroke();
+  
+  if  (mouseX>(width/2)-s && mouseX<(width/2)+s &&
+  mouseY>(height/2)-s && mouseY<(height/2)+s){
+  fill('#beffb3');
+  triangle(mouseX,mouseY,(width/1)-s,(height/3)-s,(width/1)+s,(height/1)-s);
+  fill('#a3f794');
+  triangle(mouseX,mouseY,(width/1)+s,(height/3)-s,(width/1)+s,(height/1)+s);
+  fill('#86db76');
+  triangle(mouseX,mouseY,(width/1)+s,(height/3)+s,(width/1)-s,(height/1)+s);
+  fill('##86db76');
+  triangle(mouseX,mouseY,(width/1)-s,(height/3)+s,(width/1)-s,(height/1)-s);
+  }
+}
+
