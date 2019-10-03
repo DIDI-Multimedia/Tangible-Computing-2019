@@ -12,5 +12,5 @@ function draw(){
 	var vol = mic.getLevel();
 	fill(255,10)
 	rectMode(CENTER)
-	rect(width/2, width/2, vol*500, vol*500)
+	rect(width/2, width/2, vol*800, vol*800)
 }
