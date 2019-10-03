@@ -1,34 +1,25 @@
-
-
-
-/* div class based on id */
-
 body {
 
 	font-family: 'arial';
-	color: #592C5F; 
+/*	color: #592C5F; */
 	padding: 5vw;
-	/*position: absolute;*/
-	/*background-color: rgb(0,0,255);*/
-
-	/*display: flex;*/
-	/* This centers our sketch horizontally. */
-
+	background-color: #7cd4d7;
 	justify-content: center;
-
-	/* This centers our sketch vertically. */
 	align-items: center;
 
 }
 
-h1{
-	/*color:rgb(0,0,255);*/
+h1, h5{
+	color: #cc2208
 }
 
-p {
+a {
+	color: #1e4355
+}
 
-	/*color: 999 !important;*/
-	color: #000 !important; 
-	/*text*/
+p, h3 {
+
+	color: #9d612f; 
+
 
 }

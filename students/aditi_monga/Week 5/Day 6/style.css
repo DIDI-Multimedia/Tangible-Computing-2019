@@ -1,8 +1,7 @@
-
 body {
 
 	font-family: 'arial';
-	color: #592C5F; 
+/*	color: #592C5F; */
 	padding: 5vw;
 	background-color: #7cd4d7;
 	justify-content: center;
@@ -10,12 +9,17 @@ body {
 
 }
 
-h1{
-	/*color:rgb(0,0,255);*/
+h1, h5{
+	color: #cc2208
 }
 
-p {
-	/*color: 999 !important;*/
-	color: #000 !important; 
-	/*text*/
+a {
+	color: #1e4355
+}
+
+p, h3 {
+
+	color: #9d612f; 
+
+
 }
