@@ -19,6 +19,7 @@ function draw() {
 
   image(capture, 0, 0, 320, 240);
   filter(INVERT);
+  // filter(THRESHOLD);
 
 }
 
