@@ -3,7 +3,8 @@ var mic;
 
 
 function setup(){
-  createCanvas(windowWidth/2,windowWidth/2)
+  let canvas = createCanvas(windowWidth/2,windowWidth/2)
+    canvas.parent('sketch-holder');
   // canvas.parent('sketch-holder');
     // angleMode(DEGREES) 
   mic = new p5.AudioIn()
@@ -16,6 +17,6 @@ function draw(){
   var vol = mic.getLevel();
   for (x = 0; x <= width; x+=10){
     fill(0,100,255)
-      rect (x, height, 10, vol*random(1000))
+      rect (x, height, 10, vol*random(2000))
   }
 }
