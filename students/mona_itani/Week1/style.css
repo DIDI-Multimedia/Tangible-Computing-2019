@@ -3,60 +3,27 @@
 
 #content {
 
-	color:black;
-	text-align: center;
-    font-family:Verdana;
-	font-size: 100%;
-	font-style:oblique; 
 
 }
 
 h1{
-	color:black;
+	font-family:serif;
 	text-align: center;
-    font-family:Verdana;
+	font-size: 200%;
+	color:white;
+	padding:15%;
+
+}
+
+h2{
+	font-family:serif;
+	text-align: center;
 	font-size: 100%;
-	font-style:oblique; 
+	color:white;
+	padding:15%;
 
-}
-
-h2{color:black;
-	text-align: center;
-    font-family:Verdana;
-	font-size: 90%;
- }
-
- h3{color:black;
-	text-align: center;
-    font-family:Verdana;
-	font-size: 90%;
- }
-
-
-
-
-p {
-
-	color: #000 !important; 
-	font-size: 10%;
-}
-
-title{
-	font-family:Verdana;
-	text-align: left;
-	font-size: 100%;
-	font-style: oblique;
-}
-
-
-body{
-	
-	background-image: url(backgroundphoto.png);
-	background-repeat: no-repeat;
-	background-size: 160%;
-
-	
 
 
 
 }
+
