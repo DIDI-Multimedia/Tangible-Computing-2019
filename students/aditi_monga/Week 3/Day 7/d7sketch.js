@@ -1,7 +1,9 @@
 var x = 1
 
 function setup() {
-  createCanvas(720, 400);
+
+  let canvas = createCanvas(windowWidth/1.5,windowWidth/2)
+  canvas.parent('sketch-holder');
 }
 
 function draw() {
