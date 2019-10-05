@@ -1,0 +1,32 @@
+/* div class based on id */
+
+#content {
+	position: absolute; 
+	font-family: 'comic sans ms';
+	padding: 9%;
+	z-index: 1;		
+}
+
+/*h1 {
+	font-family: 'blackadder'
+}*/
+
+.disable-select {
+    user-select: none; /* supported by Chrome and Opera */
+   -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+   -moz-user-select: none; /* Firefox */
+   -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
+#sketch-holder {
+	position: absolute;
+	z-index: -10 !important;
+	left: 7%;
+	top: 9%;
+
+}
+
+p {
+	color: #000 !important; 
+}
