@@ -30,7 +30,6 @@ function gotPoses(poses) {
     try{
 
       let confidence1 = obj.pose['rightWrist'].confidence
-      let confidence2 = obj.pose['leftWrist'].confidence
 
       if (confidence1 > 0.1){
 
@@ -38,11 +37,6 @@ function gotPoses(poses) {
         noseY = obj.pose['rightWrist'].y
       }
 
-      if(confidence2 > 0.1)
-      {
-        wristX = obj.pose['leftWrist'].x
-        wristY = obj.pose['leftWrist'].y
-      }
 
     } 
 
@@ -64,6 +58,9 @@ function modelReady()
    console.log('model ready')
 }
 
+var a=0
+var s=100
+
 function draw() 
 {
   background(0);
@@ -74,10 +71,24 @@ function draw()
   // if (confidence > 0.10){
 
       ellipse(noseX,noseY,100,100)
-      ellipse(wristX,wristY,100,100)
+
+      if(noseX>=500)
+      {
+        rotate()
+      }
+
+      if(noseY>=500)
+      {
+        s++
+      }
+
+
+      rectMode(CENTER)
+      rect(windowWidth/2,windowHeight/4,s,s)
+      
     
   
-  
+  a++
 }
 
 
