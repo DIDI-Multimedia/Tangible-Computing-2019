@@ -4,7 +4,7 @@
 
 .threeCity {
   /*position: fixed;*/
-  /*width: 66% !important;*/
+  width: 100% !important;
   background: linear-gradient( #029DAF, #E5D599);
 }
 
