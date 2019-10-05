@@ -6,6 +6,9 @@ let capture
 let poseNet
 let noseX = 0
 let noseY = 0
+let wristX=0
+let wristY=0
+let confidence = 0
 
 function setup() 
 {
@@ -17,11 +20,41 @@ function setup()
   poseNet.on('pose' , gotPoses)
 }
 
-function gotPoses(poses)
-{
+function gotPoses(poses) {
+
   console. log(poses)
-  noseX = poses[0].pose.keypoints[0].position.x
-  noseY = poses[0].pose.keypoints[0].position.y
+  poses.forEach(obj=>{
+
+    console.log(obj)
+
+    try{
+
+      let confidence1 = obj.pose['rightWrist'].confidence
+      let confidence2 = obj.pose['leftWrist'].confidence
+
+      if (confidence1 > 0.1){
+
+        noseX = obj.pose['rightWrist'].x
+        noseY = obj.pose['rightWrist'].y
+      }
+
+      if(confidence2 > 0.1)
+      {
+        wristX = obj.pose['leftWrist'].x
+        wristY = obj.pose['leftWrist'].y
+      }
+
+    } 
+
+    catch {
+
+    }
+    // noseX = obj.pose['leftWrist'].position.x
+    // noseY = obj.pose['leftWrist'].position.y
+
+  })
+  // noseX = poses[0].pose.keypoints[0].position.x
+  // noseY = poses[0].pose.keypoints[0].position.y
 
 }
 
@@ -37,10 +70,12 @@ function draw()
   image(capture, 0, 0, 1920, 1080);
 
   fill(255,0,0)
-  ellipse(noseX,noseY,100,100)
 
+  // if (confidence > 0.10){
 
-  
+      ellipse(noseX,noseY,100,100)
+      ellipse(wristX,wristY,100,100)
+    
   
   
 }
