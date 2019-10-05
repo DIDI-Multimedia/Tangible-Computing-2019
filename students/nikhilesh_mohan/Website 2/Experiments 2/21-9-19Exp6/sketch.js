@@ -6,7 +6,7 @@
 // Resource
 // https://www.openprocessing.org/sketch/742403
 //author: Vamoss
-//I used this code to understand the logic and find aspects I could dincorporate into our clock project
+//I used this code to understand the logic and find aspects I could incorporate into our clock project
 
 
 
