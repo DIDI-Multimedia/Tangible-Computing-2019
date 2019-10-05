@@ -18,6 +18,7 @@ function setup()
   capture.hide();
   poseNet = ml5.poseNet(capture, modelReady)
   poseNet.on('pose' , gotPoses)
+
 }
 
 function gotPoses(poses) {
@@ -63,6 +64,7 @@ var s=100
 
 function draw() 
 {
+  rectMode(CENTER)
   background(0);
   image(capture, 0, 0, 1920, 1080);
 
@@ -74,21 +76,25 @@ function draw()
 
       if(noseX>=500)
       {
-        rotate()
+        a+=0.01
       }
 
       if(noseY>=500)
       {
         s++
       }
+      if(noseY<=100)
+      {
+        s--
+      }
+      translate(windowWidth/2,windowHeight/4)
 
-
-      rectMode(CENTER)
-      rect(windowWidth/2,windowHeight/4,s,s)
+      rotate(a)
       
-    
-  
-  a++
+      rect(0,0,s,s)
+
+     
+      
 }
 
 
