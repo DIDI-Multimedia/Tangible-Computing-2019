@@ -28,10 +28,10 @@ function draw() {
       var threshold = 127;
 
       if (bright > threshold) {
-      	fill(0);
-	}  else{
-		fill (255);
-	}
+        fill(0);
+  }  else{
+    fill (255);
+  }
       
       var w = map(bright, 0, 255, 0, vScale);
       
