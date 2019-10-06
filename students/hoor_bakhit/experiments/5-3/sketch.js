@@ -32,6 +32,7 @@ fill(c.color[0],c.color[1],c.color[2],30)
       
 
        for (var i = 200;i > 0; i-=30){
+        
         ellipse(x,200,i,i)
         
 

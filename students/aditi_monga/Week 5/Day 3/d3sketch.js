@@ -1,10 +1,7 @@
 var mic;
-var x = 50
-var y = 50
-
 
 function setup(){
-	createCanvas(windowWidth/2,windowWidth/2)
+let canvas = createCanvas(windowWidth/2,windowWidth/2)
     canvas.parent('sketch-holder');
 
 	mic = new p5.AudioIn()
@@ -14,11 +11,14 @@ function setup(){
 function draw(){
   	background(0)
 	var vol = mic.getLevel();
-	
-    for (var x = 50; x <= width; x+=100){
-      for (var y = 50; y <=height; y+=100){
-        fill(x*vol, y*random(200), vol*random(255))
-        ellipse (x, y, vol*100,vol*100)
-      } 
-    }
+	noFill()
+  background(255)
+
+  for (var x = 10; x <= width; x+=40) {
+    for (var y = 10; y <= height; y+=40)
+      // stroke(x, y, random(255))
+      // strokeWeight(4)
+      ellipse (x, y, vol*400, vol*400)
+  }
+
 }
