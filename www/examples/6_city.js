@@ -37,7 +37,7 @@ $(function() {
   function initRenderer(argument) {
     scene = new THREE.Scene() // initialize scene
     renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true }) // passing settings as an object
-    renderer.setSize( window.innerWidth*0.33, window.innerHeight*0.77)
+    renderer.setSize( window.innerWidth*0.5, window.innerHeight*0.77)
     renderer.shadowMap.enabled = true; // add shows 
     var body = document.getElementById('procity');
     body.appendChild( renderer.domElement );
@@ -287,7 +287,7 @@ $(function() {
 
   function onWindowResize() {
 
-    var width = window.innerWidth;
+    var width = window.innerWidth*0.5;
     var height = window.innerHeight;
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
