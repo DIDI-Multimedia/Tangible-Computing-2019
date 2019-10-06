@@ -11,13 +11,12 @@ function draw() {
 
  x=x-2;
  if (x< 1){
- 	x= height;
+ 	x= height/2;
+ 	x=width/10
  }
-
-stroke(255)
-line(2,width/2,x,x);
-stroke(255)
-line(10,width/6,x,x);
-stroke(255)
-line(width/10,100,x,x);
+strokeWeight(1)
+stroke(random(255),random(255),random(255))
+line(200,width*8,x,x);
+line(100,width/6,x,x);
+line(height+2,100,x,x);
 }
