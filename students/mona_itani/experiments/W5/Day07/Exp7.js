@@ -1,27 +1,37 @@
-var rectsize = 1
-var a = 9
-function setup() {
-let canvas = createCanvas(windowWidth/2, windowWidth/2)
-  canvas.parent('sketch-holder');
-  background(255)
+let coswave = [];
 
+function setup() {
+  createCanvas(240, 240);
+  for (let i = 0; i < width; i++) {
+    let amount = map(i, 9, width, 10, PI*100);
+    coswave[i] = abs(cos(amount));
+  }
+  background(0);
+  noLoop();
 }
 
-function draw(){
+function draw() {
+  let y1 = 10;
+  let y2 = height/2;
+  for (let i = 0; i < width; i += 3) {
+    stroke(coswave[i] * 255);
+    rect(i, y1, i, y2/3);
+     circle(i/2, y1/10, i/10, y2/3);
+  }
 
-    for (var angle=0; angle < TWO_PI; angle+= TWO_PI/rectsize){
-      console.log(angle)
+  y1 = y2;
+  y2 = y1 + y1;
+  for (let i = 1; i < width; i += 10) {
+    stroke((coswave[i] * 255) / 10);
+    rect(i*9, y1/10, i*10, y2*19);
+     rect(i*10, y1/2, i*1, y2*10);
+  }
 
-      push()
-      translate(width/2,height/2)
-      rotate(angle)
-       stroke(0)
-       strokeWeight(1)
-    circle(9,0,mouseX,mouseY)
-          rect(10,0,mouseX,mouseY)
-      
-      
-      pop()
-    }
-
+  y1 = y2;
+  y2 = height
+  for (let i = 10; i < width; i += 10) {
+    stroke(255 - coswave[i] * 255);
+    circle(i, y1/2, i, y2/10);
+    rect(i*10, y1/1, i*20, y2*1);
+  }
 }

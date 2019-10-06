@@ -1,32 +1,67 @@
+class Module {
+  constructor(xOff, yOff, x, y, speed, unit) {
+    this.xOff = xOff;
+    this.yOff = yOff;
+    this.x = x;
+    this.y = y;
+    this.speed = speed;
+    this.unit = unit;
+    this.xDir = 10;
+    this.yDir = 1;
+  }
+
+ 
+  update() {
+    this.x = this.x + this.speed * this.xDir;
+    if (this.x >= this.unit || this.x <= 1) {
+      this.xDir *= -2;
+      this.x = this.x + 1 * this.xDir;
+      this.y = this.y + 1 * this.yDir;
+    }
+    if (this.y >= this.unit || this.y <= 0) {
+      this.yDir *= -1;
+      this.y = this.y + 1 * this.yDir;
+    }
+  }
+
+
+  draw() {
+    fill(255);
+    circle(this.xOff + this.x, this.yOff + this.y, 3, 10);
+     circle(this.xOff + this.x, this.yOff + this.y, 2, 1);
+  }
+}
+
+let unit = 10;
+let count;
+let mods = [];
+
 function setup() {
-  let canvas = createCanvas(windowWidth/3,windowWidth/3)
-  
-  
-  canvas.parent('sketch-holder');
-  var a = 100
+  createCanvas(720, 360);
+  noStroke();
+  let wideCount = width / unit;
+  let highCount = height / unit;
+  count = wideCount * highCount;
+
+  let index = 0;
+  for (let y = 0; y < highCount; y++) {
+    for (let x = 0; x < wideCount; x++) {
+      mods[index++] = new Module(
+        x * unit,
+        y * unit,
+        unit / 2,
+        unit / 2,
+        random(0.01, 0.09),
+        unit
+      );
+    }
+  }
 }
 
-function draw(){
-
-background(random(255),mouseX, mouseY)
-
-
- translate(width/2,height/2);
-
- for(var a =7; a<220; a += 99){
-
-   var x = random(6,1);
-   var xx = random(1,100);
-   push();
-
-   rotate(radians(a*100));
-   stroke(90);
-   strokeWeight(10);
-   rect(20,20,mouseX,mouseY);
-   circle(250,250,random(10,width),random(10,height))
-   strokeCap(CORNER);
-   
-   pop();
- }
+function draw() {
+  background(0);
+  for (let i = 0; i < count; i++) {
+    mods[i].update();
+    mods[i].draw();
+  }
 }
-
