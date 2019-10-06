@@ -30,6 +30,7 @@ function draw() {
 }
 }
 
+//--!!! Below Noise Sketch is followed from P5js.org Noise3d Tutorial/Example-!!!
   fill(237,34,93);
   // We are going to draw a polygon out of the wave points
   beginShape();
@@ -58,4 +59,6 @@ function draw() {
   vertex(0, height);
   endShape(CLOSE);
 }
+
+//source: p5j.org - examples - Noise 3D
 
