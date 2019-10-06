@@ -15,8 +15,12 @@ function draw(){
     background(0)
   rectMode(CENTER)
   var vol = mic.getLevel();
-  for (x = 0; x <= width; x+=10){
-    fill(0,100,255)
-      rect (x, height, 10, vol*random(2000))
+  fill(vol*1000,vol*300,vol*300)
+  for (x = 0; x <= width; x+=50){
+      rect (x, height, 50, vol*random(9000))
+  }
+
+  for (y = 0; y <= width; y+=50){
+      rect (y, 0, 50, vol*random(9000))
   }
 }
