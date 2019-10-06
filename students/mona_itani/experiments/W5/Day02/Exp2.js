@@ -1,33 +1,23 @@
-let capture;
-var rectsize = 10
-var a = 80
+let y = 100;
+
+
 function setup() {
-let canvas = createCanvas(windowWidth/2, windowWidth/2)
-  canvas.parent('sketch-holder');
-  background(255)
-     createCanvas(390, 240);
-  capture = createCapture(VIDEO);
-  capture.size(320, 240);
-
+  createCanvas(720, 400); 
+  stroke(0);
+  strokeWeight(255) 
+  frameRate(60);
 }
+function draw() {
+  background(0); 
+  y = y - 1;
+  if (y < 0) {
+    y = height;
 
-function draw(){
+  }
+  circle(2, width/2,y, y);
+   circle(y, 2, width/9, y);
+    circle(y, y, width/9, 10);
+      circle(width/9, 2,y , y);
+  }
 
-    for (var angle=0; angle < TWO_PI; angle+= TWO_PI/rectsize){
-      console.log(angle)
-
-      push()
-       background(255);
-  image(capture, 0, 0, 670, 900);
-      filter(invert);
-      translate(width/2,height/2)
-      rotate(angle)
-       stroke(0)
-       strokeWeight(1)
-    circle(0,0,0,10)
-      
-      pop()
-    }
-
-}
-
+// source: https://p5js.org/examples/structure-loop.html
