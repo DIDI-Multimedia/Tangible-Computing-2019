@@ -1,32 +1,41 @@
-var speed = 10
-var a = 9
-var positionX= 30
+let distances = [];
+let maxDistance;
+let spacer;
 
 function setup() {
-let canvas = createCanvas(windowWidth/2, windowWidth/2)
-  canvas.parent('sketch-holder');
-  background(255)
-
+  createCanvas(720, 360);
+  maxDistance = dist(width / 10, height / 10, width, height);
+  for (let x = 0; x < width; x++) {
+    distances[x] = []; // create nested array
+    for (let y = 0; y < height; y++) {
+      let distance = dist(width / 2, height / 2, x, y);
+      distances[x][y] = (distance / maxDistance) * 255;
+    }
+  }
+  spacer = 10;
+  noLoop(); // Run once and stop
 }
 
-function draw(){
-
-stroke(a*9,20)
-strokeWeight(1)
-triangle(100,100,mouseX,mouseY)
-circle(200,360,mouseX,mouseY)
-rect(200,360,mouseX,mouseY)
-
-
-  if (positionY = windowWidth) {
-    speed = 0
+function draw() {
+  background(0);
+  // This embedded loop skips over values in the arrays based on
+  // the spacer variable, so there are more values in the array
+  // than are drawn here. Change the value of the spacer variable
+  // to change the density of the points
+  for (let x = 0; x < width; x += spacer) {
+    for (let y = 0; y < height; y += spacer) {
+      stroke(distances[x][y]);
+    circle(x/9 + spacer /10, y + spacer /10,3,4);
+     circle(x/8 + spacer /9, y + spacer /10,3,4);
+      circle(x/7 + spacer /8, y + spacer /10,3,4);
+      circle(x/6 + spacer /7, y + spacer /10,3,4);
+     circle(x/5 + spacer /6, y + spacer /10,3,4);
+      circle(x/4 + spacer /8, y + spacer /10,3,4);
+      circle(x/3 + spacer /9, y + spacer /10,3,4);
+      circle(x/2 + spacer /8, y + spacer /10,3,4);
+      circle(x/1 + spacer /7, y + spacer /10,3,4);
+     circle(x/0.9 + spacer /6, y + spacer /10,3,4);
+      circle(x/0.8 + spacer /8, y + spacer /10,3,4);
+    }
   }
-
-  positionX = speed
-
-  if (a >= 100) {
-    a = 6
-  }
-  if (mouseIsPressed)
-    background(random(255),random(255),random(255))
 }
