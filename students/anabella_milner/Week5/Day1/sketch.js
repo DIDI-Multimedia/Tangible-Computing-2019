@@ -1,6 +1,7 @@
+
 var video;
 
-var vScale = 16;
+var vScale = 6;
 
 function setup() {
   createCanvas(640, 480);
@@ -19,17 +20,18 @@ function draw() {
     for (var x = 0; x < video.width; x++){
       var index = (video.width - x + 1 + (y * video.width))*4;
       var r = video.pixels[index+0];
-      var g = video.pixels[index+4];
-      var b = video.pixels[index+6];
+      var g = video.pixels[index+0];
+      var b = video.pixels[index+0];
 
-      var bright = (r+g+b)/1;
+      var bright = (r+g+b)/2;
 
       var w = map(bright, 0, 255, 0, vScale);
 
-      stroke(255,50);
+      stroke(255);
+       
 
 
-      fill(random(255),100,255,50);
+      fill(0, 0, 50);
       rect(x*vScale, y*vScale, w, w);
 
 
@@ -44,11 +46,3 @@ function draw() {
 //updatePixels();
 
 }
-
-
-
-
-
-
-
-
