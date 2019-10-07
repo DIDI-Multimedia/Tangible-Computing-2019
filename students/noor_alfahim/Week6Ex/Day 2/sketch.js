@@ -1,25 +1,45 @@
-/*
-
-Gradient Array
-
-*/
 
 
-function setup() {
-  createCanvas(400, 400);
-  mic = new p5.AudioIn(0);
-  mic.start();
+function setup (){
+  createCanvas (400,400)
+  background(0)
+
+
+
+  let line = {
+
+    x1: width/2,
+    y1: 0, 
+    x2: width/2,
+    y2: height/2,
+
+  }
+
+
+
+  let numLines = 10
+
+  drawLineRecursion (line,numLines)
+
 }
 
-function draw() {
-  background(100,200,50);
-  var vol = mic.getLevel();
-  fill(255);
-  noStroke()
-  ellipse(200,200,200,vol * 1000);
-  fill(0,0,255);
-  stroke(50);
-  ellipse(200,200,100,vol * 1000);
 
-  console.log(vol);
+
+
+function drawLineRecursion(l,numLines){
+
+  stroke(random(255),random(255),random(255))
+  strokeWeight (numLines*25)
+  line(l.x1,l.y1,l.x2,l.y2)
+
+
+    numLines = numLines - 1
+    if (numLines > 0){
+      drawLineRecursion (l,numLines)
+      console.log(numLines)
+
+    }
+
+  // drawLineRecursion()
+
 }
