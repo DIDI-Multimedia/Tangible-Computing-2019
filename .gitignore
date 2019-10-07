@@ -4,5 +4,5 @@ examples/03_citygen/procedural-city-js/
 template/node template/node_modules
 echo node_modules
 echo .DS_Store
-# template/node template/node_modules
+template/node template/node_modules
 # students/mona_itani/Week1/week1.png

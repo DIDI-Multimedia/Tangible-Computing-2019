@@ -1,0 +1,25 @@
+body {
+
+	font-family: 'arial';
+/*	color: #592C5F; */
+	padding: 5vw;
+	background-color: #c39f53;
+	justify-content: center;
+	align-items: center;
+
+}
+
+h1, h5{
+	color: #5e5242
+}
+
+a {
+	color: #e8e2bf
+}
+
+p, h3 {
+
+	color: #8d5822; 
+
+
+}
