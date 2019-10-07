@@ -1,38 +1,46 @@
-var mic;
-// var song;
+function setup() {
+  let canvas = createCanvas(400,400)
+  canvas.parent('sketch-holder');
 
-// function preload(){
-// 	song = loadSound('https://drive.google.com/file/d/183g550iL68tFs-JiQvGLsLjc7aDcfW_9/view?usp=sharing')
-// }
+  background(0)
 
-var volhistory = [];
 
-function setup(){
-	let canvas = createCanvas(windowWidth/2,windowWidth/4)
-	canvas.parent('sketch-holder');
+  // drawLineRecursion(line, numLines)
 
-	// song.play();
-
-	mic = new p5.AudioIn()
-	mic.start()
 }
 
 function draw(){
-  	background(0)
-	var vol = mic.getLevel();
-	volhistory.push(vol)
-noFill()
-stroke(255)
 
-// push()
-// translate(0, windowWidth/2)
+  let line = {
+    x1: width/2,
+    y1: 0,
+    x2: width/2,
+    y2: height,
+  }
 
-beginShape();
-	for (var i = 0; i < volhistory.length; i++) {
-		vertex(i, vol*random(300,500))
-	}
-endShape();
-// pop()
-	// fill(vol*255,vol*59,vol*200)
-	// ellipse(width/2, width/2,600,600)
+  let numLines = 25
+    
+    drawLineRecursion(line,numLines)
+    
+}
+
+
+function drawLineRecursion(l,numLines){
+
+  strokeWeight(numLines*25)
+  stroke (random(255),random(255),random(255))
+  push()
+  // translate(0,height/2)
+  rotate(TWO_PI/numLines)
+  line(l.x1,l.y1,l.x2,l.y2)
+  pop()
+
+  numLines = numLines - 1
+
+  if (numLines > 0){
+    drawLineRecursion(l,numLines)
+  }
+
+  // drawLineRecursion()
+
 }
