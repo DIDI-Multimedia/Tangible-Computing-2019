@@ -1,21 +1,42 @@
-<!-- boilerplate p5 example -->
-<!DOCTYPE html>
-
 <html>
+	<head>
+		<title> Week 6, Day 4 </title>
+		<script src="https://threejs.org/build/three.js"></script>
+		<link rel="stylesheet" type="text/css" href="style.css"> 
+		<style>
+			body { margin: 0; }
+			canvas { width: 50%; height: 50% }
+		</style>
+	</head>
+	<body>
+		<script src="js/three.js"></script>
+		<script>
+			var scene = new THREE.Scene();
+			var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
 
-<head>
-	<title> Week 6, Day 4 </title>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script> 
-	<link rel="stylesheet" type="text/css" href="style.css"> 
-	<script src="sketch.js"></script>
+			var renderer = new THREE.WebGLRenderer();
+			renderer.setSize( window.innerWidth, window.innerHeight );
+			document.body.appendChild( renderer.domElement );
 
-</head>
+			var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+			var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+			var cube = new THREE.Mesh( geometry, material );
+			scene.add( cube );
 
-<body>
-	<h1> Flowers I guess...? </h1>
-	<div id="sketch-holder"></div>
-</body>
+			camera.position.z = 5;
+
+			var animate = function () {
+				requestAnimationFrame( animate );
+
+				cube.rotation.x += 0.01;
+				cube.rotation.y += 0.01;
+
+				renderer.render( scene, camera );
+			};
+
+			animate();
+		</script>
+	</body>
 
 <footer>
 	<a href="../../Page Links/Week 6/week_6.html"> Back to Week 6 </a>
