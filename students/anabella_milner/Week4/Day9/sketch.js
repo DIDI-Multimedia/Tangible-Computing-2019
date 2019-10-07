@@ -16,7 +16,7 @@ function draw(){
   
     let r = noise(video.pixels)*255
      let b = noise(video.pixels)*100
-     let g = noise(video.pixels)*255
+     let g = noise(video.pixels)*10
      fill(r,g,b)
      
   tint(255, 45);
