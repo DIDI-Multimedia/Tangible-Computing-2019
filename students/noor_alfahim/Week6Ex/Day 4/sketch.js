@@ -1,69 +1,36 @@
+var camera, scene, renderer;
+var geometry, material, mesh;
 
+init();
+animate();
 
-function setup (){
-  createCanvas (400,400)
-  background(0)
+function init() {
 
+	camera = new THREE.PerspectiveCamera( 400,400 );
+	camera.position.z = 1;
 
+	scene = new THREE.Scene();
 
-  let line = {
+	geometry = new THREE.BoxGeometry( 0.2, 0.2, 0.2 );
+	material = new THREE.MeshNormalMaterial();
 
-    x1: width/2,
-    y1: 0, 
-    x2: width/2,
-    y2: height,
+	mesh = new THREE.Mesh( geometry, material );
+	scene.add( mesh );
 
-  }
-
-
-
-  let numLines = 20
-
-  drawLineRecursion (line,numLines)
+	renderer = new THREE.WebGLRenderer( { antialias: true } );
+	renderer.setSize( window.innerWidth, window.innerHeight );
+	document.body.appendChild( renderer.domElement );
 
 }
 
+function animate() {
 
+	requestAnimationFrame( animate );
 
+	mesh.rotation.x += 0.01;
+	mesh.rotation.y += 0.02;
 
-function drawLineRecursion(l,numLines){
-
-  stroke(random(255),random(255),random(255),50)
-  strokeWeight (numLines*10)
-
-  let mid = (l.y1 +l.y2)/2
-  line(l.x1,l.y1,l.x2,l.y2)
-
-
-    numLines = numLines - 1
-
-    let lineA = {
-
-    	x1: l.x1,
-    	y1: mid,
-    	x2: l.x2,
-    	y2: l.y2,
-    }
-
-
-    let lineB = {
-
-    	x1: l.x1,
-    	y1: l.y1,
-    	x2: l.x2,
-    	y2: mid,
-    }
-
-    console.log(lineA)
-
-
-    if (numLines > 0){
-      drawLineRecursion (l,numLines)
-      console.log(numLines)
-
-    }
-
-  // drawLineRecursion()
+	renderer.render( scene, camera );
 
 }
 
