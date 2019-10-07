@@ -1,12 +1,8 @@
-/*
-
-Gradient Array
-
-*/
-
+let mic;
 
 function setup() {
-  createCanvas(400, 400);
+  let canvas = createCanvas(400,400)
+		canvas.parent('sketch-holder');
   mic = new p5.AudioIn(0);
   mic.start();
 }
