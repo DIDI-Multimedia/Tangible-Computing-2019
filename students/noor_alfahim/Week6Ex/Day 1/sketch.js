@@ -26,20 +26,11 @@ function setup (){
 
 
 
+function drawLineRecursion(l,numLines){
 
+  stroke(34,155,215)
+  line(l.x1,l.y1,l.x2,l.y2)
 
-
-
-
-
-
-
-
-
-function drawLineRecursion(line,numLines){
-
-
-
-  drawLineRecursion()
+  // drawLineRecursion()
 
 }
