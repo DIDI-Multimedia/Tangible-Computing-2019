@@ -11,13 +11,13 @@ function setup (){
     x1: width/2,
     y1: 0, 
     x2: width/2,
-    y2: height/2,
+    y2: height,
 
   }
 
 
 
-  let numLines = 10
+  let numLines = 20
 
   drawLineRecursion (line,numLines)
 
@@ -29,7 +29,7 @@ function setup (){
 function drawLineRecursion(l,numLines){
 
   stroke(random(255),random(255),random(255))
-  strokeWeight (numLines*25)
+  strokeWeight (numLines*10)
   line(l.x1,l.y1,l.x2,l.y2)
 
 
