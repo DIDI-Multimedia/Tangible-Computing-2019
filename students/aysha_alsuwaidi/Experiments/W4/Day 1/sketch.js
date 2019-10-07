@@ -14,6 +14,7 @@ function setup(){
     
     }
 
+
 let critter2 = {
 
       name: "Pikky", 
@@ -27,7 +28,6 @@ let critter2 = {
     }
 
     critter2.draw()
-
 
 
 
@@ -74,6 +74,7 @@ let critter2 = {
 
 
       pop()
+
     }
 
 
@@ -98,4 +99,5 @@ let critter2 = {
 
 
       pop()
+
     }

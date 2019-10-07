@@ -5,8 +5,9 @@ let x = 200
 // execute once when the program begins
 function setup() {
   createCanvas(720, 400); // Size must be the first statement
-  stroke(255); // Set line drawing color to white
-  frameRate(80);
+  // stroke(255); // Set line drawing color to white
+  noStroke();
+  frameRate(40);
 }
 // The statements in draw() are executed until the
 // program is stopped. Each statement is executed in
@@ -16,15 +17,16 @@ function draw() {
   background(0); // Set the background to black
   y = y - 1;
   if (y < 0) {
-    y = height/width;
+    y = height;
 
     x = x + 20;
     if (x < 1) {
-      x = width-2;
+      x = width;
     }
   }
-
-  line(10, 10, width+10, 10);
-  line(10, 10, 10, height);
-
+  fill(random(255),random(255),random(255))
+  rect(0, y, width+20, y);
+  rect(x, 0, x, height);
 }
+
+// source: https://p5js.org/examples/structure-loop.html

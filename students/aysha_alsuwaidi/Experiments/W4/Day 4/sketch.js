@@ -1,3 +1,4 @@
+
 var mic;
 let x = 23
 function setup() {
@@ -32,3 +33,23 @@ line(width/10,100,vol*1000,vol*1000);
 
   console.log(vol)
 }
+// =======
+
+
+// function setup() {
+// let canvas = createCanvas(windowWidth/1, windowWidth/2)
+//   canvas.parent('sketch-holder');
+//   capture = createCapture(VIDEO);
+  
+
+// }
+
+// function draw(){
+//   background(255);
+//   image(capture, 100,50,1000, 500);
+//   tint(255,0,150);
+ 
+  
+
+// }
+// >>>>>>> cce274124229c837dde04b2ed863913fe377d1b7
