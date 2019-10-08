@@ -18,14 +18,20 @@ function setup(){
     // 201806 - 201800 = 06 
     let startX = width*(year/totalYears)
     let x = Math.random()*(startX+width/totalYears)
-    let y = Math.random()*width
+    let y = Math.random()*width 
     let r = volume/2000000
     stroke(0)
     line(startX,0,startX,height)
 
+    
+
     ellipse(x,y,r,r)
 
-  
+if (customerType = "Residential")
+  rect(x,y,r,r)
+else
+   ellipse(x,y,r,r) 
+
 
 if (volume > 100000)
             fill(66,190,218);
