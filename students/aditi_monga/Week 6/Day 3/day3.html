@@ -1,10 +1,10 @@
 <!-- boilerplate p5 example -->
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 
 <html>
 
 <head>
-	<meta charset="UTF-8">
+
 	<title> Week 5, Day 3 </title>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script>
@@ -37,4 +37,64 @@
 </body>
 
 
+</html>
+ -->
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title> Week 5, Day 3 </title>
+		<style>
+			body { margin: 0; }
+			canvas { width: 100%; height: 100% }
+		</style>
+		<link rel="stylesheet" type="text/css" href="style.css"> 
+	</head>
+
+	<body>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r83/three.min.js"></script>
+		<center>
+	
+		<h1> My Eyes Hurt P2 but now you can scream </h1>
+		<h5> play this with some dope music </h5>
+	
+		<hr>
+		<br>
+		<script>
+			var scene = new THREE.Scene();
+			var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+
+			var renderer = new THREE.WebGLRenderer();
+			renderer.setSize( window.innerWidth, window.innerHeight );
+			document.body.appendChild( renderer.domElement );
+
+			var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+			var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );	
+			// var material = new THREE.MeshLambertMaterial({})
+			var cube = new THREE.Mesh( geometry, material );
+			scene.add( cube );
+
+			camera.position.z = 5;
+
+			var animate = function () {
+				requestAnimationFrame( animate );
+
+				cube.rotation.x += 0.01;
+				cube.rotation.y += 0.01;
+
+				renderer.render( scene, camera );
+			};
+
+			animate();
+
+		</script>
+	<br>
+	<hr>
+	<p><a href="../Day 2/day2.html"> < previous </a>   <br> <a href="../Day 4/day4.html"> next > </a></p>
+
+	<p><a href="../week_05.html"> back to week 5 </a></p> 
+
+	<p><a href="../../Main Page/index.html"> back to main page </a></p> 
+
+		</center>
+	</body>
 </html>
