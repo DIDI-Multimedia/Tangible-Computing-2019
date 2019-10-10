@@ -2,7 +2,7 @@ var mic;
 function setup(){
 
   let canvas = createCanvas(windowWidth/3, windowWidth/3)
-
+  canvas.parent('sketch-holder');
   mic = new p5.AudioIn();
   mic.start();
 }
