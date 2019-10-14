@@ -9,21 +9,21 @@
     <link rel="stylesheet" href="style.css">
     <style type="text/css">
       
-      /*button {*/
+      button {
 
-    /*position: absolute;
+    position: absolute;
     display: block;
     z-index: 99;
     left: 50%;
     top: 50%;
-    }*/
-    
+
+}
     </style>
 </head>
 <body>
 
   <!-- defining a button -->
-  <!-- <button type="button" id="resetBtn"> Do you feel lucky? </button> -->
+  <button type="button" id="resetBtn"> Do you feel lucky? </button>
 
 
   <!-- <script src="app.js"></script> -->
@@ -55,7 +55,6 @@ function init() {
   renderer.setSize( window.innerWidth, window.innerHeight );
   container.appendChild( renderer.domElement );
 
-
   initEvents()
   addLights()
 
@@ -76,7 +75,7 @@ function addLights(){
 }
 function initEvents(){
 
-  // document.getElementById("resetBtn").onclick = reset 
+  document.getElementById("resetBtn").onclick = reset 
   //document.addEventListener( 'mousemove', onDocumentMouseDown, false );
 
 }
@@ -110,7 +109,53 @@ function onDocumentMouseDown( event ){
 
 }
 
+function add2DArray(){
 
+  let numX = 3
+  let numY = 3
+  let array = []
+
+  for (var i = 0; i < numX; i++ ){
+
+    let row = []
+
+     for (var j = 0; j < numY; j++){
+
+      let element =[i,j]
+      row.push(element)
+
+     }
+      array.push(row)
+     }
+  console.log( JSON.stringify(array,null,4))
+  }
+
+
+function rotateCubes(cubes){
+
+
+  for (var x = 0; x < cubes.length; x++){
+
+    let row = cubes[x]
+  for (var y = 0; y < row.length; y++){
+
+    let col = row[y]
+    for (var z = 0; z < col.length; z++){
+
+      let cube = cubes[x][y][z]
+      cube.rotation.x += 0.01*x
+cube.rotation.y += 0.01*y
+cube.rotation.z += 0.01*z
+
+
+
+}
+
+}
+
+}
+
+}
 
 
 function addRndCubeArr(){
@@ -121,11 +166,11 @@ function addRndCubeArr(){
 
 
   let dimX = 10
-  let dimY = 16
-  let dimZ = 5
+  let dimY = 10
+  let dimZ = 16
 
-  let space = 50
-  let scale = 30
+  let space = 25
+  let scale = 70
 
   var geo = new THREE.BoxBufferGeometry( 1,1,1)
 
@@ -146,16 +191,13 @@ function addRndCubeArr(){
         let r = Math.floor(x/dimX*255)
         let g = Math.floor(y/dimX*255)
         let b = Math.floor(z/dimX*255)
-        let rgb = 'rgb(' + r + ',' + g + ',' + b + ')';
+let rgb = 'rgb(' + r + ',' + g + ',' + b + ')';
 
-        //let rgb
+if (x < dimX/2 && y < dimY/2){
 
-        if(x<3 && y<3)
-        {
-          rgb = 'rgb(' + 0 + ',' + 0 + ',' + 0 + ')';
+        let rgb = 'rgb(' + 0 + ',' + 0 + ',' + 0 + ')';
 
-        }
-        
+      }
         // console.log(rgb)
         var object = new THREE.Mesh( geo, material)
         object.material.color.set(rgb)  
@@ -180,35 +222,12 @@ function addRndCubeArr(){
 }
 
 
-function rotateCubes(cubes)
-{
-  for(var x=0; x<cubes.length; x++)
-  {
-    let row=cubes[x]
-    for(var y=0; y<row.length; y++)
-    {
-      let col=row[y]
-      for(var z=0; z<col.length; z++)
-      {
-        let cube = cubes[x][y][z]
-        cube.rotation.x += 0.05*x 
-        cube.rotation.y += 0.05*y
-        cube.rotation.z += 0.05*z
-
-      }
-    }
-  }
-
-
-}
-
-
 
 
 function animate() {
 
   requestAnimationFrame( animate );
-  rotateCubes(cubes)
+  rotateCubes(cubes);
   render();
 
 }
