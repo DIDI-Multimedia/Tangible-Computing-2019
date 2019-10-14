@@ -1,40 +1,55 @@
-<html>
-  <head>
-    <title>My first three.js app</title>
-    <style>
-      body { margin: 0; }
-      canvas { width: 100%; height: 100% }
-    </style>
-  </head>
-  <body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r83/three.min.js"></script>
-    <script>
-      var scene = new THREE.Scene();
-      var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Three.js 101</title>
+  <!--  Simple reset to delete the margins  -->
+  <style>
+    body { margin: 0; }
+    canvas { width: 100%; height: 100% }
+  </style>
+  <!--  Three.js CDN  -->
+  <title> p5 sketch </title>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/104/three.js"></script>
 
-      var renderer = new THREE.WebGLRenderer();
-      renderer.setSize( window.innerWidth, window.innerHeight );
-      document.body.appendChild( renderer.domElement );
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script> 
+  <script src="https://unpkg.com/ml5@0.3.1/dist/ml5.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css"> 
+  <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,700&display=swap" rel="stylesheet">
+  
+</head>
+<body>
 
-      var geometry = new THREE.SphereGeometry( 5, 32, 32 );
-      var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );  
-      // var material = new THREE.MeshLambertMaterial({})
-      var sphere = new THREE.Mesh( geometry, material );
-      scene.add( sphere );
+  <header>
+    <div class="container">
+      <img src ="Nikilogo.png"50% =Logo width=35px height=35px class="logo">
 
-      camera.position.z = 5;
+      <nav>
+        <ul>
+          <li><a href="../../Nikhilesh.html">Home</a></li>
+          <li><a href="../../About.html">About</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="../../Courses.html">Courses</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-      function animate() 
-      {
-        requestAnimationFrame( animate );
-
-        sphere.rotation.x += 0.01;
-        sphere.rotation.y += 0.01;
-
-        renderer.render( scene, camera );
-      }
-
-      animate();
-    </script>
-  </body>
+  <div id="jshead">
+  <h1> THREE.js 101 </h1>
+  <h2> week 6, day 2 </h2>
+  <br>
+  </div>
+  <!--  Our code  -->
+  <script src="sketch.js"></script>
+</body>
 </html>
+
+
+
+
+
+
+
