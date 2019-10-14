@@ -1,37 +1,36 @@
-var camera, scene, renderer;
-var geometry, material, mesh;
 
-init();
-animate();
 
-function init() {
+function setup (){
+  createCanvas (400,400)
+  background(0)
 
-	camera = new THREE.PerspectiveCamera( 400,400 );
-	camera.position.z = 1;
 
-	scene = new THREE.Scene();
 
-	geometry = new THREE.BoxGeometry( 0.2, 0.2, 0.2 );
-	material = new THREE.MeshNormalMaterial();
+  let line = {
 
-	mesh = new THREE.Mesh( geometry, material );
-	scene.add( mesh );
+    x1: width/2,
+    y1: 0, 
+    x2: width/2,
+    y2: height/2,
 
-	renderer = new THREE.WebGLRenderer( { antialias: true } );
-	renderer.setSize( window.innerWidth, window.innerHeight );
-	document.body.appendChild( renderer.domElement );
+  }
 
-}
 
-function animate() {
 
-	requestAnimationFrame( animate );
+  let numLines = 10
 
-	mesh.rotation.x += 0.01;
-	mesh.rotation.y += 0.02;
-
-	renderer.render( scene, camera );
+  drawLineRecursion (line,numLines)
 
 }
 
 
+
+
+function drawLineRecursion(l,numLines){
+
+  stroke(34,155,215)
+  line(l.x1,l.y1,l.x2,l.y2)
+
+  // drawLineRecursion()
+
+}
