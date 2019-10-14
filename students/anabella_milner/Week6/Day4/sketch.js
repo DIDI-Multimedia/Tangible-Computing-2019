@@ -1,6 +1,6 @@
 var video;
 
-var vScale = 5;
+var vScale = 8;
 
 function setup() {
   createCanvas(640, 480);
@@ -9,6 +9,19 @@ function setup() {
   video.size(width/vScale, height/vScale);
   video.hide()
   noStroke()
+
+  
+  let line = {
+  x1: width/2,
+  y1: 0,
+  x2: width/2,
+  y2: height,
+
+  }
+
+  let numLines = 10
+
+  drawLineRecursion(line, numLines)
 }
 
 function draw() {
@@ -19,7 +32,7 @@ function draw() {
 
   for (var y = 0; y < video.height; y++){
     for (var x = 0; x < video.width; x++){
-      var index = (x + y * video.width)*2;
+      var index = (x + y * video.width)*4;
       var r = video.pixels[index+0];
       var g = video.pixels[index+1];
       var b = video.pixels[index+2];
@@ -53,3 +66,49 @@ function draw() {
 
 
 }
+
+ 
+
+function drawLineRecursion(l,numLines){
+
+  stroke(random(255), random(255), random(255),10)
+  strokeWeight(numLines*30)
+
+   let mid = (l.y1 + l.y2)/2
+  line(l.x1,l.y1,l.x2,l.y2)
+
+  
+  //rectMode(CENTER)
+  //ect(windowWidth/2, windowHeight/2, numLines,numLines)
+
+  numLines--
+
+  let lineA = {
+    x1: l.x1,
+    y1: l.y1,
+    x2: l.x2,
+    y2: mid,
+
+  }
+
+    let lineB = {
+    x1: l.x1,
+    y1: mid,
+    x2: l.x2,
+    y2: l.y2,
+
+  }
+
+
+
+
+
+  if(numLines > 0){
+    drawLineRecursion(lineA, numLines)
+    drawLineRecursion(lineB, numLines)
+    //console.log(numLines)
+  }
+
+  //drawLineRecursion()
+}
+
