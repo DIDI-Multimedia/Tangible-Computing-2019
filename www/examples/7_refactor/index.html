@@ -73,10 +73,12 @@ function addLights(){
 
 
 }
+
+
 function initEvents(){
 
   document.getElementById("resetBtn").onclick = reset 
-  document.addEventListener( 'mousemove', onDocumentMouseDown, false );
+  // document.addEventListener( 'mousemove', onDocumentMouseDown, false );
 
 }
 
@@ -119,11 +121,11 @@ function addRndCubeArr(){
   // let dimZ = 5 + Math.random()*10
 
 
-  let dimX = 16
-  let dimY = 16
-  let dimZ = 16
+  let dimX = Math.random()*20 + 5
+  let dimY = 20
+  let dimZ = 20
 
-  let space = 25
+  let space = 20
   let scale = 10
 
   var geo = new THREE.BoxBufferGeometry( 1,1,1)
@@ -146,12 +148,24 @@ function addRndCubeArr(){
         let g = Math.floor(y/dimX*255)
         let b = Math.floor(z/dimX*255)
         let rgb = 'rgb(' + r + ',' + g + ',' + b + ')';
-        // console.log(rgb)
+
+        if (x < dimX/2 && y < dimY/2 ){
+
+          rgb = 'rgb(' + 0 + ',' + 0 + ',' + 0 + ')';
+
+        }
+
         var object = new THREE.Mesh( geo, material)
+
         object.material.color.set(rgb)  
         object.position.set(x*space,y*space,z*space)
         object.scale.set(scale,scale,scale)
-        scene.add( object )
+
+        if ( y*z > 4) {
+
+          scene.add( object )
+
+        }
 
         col.push(object)
 
@@ -169,12 +183,39 @@ function addRndCubeArr(){
 
 }
 
+function rotateCubes(cubes){
 
+  // rotate cubes 
+  for (var x = 0; x < cubes.length; x++){
+
+    let row = cubes[x]
+
+    for (var y = 0; y < row.length; y++){
+
+      let col = row[y]
+
+      for (var z = 0; z < col.length; z++){
+
+        let cube = cubes[x][y][z]
+        cube.rotation.x += 0.05*x
+        cube.rotation.y += 0.05*y
+        cube.rotation.z += 0.05*z
+
+
+      }
+
+    }
+
+  }
+
+
+}
 
 
 function animate() {
 
   requestAnimationFrame( animate );
+  rotateCubes( cubes )
   render();
 
 }

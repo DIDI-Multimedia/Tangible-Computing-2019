@@ -146,11 +146,15 @@ function init() {
   renderer.setSize( window.innerWidth, window.innerHeight );
   container.appendChild( renderer.domElement );
 
-  initEvents()
-  addLights()
+  // initEvents()
+  // addLights()
 
-  cubes = addRndCubeArr()
-  console.log(cubes)
+  // cubes = addRndCubeArr()
+  // console.log(cubes)
+
+  add2DArray()
+
+
 }
 
 function addLights(){
@@ -189,8 +193,8 @@ function onDocumentMouseDown( event ){
 
           let obj = cubes[x][y][z]
           obj.scale.set(20*mouse.x,5*(mouse.x+mouse.y),20*mouse.y)
-          obj.rotation.x += 0.1
-          obj.rotation.y += 0.1
+          obj.rotation.x += 0.2
+          obj.rotation.y += 0.2
           obj.rotation.z += 0.1
 
         }
@@ -199,6 +203,42 @@ function onDocumentMouseDown( event ){
     }
 
 }
+
+
+function add2DArray(){
+
+  console.log('add 2D array')
+  // creating a 2D array 
+
+  let numX = 3 
+  let numY = 3 
+  let array = []
+
+  for (var i = 0; i < numX; i++ ){ 
+
+    let row = []
+
+    for (var j = 0; j < numY; j++ ){
+
+
+      let element = [i,j] // coordinate position 
+      row.push(element)
+
+    }
+
+    array.push(row)
+
+  }
+
+  console.log(array )
+
+}
+
+
+
+
+
+
 
 
 
@@ -287,17 +327,17 @@ function render() {
 
 function reset(){
 
-  console.log('reset scene')
+  // console.log('reset scene')
 
-  while(scene.children.length > 0){ 
+  // while(scene.children.length > 0){ 
 
-      scene.remove(scene.children[0]); 
+  //     scene.remove(scene.children[0]); 
   
-  }
+  // }
 
-  addLights()
+  // addLights()
 
-  cubes = addRndCubeArr()
+  // cubes = addRndCubeArr()
 
 }
 
