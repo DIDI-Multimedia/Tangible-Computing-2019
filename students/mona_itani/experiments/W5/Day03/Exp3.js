@@ -26,7 +26,7 @@ class Module {
 
 
   draw() {
-    fill(255);
+    fill(237,34,93);
     rect(this.xOff + this.x, this.yOff + this.y, 6, 6);
      rect(this.xOff + this.x, this.yOff + this.y, 10, 20);
   }

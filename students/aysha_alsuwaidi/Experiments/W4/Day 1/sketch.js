@@ -14,6 +14,23 @@ function setup(){
     
     }
 
+
+let critter2 = {
+
+      name: "Pikky", 
+      posX: width/2, 
+      posY: width/2,
+      rot: 0,  
+      size: 50, 
+      color: [0],
+      draw: drawPikky,
+    
+    }
+
+    critter2.draw()
+
+
+
     critter.draw()
 
 
@@ -57,4 +74,30 @@ function setup(){
 
 
       pop()
+
+    }
+
+
+
+
+
+
+    function drawPikky(){
+     
+      let c = this
+      push()
+    
+      // fill in code here, draw a funny face
+
+      translate(c.posX,c.posY)
+      text(c.name, c.size,-c.size)
+      fill(c.color)
+      ellipse(10,20,c.size-10*2,c.size*3)
+       ellipse(-30,10,c.size*2,c.size/10)
+       ellipse(1,1,c.size-9,c.size*2)
+       ellipse(40,29,c.size,c.size/2)
+
+
+      pop()
+
     }
