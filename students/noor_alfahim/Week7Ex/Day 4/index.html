@@ -180,10 +180,27 @@ function addRndCubeArr(){
 }
 
 
-function rotateCubes()
-{
-  
+function rotateCubes(cubes){
 
+	for (var x = 0; x < cubes.length; x++){
+
+		let row = cubes[x]
+
+		for (var y = 0; y < row.length; y++){
+
+			let col= row[y]
+
+			for (var z = 0; z < col.length; z++){
+
+				let cube = cubes[x][y][z]
+				cube.rotation.x += 0.05*x
+				cube.rotation.x += 0.05*y
+				cube.rotation.x += 0.05*z
+
+
+			}
+		}
+	}
 }
 
 
@@ -192,7 +209,7 @@ function rotateCubes()
 function animate() {
 
   requestAnimationFrame( animate );
-  rotateCubes()
+  // rotateCubes()
   render();
 
 }

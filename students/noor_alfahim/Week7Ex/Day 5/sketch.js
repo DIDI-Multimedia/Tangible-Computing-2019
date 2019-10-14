@@ -1,62 +1,37 @@
-// Sketch Title - for MuW201 Tangible Computing, 2019
-// Firstname Lastname 
-// GitHub Username
-// Date 
-
-function setup(){
-
-	createCanvas(1000,1000);
-	background(255)
-
-	let flower01 = createFlower()
-	let flower02 = createFlower()
-	drawFlower (flower01)
-	push()
-	translate(width/2,height/2)
-	drawFlower (flower02)
-	pop()
 
 
-}
-	
-function createFlower(){
+function setup (){
+  createCanvas (400,400)
+  background(0)
 
-	let flower = {}
-	flower.posX = 300
-	flower.posY = 300 
-	flower.numPetals = 20
-	flower.innerRadius = 100
-	flower.outerRadius = 200
-	flower.color1 = [100,150,200]
-	flower.color2 = [200,150,100]
-	flower.rotation = 30
-	flower.speed = 1
-	flower.scale = 1
-	
-	return flower
 
+
+  let line = {
+
+    x1: width/2,
+    y1: 0, 
+    x2: width/2,
+    y2: height/2,
+
+  }
+
+
+
+  let numLines = 10
+
+  drawLineRecursion (line,numLines)
 
 }
 
-function drawFlower(flower){
-
-	fill(flower.color1)
-
-	for(var angle = 0; angle < TWO_PI; angle += TWO_PI/flower.numPetals){
-
-		console.log(angle)
-
-		push()
-		translate(flower.posX,flower.posY)
-		rotate(angle)
-		ellipse(0,flower.innerRadius,(flower.outerRadius-flower.innerRadius)/2,flower.outerRadius-flower.innerRadius)
-		pop()
-
-	}
 
 
-fill(flower.color2)
-ellipse(flower.posX, flower.posY, flower.innerRadius, flower.innerRadius)
+
+function drawLineRecursion(l,numLines){
+
+  stroke(34,155,215)
+  line(l.x1,l.y1,l.x2,l.y2)
+
+  // drawLineRecursion()
 
 }
 
