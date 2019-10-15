@@ -5,7 +5,7 @@ function setup(){
   let line = {
   
   x1: width/2,
-  y1:0,
+  y1:10,
   x2: width/2,
   y2: height,
  

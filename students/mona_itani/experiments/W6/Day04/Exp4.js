@@ -1,41 +1,78 @@
-let distances = [];
-let maxDistance;
-let spacer;
+AFRAME.registerComponent('drawline', {
 
-function setup() {
-  createCanvas(720, 360);
-  maxDistance = dist(width / 10, height / 10, width, height);
-  for (let x = 0; x < width; x++) {
-    distances[x] = []; // create nested array
-    for (let y = 0; y < height; y++) {
-      let distance = dist(width / 2, height / 2, x, y);
-      distances[x][y] = (distance / maxDistance) * 255;
+  schema: {
+    norman: {type: 'selector'}
+  },
+
+  init() {
+    // this.target = document.querySelector('#wanderer')
+    this.normanComp = this.data.norman.components.norman
+    this.animEnt = document.querySelector('#anim')
+    this.animComp = document.querySelector('#anim').components.anim
+    this.controllers = Array.prototype.slice.call(document.querySelectorAll('a-entity[oculus-touch-controls]'))
+    this.boundFrameChangeListener = this.onExitFrame.bind(this)
+    this.animEnt.addEventListener('EXIT_FRAME', this.boundFrameChangeListener)
+
+    // line blah
+    this.MAX_POINTS = 700000
+    this.drawCount = 4
+    this.linePoints = []
+    this.geometry = new THREE.BufferGeometry()
+    this.positions = new Float32Array(this.MAX_POINTS * 3)
+    this.geometry.addAttribute('position', new THREE.BufferAttribute(this.positions, 3))
+    this.geometry.setDrawRange(0, this.drawCount)
+    this.material = new THREE.LineBasicMaterial({color: 'black'})
+    this.line = new THREE.Line(this.geometry, this.material)
+    this.el.setObject3D('line', this.line)
+    this.lastPointDrawn = new THREE.Vector3(0, 0, 20)
+    this.distanceThreshold = 0.004
+  },
+  
+  tick() {
+    var pen = this.normanComp.primaryHand.object3D
+    var norm = this.normanComp.el.object3D
+    var pos = new THREE.Vector3()
+    pen.localToWorld(pos)
+    norm.worldToLocal(pos)
+
+    const distToLastPointDrawn = pos.distanceTo(this.lastPointDrawn)
+
+    if (distToLastPointDrawn > this.distanceThreshold || this.linePoints.length === 0) {
+      this.linePoints.push(pos);
+      this.lastPointDrawn = pos
+      this.line.geometry.setDrawRange(0, this.linePoints.length)
+      this.updatePositions()
+      this.line.geometry.attributes.position.needsUpdate = true
+    } else {
+      // do nothing!
+    }
+
+  },
+
+  updatePositions() {
+    var positions = this.line.geometry.attributes.position.array
+    var index = 0
+    for (var i = 0; i < this.linePoints.length; i++) {
+      positions[index++] = this.linePoints[i].x
+      positions[index++] = this.linePoints[i].y
+      positions[index++] = this.linePoints[i].z
+    }
+  },
+
+  onExitFrame(e) {
+    this.normanComp.addLineData(this.linePoints, e.detail.frame)
+    this.linePoints = []
+  },
+
+  remove() {
+    this.animEnt.removeEventListener('EXIT_FRAME', this.boundFrameChangeListener)
+    this.normanComp.addLineData(this.linePoints, this.animComp.currentFrame)
+    if (this.normanComp.autoNext) {
+      this.normanComp.handleNext()
+    } else if (this.normanComp.autoPrev) {
+      this.normanComp.handlePrev()
     }
   }
-  spacer = 10;
-  noLoop(); // Run once and stop
-}
 
-function draw() {
-  background(0);
-  // This embedded loop skips over values in the arrays based on
-  // the spacer variable, so there are more values in the array
-  // than are drawn here. Change the value of the spacer variable
-  // to change the density of the points
-  for (let x = 0; x < width; x += spacer) {
-    for (let y = 0; y < height; y += spacer) {
-      stroke(distances[x][y]);
-    circle(x/9 + spacer /10, y + spacer /10,3,4);
-     circle(x/8 + spacer /9, y + spacer /10,3,4);
-      circle(x/7 + spacer /8, y + spacer /10,3,4);
-      circle(x/6 + spacer /7, y + spacer /10,3,4);
-     circle(x/5 + spacer /6, y + spacer /10,3,4);
-      circle(x/4 + spacer /8, y + spacer /10,3,4);
-      circle(x/3 + spacer /9, y + spacer /10,3,4);
-      circle(x/2 + spacer /8, y + spacer /10,3,4);
-      circle(x/1 + spacer /7, y + spacer /10,3,4);
-     circle(x/0.9 + spacer /6, y + spacer /10,3,4);
-      circle(x/0.8 + spacer /8, y + spacer /10,3,4);
-    }
-  }
+
 }

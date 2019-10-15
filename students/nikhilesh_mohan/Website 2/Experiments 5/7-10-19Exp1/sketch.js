@@ -25,12 +25,28 @@ function setup()
 
   drawLineRecursion(line, numLines)
 }
+
+
 var c=170
+
+let range = 111-190
+let step = 0.01 
+
+let range1 = 195-100
+let step1 = 0.01
+
+let range2 = 223-12
+let step2 = 0.01
 
 function drawLineRecursion(l, numLines)
 {
   rectMode(CENTER)
-  stroke(0,random(170),random(200),1)
+  stroke(sin(step)*range+180, sin(step1)*range1+100, sin(step2)*range2+12, 50) 
+
+  step -= 0.05
+  step1 -= 0.05
+  step2 -= 0.05
+
   strokeWeight(numLines*25)
   noFill()
 

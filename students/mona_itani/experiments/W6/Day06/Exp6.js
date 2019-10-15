@@ -1,67 +1,78 @@
-class Module {
-  constructor(xOff, yOff, x, y, speed, unit) {
-    this.xOff = xOff;
-    this.yOff = yOff;
-    this.x = x;
-    this.y = y;
-    this.speed = speed;
-    this.unit = unit;
-    this.xDir = 10;
-    this.yDir = 1;
-  }
+AFRAME.registerComponent('drawline', {
 
- 
-  update() {
-    this.x = this.x + this.speed * this.xDir;
-    if (this.x >= this.unit || this.x <= 1) {
-      this.xDir *= -2;
-      this.x = this.x + 1 * this.xDir;
-      this.y = this.y + 1 * this.yDir;
+  schema: {
+    norman: {type: 'selector'}
+  },
+
+  init() {
+    // this.target = document.querySelector('#wanderer')
+    this.normanComp = this.data.norman.components.norman
+    this.animEnt = document.querySelector('#anim')
+    this.animComp = document.querySelector('#anim').components.anim
+    this.controllers = Array.prototype.slice.call(document.querySelectorAll('a-entity[oculus-touch-controls]'))
+    this.boundFrameChangeListener = this.onExitFrame.bind(this)
+    this.animEnt.addEventListener('EXIT_FRAME', this.boundFrameChangeListener)
+
+    // line blah
+    this.MAX_POINTS = 100000
+    this.drawCount = 2
+    this.linePoints = []
+    this.geometry = new THREE.BufferGeometry()
+    this.positions = new Float32Array(this.MAX_POINTS * 3)
+    this.geometry.addAttribute('position', new THREE.BufferAttribute(this.positions, 3))
+    this.geometry.setDrawRange(0, this.drawCount)
+    this.material = new THREE.LineBasicMaterial({color: 'black'})
+    this.line = new THREE.Line(this.geometry, this.material)
+    this.el.setObject3D('line', this.line)
+    this.lastPointDrawn = new THREE.Vector3(0, 0, 0)
+    this.distanceThreshold = 0.001
+  },
+  
+  tick() {
+    var pen = this.normanComp.primaryHand.object3D
+    var norm = this.normanComp.el.object3D
+    var pos = new THREE.Vector3()
+    pen.localToWorld(pos)
+    norm.worldToLocal(pos)
+
+    const distToLastPointDrawn = pos.distanceTo(this.lastPointDrawn)
+
+    if (distToLastPointDrawn > this.distanceThreshold || this.linePoints.length === 0) {
+      this.linePoints.push(pos);
+      this.lastPointDrawn = pos
+      this.line.geometry.setDrawRange(0, this.linePoints.length)
+      this.updatePositions()
+      this.line.geometry.attributes.position.needsUpdate = true
+    } else {
+      // do nothing!
     }
-    if (this.y >= this.unit || this.y <= 0) {
-      this.yDir *= -1;
-      this.y = this.y + 1 * this.yDir;
+
+  },
+
+  updatePositions() {
+    var positions = this.line.geometry.attributes.position.array
+    var index = 0
+    for (var i = 0; i < this.linePoints.length; i++) {
+      positions[index++] = this.linePoints[i].x
+      positions[index++] = this.linePoints[i].y
+      positions[index++] = this.linePoints[i].z
+    }
+  },
+
+  onExitFrame(e) {
+    this.normanComp.addLineData(this.linePoints, e.detail.frame)
+    this.linePoints = []
+  },
+
+  remove() {
+    this.animEnt.removeEventListener('EXIT_FRAME', this.boundFrameChangeListener)
+    this.normanComp.addLineData(this.linePoints, this.animComp.currentFrame)
+    if (this.normanComp.autoNext) {
+      this.normanComp.handleNext()
+    } else if (this.normanComp.autoPrev) {
+      this.normanComp.handlePrev()
     }
   }
 
 
-  draw() {
-    fill(255);
-    circle(this.xOff + this.x, this.yOff + this.y, 3, 10);
-     circle(this.xOff + this.x, this.yOff + this.y, 2, 1);
-  }
-}
-
-let unit = 10;
-let count;
-let mods = [];
-
-function setup() {
-  createCanvas(720, 360);
-  noStroke();
-  let wideCount = width / unit;
-  let highCount = height / unit;
-  count = wideCount * highCount;
-
-  let index = 0;
-  for (let y = 0; y < highCount; y++) {
-    for (let x = 0; x < wideCount; x++) {
-      mods[index++] = new Module(
-        x * unit,
-        y * unit,
-        unit / 2,
-        unit / 2,
-        random(0.01, 0.09),
-        unit
-      );
-    }
-  }
-}
-
-function draw() {
-  background(0);
-  for (let i = 0; i < count; i++) {
-    mods[i].update();
-    mods[i].draw();
-  }
 }

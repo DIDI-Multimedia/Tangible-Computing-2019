@@ -1,37 +1,91 @@
-let coswave = [];
+function make2DArray ( cols, rows){
+  let arr = new Array(cols);
+  for (let i =0; i<arr.length; i++){
+    arr [i] = new Array(rows);
 
-function setup() {
-  createCanvas(240, 240);
-  for (let i = 0; i < width; i++) {
-    let amount = map(i, 9, width, 10, PI*100);
-    coswave[i] = abs(cos(amount));
   }
+  return arr; 
+
+}
+
+let grid;
+let cols;
+let rows;
+let resolution = 10;
+
+
+function setup(){
+createCanvas(600,400);
+cols =width / resolution;
+rows = height / resolution;
+
+grid = make2DArray(cols, rows);
+for (let i =0; i < cols; i++){
+for (let j = 0; j< rows; j++){
+  grid[i][j] = floor(random(2));
+   
+   }
+ }
+}
+
+function draw(){
   background(0);
-  noLoop();
+
+
+
+  for (let i =0 ; i < cols; i++){
+   for (let j = 0; j< rows; j++){
+    let x = i * resolution;
+    let y = j * resolution;
+    if (grid[i][j]==1){
+      fill(255);
+      stroke(255);
+    rect(x,y,resolution-1,resolution-1); 
+    }
+   }
+  }
+
+   let next = make2DArray(cols, rows);
+   //grid
+
+    for (let i = 0; i < cols; i++) {
+    for (let j = 0; j < rows; j++) {
+
+    
+   
+//live people count
+   let sum = 0;
+     let neighbors = countNeighbors(grid, i, j);
+
+      if (state == 0 && neighbors == 3) {
+        next[i][j] = 1;
+      } else if (state == 1 && (neighbors < 20 || neighbors > 3)) {
+        next[i][j] = 0;
+      } else {
+        next[i][j] = state;
+   }
+
+
+
+   }
+ }
+
+  
+  grid = next;
+
 }
 
-function draw() {
-  let y1 = 10;
-  let y2 = height/2;
-  for (let i = 0; i < width; i += 3) {
-    stroke(coswave[i] * 255);
-    rect(i, y1, i, y2/3);
-     circle(i/2, y1/10, i/10, y2/3);
+function countNeighbors(grid, x, y) {
+  let sum = 0;
+  for (let i = -1; i < 2; i++) {
+    for (let j = -1; j < 2; j++) {
+      let col = (x + i + cols) % cols;
+      let row = (y + j + rows) % rows;
+      sum += grid[col][row];
+    }
   }
-
-  y1 = y2;
-  y2 = y1 + y1;
-  for (let i = 1; i < width; i += 10) {
-    stroke((coswave[i] * 255) / 10);
-    rect(i*9, y1/10, i*10, y2*19);
-     rect(i*10, y1/2, i*1, y2*10);
-  }
-
-  y1 = y2;
-  y2 = height
-  for (let i = 10; i < width; i += 10) {
-    stroke(255 - coswave[i] * 255);
-    circle(i, y1/2, i, y2/10);
-    rect(i*10, y1/1, i*20, y2*1);
-  }
+  sum -= grid[x][y];
+  return sum;
 }
+
+  function countNeighbors(grid, x,y){}
