@@ -12,7 +12,7 @@ function createCell( xOff, yOff, x, y, speed, unit ){
     unit: unit,
     xDir: 10,
     yDir: 10,
-    lifeSpan: 255,
+    lifeSpan: 400,
     update:update,
     draw:display
 

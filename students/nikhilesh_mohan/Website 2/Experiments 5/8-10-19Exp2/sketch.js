@@ -1,74 +1,81 @@
-// Sketch Title - for MuW201 Tangible Computing, 2019
-// Firstname Lastname 
-// GitHub Username
-// Date 
-// make your own creature using this code, share via whatsapp  
+var container;
+var camera, scene, raycaster, renderer;
+var mouse = new THREE.Vector2(), INTERSECTED;
+var radius = 500, theta = 0;
+var frustumSize = 1000;
+init();
+animate();
+
+function init() {
+
+  container = document.createElement( 'div' );
+
+  document.body.appendChild( container ); // place three.js in body of file
+  var aspect = window.innerWidth / window.innerHeight;
+  camera = new THREE.OrthographicCamera( frustumSize * aspect / - 2, frustumSize * aspect / 2, frustumSize / 2, frustumSize / - 2, 1, 1000 );
+  scene = new THREE.Scene();
+  scene.background = new THREE.Color( 0 );
+  var light = new THREE.PointLight( 0xffffff, 1 );
+  light.position.set( 1, 1, 1 ).normalize();
+  scene.add( light );
+
+  // raycaster = new THREE.Raycaster();
+  renderer = new THREE.WebGLRenderer();
+  renderer.setPixelRatio( window.devicePixelRatio );
+  renderer.setSize( window.innerWidth, window.innerHeight );
+  container.appendChild( renderer.domElement );
+
+  var geo = new THREE.SphereBufferGeometry( 0.25,32,32)
+  fractalCubes(geo,4,300,0,0,0)
 
 
-
-function setup()
-{
-  createCanvas(windowWidth,windowHeight/2)
-  background(0)
-
-  let line = 
-  {
-    x1: width/2,
-    y1: 0,
-    x2: width/2,
-    y2: height,
-
-  }
-
-  let numLines = 20
-
-
-  drawLineRecursion(line, numLines)
 }
 
+function fractalCubes(geo,step,scale,x,y,z){
+
+  var object = new THREE.Mesh( geo, new THREE.MeshLambertMaterial( { color: 0x009999 } ) ); 
+  object.position.set(x,y,z)
+  object.rotation.set(Math.random()*2*3.14,Math.random()*2*3.14,Math.random()*2*3.14)
+  object.scale.set(scale,scale,scale)
+  scene.add( object )
+
+  scale *= 0.5
+  step -- 
 
 
-function drawLineRecursion(l, numLines)
-{
-  rectMode(CENTER)
-  stroke(0,random(170),random(200),1)
-  strokeWeight(numLines*25)
-  noFill()
+  if (step > 0){
 
-  //rect(windowWidth/2, windowHeight/4,numLines, numLines)
+    fractalCubes(geo,step,scale,x+scale,y+scale,z+scale)
+    fractalCubes(geo,step,scale,x-scale,y+scale,z+scale)
+    fractalCubes(geo,step,scale,x-scale,y-scale,z+scale)
+    fractalCubes(geo,step,scale,x-scale,y-scale,z-scale)  
+    fractalCubes(geo,step,scale,x+scale,y+scale,z-scale)
+    fractalCubes(geo,step,scale,x-scale,y+scale,z-scale)
+    fractalCubes(geo,step,scale,x+scale,y-scale,z+scale)
+    fractalCubes(geo,step,scale,x+scale,y-scale,z-scale)
 
-
-  let mid=(l.y1+l.y2)/2
-  line(l.x1, l.y1, l.x2, l.y2)
-
-  numLines--
-
-  let lineA = 
-  {
-    x1: l.x1,
-    y1: l.y1,
-    x2: l.x2,
-    y2: mid,
-  }
-
-  let lineB = 
-  {
-    x1: l.x1,
-    y1: mid,
-    x2: l.x2,
-    y2: l.y2,
-  }
-
-  if(numLines>0)
-  {
-    drawLineRecursion(lineA,numLines)
-    drawLineRecursion(lineB,numLines)
-  }
-
-  // drawLineRecursion()
+  } 
 
 }
 
 
+function animate() {
 
+  requestAnimationFrame( animate );
+  render();
+  // stats.update();
 
+}
+
+function render() {
+
+  theta += 0.1;
+  camera.position.x = radius * Math.sin( THREE.Math.degToRad( theta ) );
+  camera.position.y = radius * Math.sin( THREE.Math.degToRad( theta ) );
+  camera.position.z = radius * Math.cos( THREE.Math.degToRad( theta ) );
+  camera.lookAt( scene.position );
+  camera.updateMatrixWorld();
+
+  renderer.render( scene, camera );
+
+}
