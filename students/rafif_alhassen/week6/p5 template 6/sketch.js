@@ -27,8 +27,8 @@ function draw() {
   fill(random(255),random(255),random(255));
   stroke(random(255),random(255),random(255));
   rectMode(CENTER);
-  point(x, y, 20, 20);  
-  point(y, x, 50, 50);
+  ellipse(x, y, 20, 20);  
+  ellipse(y, x, 50, 50);
 
   
 
@@ -50,8 +50,6 @@ function draw() {
 //   freeThoughts.push(tht)
 
 
-
-}
 
 
 // source: https://www.youtube.com/watch?v=TaluaAD9MKA&list=PLRqwX-V7Uu6Zy51Q-x9tMWIv9cueOFTFA&t=0s
