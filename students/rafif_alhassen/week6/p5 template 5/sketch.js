@@ -10,6 +10,10 @@ let firstPart = ["I am", "Who is","She is","He is","We are","They are"]
 
 let secondPart = [" hungry", " late for class", " eye infection, miss"]
 
+let fonts = ["Helvetica, Times New Roman, Comic Sans, Arial"]
+
+// let position = ["CENTER, RIGHT, LEFT"]
+
 
 let freeThoughts = []
 
@@ -21,7 +25,8 @@ let freeThoughts = []
 function setup() {
 
   // img = loadImage('assets/final.png');
-  createCanvas(499, 725);
+  createCanvas(window.innerWidth, window.innerWidth);
+  textAlign(CENTER)
   // img = loadImage("assets/final.png");
   // image(img, mouseX, mouseY);
   // stroke(0)
@@ -34,6 +39,11 @@ function setup() {
 
 }
 
+
+  var r = 80
+  var g = 120
+  var b = 255
+
 function draw() {
 
   // var timeElapsed = millis( - lastPrint;
@@ -43,17 +53,20 @@ function draw() {
   //     console.log(v);
   //     last Print = millis(); 
 
-  background(0);
+  background(r,g,b);
   drainBrain()
   // fill(random(255),random(255),random(255));
   stroke(0);
   frameRate(fr);
   fill(0);
-  textFont('Times New Roman');
-  textSize(20);
+  noStroke()
  
   for (var i = 0; i < freeThoughts.length; i++){
     let tht = freeThoughts[i]
+    console.log(tht.lifeSpan)
+    fill(0,tht.lifeSpan)
+    textSize(tht.Size);
+    textFont(tht.Font);
     text(tht.txt,tht.x,tht.y)
     move(tht)
   }
@@ -74,9 +87,6 @@ function draw() {
   //   ellipse(mouseX, mouseY, 60, 60);
   }
 
-  var r = 80
-  var g = 120
-  var b = 255
 
 function mousePressed(){
   console.log('mouse pressed')
@@ -85,15 +95,18 @@ function mousePressed(){
   let tht = {}
   tht.x = width/2 
   tht.y = height/2 
+  tht.Size = random(1,200)
+  tht.Font = random(fonts)
   tht.txt = getRandomThought(firstPart) + " " + getRandomThought(adjectives)
+  tht.dead = random(1,10)
   // tht.lifespan = 2;
   frameRate(fr);
   freeThoughts.push(tht)
-  this.lifeSpan--
+  tht.lifeSpan = 255
   fill(random(255), random(255), random(255))
-  r = random(50+20,r);
-  g = random(30+10,g);
-  b = random(70+35,b);
+  r = random(255);
+  g = random(255);
+  b = random(255);
 
 
 }
@@ -114,6 +127,8 @@ function move(tht){
 
   tht.x += random(-5, 5);
   tht.y += random(-5, 5);
+
+  tht.lifeSpan -= tht.dead
   frameRate(fr);
 
 }
@@ -145,11 +160,12 @@ function getRandomThought(wordList){
 }
 
 
-// add life span
-// add color to the background? changes? 
-// add pronouns 
+// make canvas ellipse
+// add pronouns more options
 // as one thought appears the other disappears
 // font & font size changes
+// add cities "he is weird in chicago"
+// rotate text & appear in different parts 
 
 
 // source: https://www.youtube.com/watch?v=TaluaAD9MKA&list=PLRqwX-V7Uu6Zy51Q-x9tMWIv9cueOFTFA&t=0s
