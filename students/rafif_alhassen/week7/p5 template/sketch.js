@@ -6,7 +6,7 @@ let fr = 30;
 let thoughts = ["i am hungry", "i am stressed out", "who is texting me", "what should i have for lunch", "i am tired", "i am overwhelmed", "i am struggling"]
 
 
-let firstPart = ["I am", "Who is","She is","He is","We are","They are"]
+let firstPart = ["I am", "Who is","She is","He is","We are","They are","You are","It is"]
 
 let secondPart = [" hungry", " late for class", " eye infection, miss"]
 
@@ -34,6 +34,7 @@ function setup() {
   background(0);
   console.log(adjectives)
   lifeSpan = 0.2;
+  ellipseMode(CENTER);
   // lastPrint = millis () - 3000;
   // fill(255)
 
@@ -60,11 +61,12 @@ function draw() {
   frameRate(fr);
   fill(0);
   noStroke()
+  ellipse(2200,2000,2000,2000);
  
   for (var i = 0; i < freeThoughts.length; i++){
     let tht = freeThoughts[i]
     console.log(tht.lifeSpan)
-    fill(0,tht.lifeSpan)
+    fill(255,tht.lifeSpan)
     textSize(tht.Size);
     textFont(tht.Font);
     text(tht.txt,tht.x,tht.y)
