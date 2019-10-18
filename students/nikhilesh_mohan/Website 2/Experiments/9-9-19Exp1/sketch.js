@@ -32,7 +32,7 @@ function draw()
 {
 	var numElement = 50
    
-    textSize(10)
+    textSize(5)
     var step =width/numElement
     var colorstep=255/numElement
 
@@ -44,8 +44,11 @@ function draw()
         //strokeWeight(second()*2)
         fill(x*colorstep+mouseX,y*colorstep+mouseY,200)
 
+
         //stroke(255,255,255)
         rect(x*step, y*step, step, step)
+        
+        text(x,y)
    	  }
 
 

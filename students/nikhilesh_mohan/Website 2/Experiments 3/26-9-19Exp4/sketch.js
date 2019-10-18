@@ -68,7 +68,7 @@ function draw()
   background(0);
   image(capture, 0, 0, 1920, 1080);
 
-  fill(255,0,0)
+  fill(0,210,230)
 
   // if (confidence > 0.10){
 
@@ -79,11 +79,11 @@ function draw()
         a+=0.01
       }
 
-      if(noseY>=500)
+      if(noseY>=300)
       {
         s++
       }
-      if(noseY<=100)
+      if(noseY<=-100)
       {
         s--
       }
