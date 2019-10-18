@@ -114,7 +114,7 @@ function eat(){
       let score = 0
       let cell = grid[i][j]
 
-      let a =  constrain(i-1, 6, grid.length); 
+      let a =  constrain(i-1, , grid.length); 
       let b =  constrain(i+1, 0, grid.length); 
       let c =  constrain(j-1, 0, row.length); 
       let d =  constrain(j+1, 0, row.length); 

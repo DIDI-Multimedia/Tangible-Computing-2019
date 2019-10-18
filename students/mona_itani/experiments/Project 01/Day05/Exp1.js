@@ -53,7 +53,6 @@ function setup(){
   cols = width / resolution;
   rows = height / resolution;
   grid = make2DArray(cols, rows);
-  
 
 
 
@@ -64,24 +63,10 @@ function draw(){
 
   grid = eat()
   display()
-    for (let i = 0; i < cells.length; i++) {
-    if (cells[i] === 1) {
-      fill(200);
-    } else {
-      fill(51);
-      noStroke();
-      rect(i * w, generation * w, w, w);
-    }
-  }
-    if (generation < height/w) {
-    generate();
-  }
+
+
+
 }
-
-
-
-
-
 
 function display(){
 
@@ -112,109 +97,77 @@ function display(){
 
 }
 
-// function eat(){
+function eat(){
 
-//   let newGrid = []
+  let newGrid = []
 
-//   for (var i = 0; i < grid.length; i++){
+  for (var i = 0; i < grid.length; i++){
 
-//     let newRow = []
-//     let row = grid[i]
+    let newRow = []
+    let row = grid[i]
 
-//     for (var j = 0; j < row.length; j++){
+    for (var j = 0; j < row.length; j++){
 
-//       let geenration = 0
-//       let w = 10;
-//       let ruleset = [0,1,0,1,1,0,1,0]
-//       let cell = grid[i][j]
+      let score = 0
+      let cell = grid[i][j]
 
-//       let a =  constrain(i-1, 0, grid.length); 
-//       let b =  constrain(i+1, 0, grid.length); 
-//       let c =  constrain(j-1, 0, row.length); 
-//       let d =  constrain(j+1, 0, row.length); 
+      let a =  constrain(i-1, 0, grid.length); 
+      let b =  constrain(i+1, 0, grid.length); 
+      let c =  constrain(j-1, 0, row.length); 
+      let d =  constrain(j+1, 0, row.length); 
 
   
 
-//      // let n1 = grid[a][c]
-//       //let n2 = grid[a][j]
-//       let n3 = grid[a][d]
-//       // console.log(n1)
+      let n1 = grid[a][c]
+      let n2 = grid[a][j]
+      let n3 = grid[a][d]
+      // console.log(n1)
 
-//       let n4 = grid[i][c]
-//       let n6 = grid[i][d]
+      let n4 = grid[i][c]
+      let n6 = grid[i][d]
 
-//       let n7 = grid[a][j]
-//       let n8 = grid[a][c]
-//       // let n9 = grid[b][d]
+      //let n7 = grid[a][j]
+      //let n8 = grid[a][c]
+      // let n9 = grid[b][d]
 
-//       let neighbours = [n7,n8,n3,n4,n6]
+      let neighbours = [n1,n2,n3,n4,n6]
 
-//       for (var r = 2; r < neighbours.length; r++){
-//         if (neighbours[r]){
-//           score += neighbours[r].state
-//         }
+      for (var r = 1; r < neighbours.length; r++){
+        if (neighbours[r]){
+          score += neighbours[r].state
+        }
  
-//       }
-//       // console.log(score,a,b,c,d)
+      }
+      // console.log(score,a,b,c,d)
 
-//       let obj = {
+      let obj = {
       
-//         x:i, 
-//         y:j,
+        x:i, 
+        y:j,
 
-//       }
-//       if (score =2){
-//         obj.state = true
-//       } else if (obj.state
+      }
+      if (score > 2){
+        obj.state = false
+      } else if (random()<0.5) {
+        obj.state =false 
 
-      
-    
+      } else if (neighbours<1){
 
-//       }
+        obj.state = false
+
+      }
  
 
-//       newRow.push(obj)
+      newRow.push(obj)
 
 
-//     }
-//     newGrid.push(newRow)
+    }
+    newGrid.push(newRow)
 
-//   }
-
-//   return newGrid
-
-// }
-
-
-
-
-function generate() {
-  // First we create an empty array for the new values
-  let nextgen = Array(cells.length);
-  // For every spot, determine new state by examing current state, and neighbor states
-  // Ignore edges that only have one neighor
-  for (let i = 1; i < cells.length-1; i++) {
-    let left   = cells[i-1];   // Left neighbor state
-    let me     = cells[i];     // Current state
-    let right  = cells[i+1];   // Right neighbor state
-    nextgen[i] = rules(left, me, right); // Compute next generation state based on ruleset
   }
-  // The current generation is the new generation
-  cells = nextgen;
-  generation++;
-}
 
+  return newGrid
 
-function rules(a, b, c) {
-  if (a == 1 && b == 1 && c == 1) return ruleset[0];
-  if (a == 1 && b == 1 && c == 0) return ruleset[1];
-  if (a == 1 && b == 0 && c == 1) return ruleset[2];
-  if (a == 1 && b == 0 && c == 0) return ruleset[3];
-  if (a == 0 && b == 1 && c == 1) return ruleset[4];
-  if (a == 0 && b == 1 && c == 0) return ruleset[5];
-  if (a == 0 && b == 0 && c == 1) return ruleset[6];
-  if (a == 0 && b == 0 && c == 0) return ruleset[7];
-  return 0;
 }
 // function draw(){
 //   background(0);
