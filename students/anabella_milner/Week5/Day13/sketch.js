@@ -4,7 +4,7 @@ var vScale = 5;
 
 function setup() {
   createCanvas(640, 480);
-  pixelDensity(10);
+  pixelDensity(1);
   video = createCapture(VIDEO);
   video.size(width/vScale, height/vScale);
   video.hide()
@@ -18,8 +18,8 @@ function draw() {
   let pixels = []
 
   for (var y = 0; y < video.height; y++){
-    for (var x = 0; x < video.width; x++){ 
-      var index = (video.width - x + 4 + (y * video.width))*4;
+    for (var x = 0; x < video.width; x++){
+      var index = (x + y * video.width)*2;
       var r = video.pixels[index+0];
       var g = video.pixels[index+1];
       var b = video.pixels[index+2];
@@ -31,12 +31,12 @@ function draw() {
     }
   }
 
-  for (var i = pixels.length - 1; i >= 2; i--) {
+  for (var i = pixels.length - 1; i >= 0; i--) {
     let pixel = pixels[i]
-    if (random()>0.1){ // try replacing 0.5 with another number
+    if (random()>0.9){ // try replacing 0.5 with another number
       // randomly swaping the positions of pixels
       let pixel1 =  Object.assign({}, pixels[i])
-      let j = constrain(i - 2,0,pixels.length)
+      let j = constrain(i - 1,0,pixels.length)
       let pixel2 = pixels[j]
       pixel1.r = pixel2.r
       pixel1.g = pixel2.g
@@ -44,12 +44,10 @@ function draw() {
       pixel = pixel1
       pixel2 = pixel1
 
-      translate(2);
-
     }
 
     // draw the pixels 
-    fill(pixel.r, pixel.g, pixel.b)
+    fill(pixel.r,pixel.g,pixel.b)
     rect(pixel.x,pixel.y, pixel.scale, pixel.scale); 
   }
 
