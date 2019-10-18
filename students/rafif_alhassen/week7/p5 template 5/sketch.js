@@ -6,13 +6,22 @@ let fr = 30;
 let thoughts = ["i am hungry", "i am stressed out", "who is texting me", "what should i have for lunch", "i am tired", "i am overwhelmed", "i am struggling"]
 
 
-let firstPart = ["I am", "Who is","She is","He is","We are","They are"]
+let firstPart = ["I am", "Who is","She is","He is","We are","They are","You are"]
 
-let secondPart = [" hungry", " late for class", " eye infection, miss"]
+let secondPart = ["hungry", " late for class", " eye infection, miss"]
 
-let fonts = ["Helvetica, Times New Roman, Comic Sans, Arial"]
+let thirdPart = ["feeling"]
 
-// let position = ["CENTER, RIGHT, LEFT"]
+let fourthPart = ["in Abu Dhabi", "in Dubai", "in Sharjah", "in university", "at the movies", "in the car", "at the coffee shop", "at home", "at the beach", "in the mall", "in the restaurant", "with her friends", "with his friends", "with your friends"]
+
+// let fonts = ['Helvetica', 'Times New Roman', 'Comic Sans', 'Arial']
+
+// let angle = 0.0;
+
+// let jitter = 0.0;
+
+
+// let position = ["CENTER", "RIGHT", "LEFT"]
 
 
 let freeThoughts = []
@@ -34,6 +43,8 @@ function setup() {
   background(0);
   console.log(adjectives)
   lifeSpan = 0.2;
+  ellipseMode(CENTER);
+  // rotate(90);
   // lastPrint = millis () - 3000;
   // fill(255)
 
@@ -58,18 +69,44 @@ function draw() {
   // fill(random(255),random(255),random(255));
   stroke(0);
   frameRate(fr);
-  fill(0);
+  fill(255);
   noStroke()
+  ellipse(2500,2500,3000,3000);
+
+}
+
+  //   if (second() % 2 === 0) {
+  //   jitter = random(-0.1, 0.1);
+  // }
+
+  // angle = angle + jitter;
+  // let c = cos(angle);
+  // translate(width / 6, height / 6);
+  // rotate(c);
+  // ellipse(2500, 2500, 3000, 3000);
+  // ellipse(2200,2100,3000,3000);
  
   for (var i = 0; i < freeThoughts.length; i++){
     let tht = freeThoughts[i]
     console.log(tht.lifeSpan)
     fill(0,tht.lifeSpan)
     textSize(tht.Size);
-    textFont(tht.Font);
-    text(tht.txt,tht.x,tht.y)
+    // textFont(Helvetica)
+    // textAlign(tht.Align);
+    // push();
+    // translate(100,100);
+    // rotate( radians(frameCount) );
+    // text(tht.txt,tht.x,tht.y);
+    push()
+    translate(tht.x,tht.y)
+    rotate(tht.rotate)
+    text(tht.txt,0,0);
+    // rotate(PI / 3.0);
+    pop();
     move(tht)
-  }
+  
+
+  }      
 
   // background(0);
 
@@ -85,7 +122,7 @@ function draw() {
   //   fill(255, 150);
   //   noStroke();
   //   ellipse(mouseX, mouseY, 60, 60);
-  }
+  
 
 
 function mousePressed(){
@@ -96,13 +133,16 @@ function mousePressed(){
   tht.x = width/2 
   tht.y = height/2 
   tht.Size = random(1,200)
-  tht.Font = random(fonts)
-  tht.txt = getRandomThought(firstPart) + " " + getRandomThought(adjectives)
+  // tht.Align = random(textAlign)
+  // tht.Font = random(fonts)
+  tht.txt = getRandomThought(firstPart) + " " + getRandomThought(thirdPart) + " " + getRandomThought(adjectives) + " " + getRandomThought(fourthPart)  
   tht.dead = random(1,10)
   // tht.lifespan = 2;
   frameRate(fr);
   freeThoughts.push(tht)
   tht.lifeSpan = 255
+  tht.rotate = random(0,TWO_PI) //random rotation in radians
+
   fill(random(255), random(255), random(255))
   r = random(255);
   g = random(255);
