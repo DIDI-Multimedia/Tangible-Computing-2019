@@ -49,7 +49,7 @@ let resolution = 9;
 
 
 function setup(){
-  createCanvas(600,600);
+  createCanvas(800,800);
   cols = width / resolution;
   rows = height / resolution;
   grid = make2DArray(cols, rows);
@@ -57,6 +57,8 @@ function setup(){
 
 
 }
+
+
 
 function draw(){
   background(255)
@@ -78,16 +80,17 @@ function display(){
 
       let cell = grid[x][y]
 
-      fill(255)
+      fill(0)
       stroke(0)
+      strokeWeight(0.5)
       
 
       if (cell.state){
-         fill(0)
+         fill(677,34,53)
       }
      
-    ellipse(cell.x*resolution,cell.y*resolution,resolution,resolution)
-      
+    
+      circle(cell.x*resolution,cell.y*resolution,resolution,resolution)
 
 
 
@@ -101,18 +104,18 @@ function eat(){
 
   let newGrid = []
 
-  for (var i = 0; i < grid.length; i++){
+  for (var i = 1; i < grid.length; i++){
 
     let newRow = []
     let row = grid[i]
 
-    for (var j = 0; j < row.length; j++){
+    for (var j = 1; j < row.length; j++){
 
       let score = 0
       let cell = grid[i][j]
 
-      let a =  constrain(i+1, 0, grid.length); 
-      let b =  constrain(i-1, 0, grid.length); 
+      let a =  constrain(i-1, 6, grid.length); 
+      let b =  constrain(i+1, 0, grid.length); 
       let c =  constrain(j-1, 0, row.length); 
       let d =  constrain(j+1, 0, row.length); 
 
@@ -132,9 +135,9 @@ function eat(){
 
       let neighbours = [n7,n8,n3,n4,n6]
 
-      for (var r = 2; r < neighbours.length; r++){
+      for (var r = 1; r < neighbours.length; r++){
         if (neighbours[r]){
-          score += neighbours[r].state
+          score += neighbours[r].state/2
         }
  
       }
@@ -147,13 +150,13 @@ function eat(){
 
       }
       if (score > 1){
-        obj.state = true
-      } else if (random()<0.05) {
-        obj.state = true 
+        obj.state = false
+      } else if (neighbours.n7*n3 < 5) {
+        obj.state = false 
 
       } else { 
 
-        obj.state = false
+        obj.state = true
 
       }
  

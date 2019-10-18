@@ -13,11 +13,14 @@ h1 {
 }
 
 body {
-	padding-top: 5%;
+body {
+
 	font-family: 'arial';
-	color: #592C5F; 
-	display: : flex;*/
-	margin:center;
+/*	color: #592C5F; */
+	padding: 5vw;
+	background-color: #555555;
+	justify-content: center;
+	align-items: center;
 
 
 }

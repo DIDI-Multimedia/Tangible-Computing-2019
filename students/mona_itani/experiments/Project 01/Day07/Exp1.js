@@ -112,8 +112,8 @@ function eat(){
       let cell = grid[i][j]
 
       let a =  constrain(i-1, 0, grid.length); 
-      let b =  constrain(i+1, 0, grid.length); 
-      let c =  constrain(j-1, 0, row.length); 
+      let b =  constrain(i+1, 1, grid.length); 
+      let c =  constrain(j-1, 1, row.length); 
       let d =  constrain(j+1, 0, row.length); 
 
   
@@ -146,16 +146,7 @@ function eat(){
         y:j,
 
       }
-      if (score > 1){
-        obj.state = true
-      } else if (random()<0.05) {
-        obj.state = true 
-
-      } else { 
-
-        obj.state = false
-
-      }
+    
  
 
       newRow.push(obj)
