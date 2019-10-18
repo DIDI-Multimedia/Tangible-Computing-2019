@@ -40,12 +40,12 @@ function draw()
   
 
   let end1 = map(sec, 0, 60, 0 ,360)
-  arc(0,0, 440,440, 0,end1)
+  arc(0,0, 340,340, 0,end1)
 
   let end2 = map(min, 0, 60, 0 ,360)
-  arc(0,0, 400,400, 0,end2)
+  arc(0,0, 300,300, 0,end2)
 
   let end3 = map(hr, 0, 12, 0 ,360)
-  arc(0,0, 360,360, 0,end3)
+  arc(0,0, 260,260, 0,end3)
 
 }
