@@ -105,7 +105,6 @@ function draw()
       push()
       // translate(width/2,height/2)
       rotateX(a)
-      box 
       box(s,s,s)
       pop()
 

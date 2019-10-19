@@ -1,0 +1,44 @@
+/* style.css */
+
+html, body {
+
+  height: 50%;
+
+
+
+}
+
+h1 {
+	text-align: center;
+}
+
+body {
+body {
+
+	font-family: 'arial';
+/*	color: #592C5F; */
+	padding: 5vw;
+	background-color: #555555;
+	justify-content: center;
+	align-items: center;
+
+
+}
+
+#sketch-holder{
+	padding-top: 5%;
+	width: 100%;
+	position:relative;
+	left:37.5vw;
+
+}
+
+footer {
+
+   width: 100%;
+   padding-top: 5%;
+   position: absolute;
+   text-align: center;*/
+
+}
+
