@@ -14,7 +14,7 @@ let thirdPart = ["feeling"]
 
 let fourthPart = ["in Abu Dhabi", "in Dubai", "in Sharjah", "in university", "at the movies", "in the car", "at the coffee shop", "at home", "at the beach", "in the mall", "in the restaurant", "with her friends", "with his friends", "with your friends"]
 
-// let fonts = ['Helvetica', 'Times New Roman', 'Comic Sans', 'Arial']
+let fonts = ['Helvetica', 'Times New Roman', 'Comic Sans', 'Typewriter']
 
 // let angle = 0.0;
 
@@ -55,6 +55,8 @@ function setup() {
   var g = 120
   var b = 255
 
+  var clickPos;
+
 function draw() {
 
   // var timeElapsed = millis( - lastPrint;
@@ -65,16 +67,17 @@ function draw() {
   //     last Print = millis(); 
 
   background(r,g,b);
+
+  if (clickPos) {
+    text(getRandomThought(firstPart) + " " + getRandomThought(thirdPart) + " " + getRandomThought(adjectives) + " " + getRandomThought(fourthPart), clickPos[0], clickPos[1]);
+  }
+
   drainBrain()
   // fill(random(255),random(255),random(255));
   stroke(0);
   frameRate(fr);
   fill(255);
   noStroke()
-  ellipse(2500,2500,3000,3000);
-
-}
-
   //   if (second() % 2 === 0) {
   //   jitter = random(-0.1, 0.1);
   // }
@@ -83,15 +86,16 @@ function draw() {
   // let c = cos(angle);
   // translate(width / 6, height / 6);
   // rotate(c);
-  // ellipse(2500, 2500, 3000, 3000);
+
+  ellipse(2500, 2500, 3000, 3000);
   // ellipse(2200,2100,3000,3000);
  
   for (var i = 0; i < freeThoughts.length; i++){
     let tht = freeThoughts[i]
     console.log(tht.lifeSpan)
     fill(0,tht.lifeSpan)
-    textSize(tht.Size);
-    // textFont(Helvetica)
+    textSize(tht.size);
+    textFont(tht.font);
     // textAlign(tht.Align);
     // push();
     // translate(100,100);
@@ -104,9 +108,14 @@ function draw() {
     // rotate(PI / 3.0);
     pop();
     move(tht)
-  
+  }  
 
-  }      
+    for (var s = 3; s > freeThoughts; s--){
+    let tht = freeThoughts[s]
+    textSize(tht.Size+s);
+    fill(255,0,0,tht.lifeSpan)
+    text(tht.txt,0,s*10);
+  }    
 
   // background(0);
 
@@ -122,19 +131,25 @@ function draw() {
   //   fill(255, 150);
   //   noStroke();
   //   ellipse(mouseX, mouseY, 60, 60);
-  
+  }
 
 
 function mousePressed(){
   console.log('mouse pressed')
+  clickPos = [mouseX, mouseY];
+  // var d = dist(mouseX, mouseY, tht.x, tht,y);
+
+  // if (d < 3000/2){
+  //   tht.dead
+  // }
   // creates a new thought 
 
   let tht = {}
   tht.x = width/2 
   tht.y = height/2 
-  tht.Size = random(1,200)
+  tht.size = random(1,200)
   // tht.Align = random(textAlign)
-  // tht.Font = random(fonts)
+  tht.font = random(fonts)
   tht.txt = getRandomThought(firstPart) + " " + getRandomThought(thirdPart) + " " + getRandomThought(adjectives) + " " + getRandomThought(fourthPart)  
   tht.dead = random(1,10)
   // tht.lifespan = 2;
@@ -142,6 +157,7 @@ function mousePressed(){
   freeThoughts.push(tht)
   tht.lifeSpan = 255
   tht.rotate = random(0,TWO_PI) //random rotation in radians
+
 
   fill(random(255), random(255), random(255))
   r = random(255);
