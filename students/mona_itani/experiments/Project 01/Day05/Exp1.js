@@ -118,21 +118,21 @@ function eat(){
 
   
 
-     // let n1 = grid[a][c]
-      //let n2 = grid[a][j]
+      let n1 = grid[a][c]
+      let n2 = grid[a][j]
       let n3 = grid[a][d]
       // console.log(n1)
 
       let n4 = grid[i][c]
       let n6 = grid[i][d]
 
-      let n7 = grid[a][j]
-      let n8 = grid[a][c]
+      //let n7 = grid[a][j]
+      //let n8 = grid[a][c]
       // let n9 = grid[b][d]
 
-      let neighbours = [n7,n8,n3,n4,n6]
+      let neighbours = [n1,n2,n3,n4,n6]
 
-      for (var r = 2; r < neighbours.length; r++){
+      for (var r = 1; r < neighbours.length; r++){
         if (neighbours[r]){
           score += neighbours[r].state
         }
@@ -146,12 +146,12 @@ function eat(){
         y:j,
 
       }
-      if (score > 1){
-        obj.state = true
-      } else if (random()<0.05) {
-        obj.state = true 
+      if (score > 2){
+        obj.state = false
+      } else if (random()<0.5) {
+        obj.state =false 
 
-      } else { 
+      } else if (neighbours<1){
 
         obj.state = false
 
