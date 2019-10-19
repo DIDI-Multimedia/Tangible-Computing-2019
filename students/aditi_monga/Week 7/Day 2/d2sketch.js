@@ -1,36 +1,34 @@
-var mic;
-var fft;
+let mic
+let fft
+let peakDetect
+let ellipseWidth = 10
 
-var volhistory = [];
+function setup() {
 
-function setup(){
-	let canvas = createCanvas(windowWidth/2,windowWidth/4)
-	canvas.parent('sketch-holder');
+ let canvas = createCanvas(windowWidth/2,windowWidth/2)
+  canvas.parent('sketch-holder')
 
-	mic = new p5.AudioIn()
-	mic.start()
-	fft = new p5.FFT();
-  	fft.setInput(mic);
+  mic = new p5.AudioIn()
+  mic.start()
+
+  fft = new p5.FFT()
+  fft.setInput(mic)
+  peakDetect = new p5.PeakDetect()
 
 }
 
+function draw() {
+  background(200);
+  let vol = mic.getLevel()
+  fft.analyze();
+  peakDetect.update(fft);
+  // console.log(spectrum)
+  
+  if ( peakDetect.isDetected ) {
+  	ellipseWidth = 50;
+  } else {
+  	ellipseWidth *= 0.95;
+  }
 
-function draw(){
-  	background(0)
-	let spectrum =  fft.wavelength();
-	volhistory.push(vol)
-noFill()
-stroke(255)
-
-// push()
-// translate(0, windowWidth/2)
-
-beginShape();
-	for (var i = 0; i < spectrum.length; i++) {
-		vertex(i, width/2)
-	}
-endShape();
-// pop()
-	// fill(vol*255,vol*59,vol*200)
-	// ellipse(width/2, width/2,600,600)
+  ellipse(width/2, height/2, ellipseWidth, ellipseWidth);
 }
