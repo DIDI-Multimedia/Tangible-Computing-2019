@@ -1,9 +1,5 @@
 var mic;
-// var song;
-
-// function preload(){
-// 	song = loadSound('https://drive.google.com/file/d/183g550iL68tFs-JiQvGLsLjc7aDcfW_9/view?usp=sharing')
-// }
+var fft;
 
 var volhistory = [];
 
@@ -11,15 +7,17 @@ function setup(){
 	let canvas = createCanvas(windowWidth/2,windowWidth/4)
 	canvas.parent('sketch-holder');
 
-	// song.play();
-
 	mic = new p5.AudioIn()
 	mic.start()
+	fft = new p5.FFT();
+  	fft.setInput(mic);
+
 }
+
 
 function draw(){
   	background(0)
-	var vol = mic.getLevel();
+	let spectrum =  fft.wavelength();
 	volhistory.push(vol)
 noFill()
 stroke(255)
@@ -28,8 +26,8 @@ stroke(255)
 // translate(0, windowWidth/2)
 
 beginShape();
-	for (var i = 0; i < volhistory.length; i++) {
-		vertex(i, vol*random(300,500))
+	for (var i = 0; i < spectrum.length; i++) {
+		vertex(i, width/2)
 	}
 endShape();
 // pop()
