@@ -1,55 +1,100 @@
 var video;
+var vScale = 8
+let pixels
+let prl00
+let prl01
+let prl02 
 
-var vScale = 8;
 
 function setup() {
+
   createCanvas(640, 480);
-  pixelDensity(1);
-  video = createCapture(VIDEO);
-  video.size(width/vScale, height/vScale);
-  video.hide()
-  noStroke()
+  initializeVideo()
+  setStyle()
+  pixels = initializePixelArray(vScale)
+  initPerlinNoise()
 
-  
-  let line = {
-  x1: width/2,
-  y1: 0,
-  x2: width/2,
-  y2: height,
-
-  }
-
-  let numLines = 10
-
-  drawLineRecursion(line, numLines)
 }
 
-function draw() {
-  background(51); 
-  video.loadPixels();
-  loadPixels();
-  let pixels = []
 
-  for (var y = 0; y < video.height; y++){
-    for (var x = 0; x < video.width; x++){
-      var index = (x + y * video.width)*4;
-      var r = video.pixels[index+0];
-      var g = video.pixels[index+1];
-      var b = video.pixels[index+2];
- 
-      let posX = x*vScale
-      let posY = y*vScale
-      let px = {x:posX,y:posY,r:r,g:g,b:b,scale:vScale}
-      pixels.push(px)
-    }
-  }
+function draw() {
+
+  background(51); 
+  video.loadPixels(); // we need to research about these function 
+  loadPixels();
+  updatePixelsRandomTime(noise(200,200))
+  displayPixels()
+  updatePerlinNoise()
+
+}
+
+
+function updatePerlinNoise(){
+
+    // initialize perlin noise values with random parameters
+  prl00 += 0.01
+  prl01 += 0.001
+  prl02 += 0.01
+
+}
+
+
+
+function initPerlinNoise(){
+
+    // initialize perlin noise values with random parameters
+  prl00 = random()
+  prl01 = random()
+  prl02 = random()
+
+}
+
+
+function displayPixels(){
+
 
   for (var i = pixels.length - 1; i >= 0; i--) {
     let pixel = pixels[i]
-    if (random()>0.9){ // try replacing 0.5 with another number
+    if (random()>0.5){ // try replacing 0.5 with another number
+
       // randomly swaping the positions of pixels
-      let pixel1 =  Object.assign({}, pixels[i])
       let j = constrain(i - 1,0,pixels.length)
+      copyPixelNeighbourProps(i,j)
+
+    }
+
+    drawPixel( pixel )
+
+  }
+
+}
+
+function drawPixel( pixel ){
+    
+    // draw the pixels 
+
+    let numRow = width/pixel.scale 
+    let numCol = height/pixel.scale 
+    fill(pixel.r,pixel.g,pixel.b)
+
+    let r = noise( prl00*pixel.x/numRow )*255
+    let b = noise(  prl02*pixel.y/numCol )*255
+    let g = noise( prl01*pixel.x/numRow )*255
+
+    let boxWidth = noise( prl00*pixel.x/numRow )*pixel.scale*3.3
+    let boxHeight = noise( prl02*pixel.y/numCol )*pixel.scale*2
+
+    stroke(r,g,b,100)
+
+    rect(pixel.x,pixel.y, boxWidth, boxHeight); 
+
+    
+
+}
+
+function copyPixelNeighbourProps(i,j) { 
+
+      let pixel1 =  Object.assign({}, pixels[i])
       let pixel2 = pixels[j]
       pixel1.r = pixel2.r
       pixel1.g = pixel2.g
@@ -57,58 +102,144 @@ function draw() {
       pixel = pixel1
       pixel2 = pixel1
 
-    }
+}
+function initializePixelArray(vScale){
 
-    // draw the pixels 
-    fill(pixel.r,pixel.g,pixel.b)
-    rect(pixel.x,pixel.y, pixel.scale, pixel.scale); 
+  let pixArr = []
+
+  fill(200,100,150)
+
+  for (var y = 0; y < video.height; y++ ) {
+    
+    for (var x = 0; x < video.width; x++ ) {
+
+      let pixel = createPixelObj(x,y,vScale)
+      pixArr.push(pixel)
+
+     
+
+    }
   }
+
+  return pixArr
+
+}
+
+function setStyle(){
+
+  noStroke()
+
 
 
 }
 
- 
 
-function drawLineRecursion(l,numLines){
+function updatePixelsRandomTime(probability){
 
-  stroke(random(255), random(255), random(255),10)
-  strokeWeight(numLines*30)
+  let k = 0
 
-   let mid = (l.y1 + l.y2)/2
-  line(l.x1,l.y1,l.x2,l.y2)
+
+  for (var y = 0; y < video.height; y++){
+
 
   
-  //rectMode(CENTER)
-  //ect(windowWidth/2, windowHeight/2, numLines,numLines)
+    for (var x = 0; x < video.width; x++){
 
-  numLines--
 
-  let lineA = {
-    x1: l.x1,
-    y1: l.y1,
-    x2: l.x2,
-    y2: mid,
+
+      if(random()> probability){
+
+
+
+        pixels[k] = createPixelObj(x,y,vScale)
+
+         }
+
+      
+      k++
+
+
+    }
 
   }
 
-    let lineB = {
-    x1: l.x1,
-    y1: mid,
-    x2: l.x2,
-    y2: l.y2,
-
-  }
-
-
-
-
-
-  if(numLines > 0){
-    drawLineRecursion(lineA, numLines)
-    drawLineRecursion(lineB, numLines)
-    //console.log(numLines)
-  }
-
-  //drawLineRecursion()
 }
 
+
+
+
+     
+
+function createPixelObj(x,y,vScale) {
+
+      var index = (x + y * video.width)*4;
+      var r = video.pixels[index+0];
+      var g = video.pixels[index+1];
+      var b = video.pixels[index+2];
+      let posX = x*vScale
+      let posY = y*vScale
+      let px = {x:posX,y:posY,r:r,g:g,b:b,scale:vScale}
+      return px 
+
+}
+
+function initializeVideo() {
+  // body...
+
+    pixelDensity(3); // what does this function do? 
+
+  video = createCapture(VIDEO);
+  video.size(width/vScale, height/vScale); // 
+  video.hide()
+
+}
+
+
+
+
+/*
+
+let i,j,k
+
+
+function setup(){
+
+  createCanvas(800,800);
+  noStroke()
+  rectMode(CENTER);
+  // initialize perlin noise values with random parameters
+  i = random()
+  j = random()
+  k = random()
+}
+function draw(){
+
+  let numCol = 25
+  let numRow = 25
+  let stepX = width / numCol // height of box 
+  let stepY = height / numRow // width of box 
+  
+   
+  background(255)
+
+  for (var col = 0; col < numRow; col++ ){
+    for (var row = 0; row < numCol; row++){
+     //fill(col/numCol*255,row/numRow*255,mouseX/width*255)
+     let r = noise(row/numRow+i)*255
+     let b = noise(col/numCol+j)*255
+     let g = noise(col/numCol+k)*255
+     boxWidth = noise(k*row/numRow)*stepX*3
+     boxHeight = noise(j*col/numCol)*stepY*6
+     fill(r,g,b,200)
+     
+     rect(row*stepX,col*stepY,boxWidth,boxHeight) 
+    
+    }
+  }
+
+    j += 0.01
+    k += 0.0025
+    i += 0.005
+}
+
+*/
