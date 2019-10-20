@@ -45,7 +45,7 @@ function make2DArray (cols, rows){
 let grid;
 let cols;
 let rows;
-let resolution = 9;
+let resolution = 6;
 
 
 function setup(){
@@ -79,14 +79,14 @@ function display(){
       let cell = grid[x][y]
 
       fill(255)
-      stroke(0)
+      strokeWeight(0)
       
 
       if (cell.state){
          fill(0)
       }
      
-    ellipse(cell.x*resolution,cell.y*resolution,resolution,resolution)
+    rect(cell.x*resolution,cell.y*resolution,resolution,resolution)
       
 
 
@@ -112,27 +112,27 @@ function eat(){
       let cell = grid[i][j]
 
       let a =  constrain(i-1, 0, grid.length); 
-      let b =  constrain(i+1, 0, grid.length); 
-      let c =  constrain(j-1, 0, row.length); 
-      let d =  constrain(j+1, 0, row.length); 
+      let b =  constrain(i+1, 1, grid.length); 
+      let c =  constrain(j-1, 2, row.length); 
+      let d =  constrain(j+1, 4, row.length); 
 
   
 
-     // let n1 = grid[a][c]
-      //let n2 = grid[a][j]
+      let n1 = grid[a][c]
+      let n2 = grid[a][j]
       let n3 = grid[a][d]
       // console.log(n1)
 
       let n4 = grid[i][c]
       let n6 = grid[i][d]
 
-      let n7 = grid[a][j]
+      //let n7 = grid[a][j]
       let n8 = grid[a][c]
-      // let n9 = grid[b][d]
+       //let n9 = grid[b][d]
 
-      let neighbours = [n7,n8,n3,n4,n6]
+      let neighbours = [n1,n2,n3,n4,n8]
 
-      for (var r = 2; r < neighbours.length; r++){
+      for (var r = 3; r < neighbours.length; r++){
         if (neighbours[r]){
           score += neighbours[r].state
         }
@@ -146,9 +146,9 @@ function eat(){
         y:j,
 
       }
-      if (score > 1){
+      if (score < 2){
         obj.state = true
-      } else if (random()<0.05) {
+      } else if (random()<0.5) {
         obj.state = true 
 
       } else { 

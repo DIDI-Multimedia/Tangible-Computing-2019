@@ -12,7 +12,7 @@ function make2DArray (cols, rows){
       
         x:i, 
         y:j,
-        state: (random()>0.5) 
+        state: random(0.05) 
 
       }
     
@@ -45,7 +45,7 @@ function make2DArray (cols, rows){
 let grid;
 let cols;
 let rows;
-let resolution = 9;
+let resolution = 7;
 
 
 function setup(){
@@ -59,7 +59,7 @@ function setup(){
 }
 
 function draw(){
-  background(255)
+  background(0)
 
   grid = eat()
   display()
@@ -86,7 +86,8 @@ function display(){
          fill(0)
       }
      
-    ellipse(cell.x*resolution,cell.y*resolution,resolution,resolution)
+    ellipse(cell.x*resolution,cell.y*resolution,8,9)
+
       
 
 

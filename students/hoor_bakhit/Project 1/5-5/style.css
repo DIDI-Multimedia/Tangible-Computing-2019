@@ -4,7 +4,7 @@ html, body {
 
   height: 50%;
 
-
+background-color: #D2B9D3;
 
 }
 
@@ -17,7 +17,6 @@ body {
 	font-family: 'arial';
 	color: #592C5F; 
 	display: : flex;*/
-	margin:center;
 
 
 }
@@ -27,7 +26,6 @@ body {
 	width: 100%;
 	position:relative;
 	left:37.5vw;
-
 }
 
 footer {
