@@ -84,7 +84,7 @@ function display(){
       
 
       if (cell.state){
-         fill(22,34,123)
+         fill(255, 0, 0)
       }
      
     rect(cell.x*resolution,cell.y*resolution,6,11)
