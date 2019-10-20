@@ -14,7 +14,7 @@ function setup()
 {
   createCanvas(windowWidth, 700);
   capture = createCapture(VIDEO);
-  capture.size(1920,660);
+  capture.size(640,480);
   capture.hide();
   poseNet = ml5.poseNet(capture, modelReady)
   poseNet.on('pose' , gotPoses)
@@ -67,9 +67,9 @@ function modelReady()
 function draw() 
 {
   background(0);
-  image(capture, 0, 0, 1920, 1080);
+  image(capture, 0, 0, 640, 480);
 
-  fill(255,0,0)
+  fill(0,210,230)
 
   // if (confidence > 0.10){
 
