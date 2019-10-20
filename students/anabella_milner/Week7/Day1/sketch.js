@@ -1,5 +1,5 @@
 var video;
-var vScale = 10
+var vScale = 6
 let pixels
 let prl00
 let prl01
@@ -79,13 +79,13 @@ function drawPixel( pixel ){
 
     let r = noise( prl00*pixel.x/numRow )*255
     let b = random()
-    let g = noise( prl02*pixel.y/numCol)*100
+    let g = noise( prl02*pixel.y/numCol)*255
 
     let boxWidth = noise( prl00*pixel.x/numRow )*pixel.scale*3
-    let boxHeight = noise( prl02*pixel.y/numCol )*pixel.scale*4
+    let boxHeight = noise( prl02*pixel.y/numCol )*pixel.scale*3
 
     stroke(r,g,b,50)
-    strokeWeight(9)
+    //strokeWeight(9)
 
     rect(pixel.x,pixel.y, boxWidth, boxHeight); 
 
@@ -139,16 +139,16 @@ function updatePixelsRandomTime(probability){
   
     for (var x = 0; x < video.width; x++){
 
-      
+
 
       if(random()> probability){
 
         let newPixel = createPixelObj(x,y,vScale)
 
-        if (newPixel.r == pixels[k].r){
-          pixels[k].r = 0
-            pixels[k].g = 0
-              pixels[k].b = 0
+        if (newPixel.r == pixels[k].r && newPixel.b == pixels[k].b){
+          pixels[k].r = noise(50)
+            pixels[k].g = noise(50)
+              pixels[k].b = noise(50)
         } else { 
 
         pixels[k] = newPixel
