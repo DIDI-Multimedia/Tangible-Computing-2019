@@ -68,9 +68,9 @@ function draw() {
 
   background(r,g,b);
 
-  if (clickPos) {
-    text(getRandomThought(firstPart) + " " + getRandomThought(thirdPart) + " " + getRandomThought(adjectives) + " " + getRandomThought(fourthPart), clickPos[0], clickPos[1]);
-  }
+  // if (clickPos) {
+  //   text(getRandomThought(firstPart) + " " + getRandomThought(thirdPart) + " " + getRandomThought(adjectives) + " " + getRandomThought(fourthPart), clickPos[0], clickPos[1]);
+  // }
 
   drainBrain()
   // fill(random(255),random(255),random(255));
@@ -87,12 +87,12 @@ function draw() {
   // translate(width / 6, height / 6);
   // rotate(c);
 
-  ellipse(2500, 2500, 3000, 3000);
+  ellipse(width/2, height/2, 3000, 3000);
   // ellipse(2200,2100,3000,3000);
  
   for (var i = 0; i < freeThoughts.length; i++){
     let tht = freeThoughts[i]
-    console.log(tht.lifeSpan)
+    // console.log(tht.lifeSpan)
     fill(0,tht.lifeSpan)
     textSize(tht.size);
     textFont(tht.font);
@@ -104,65 +104,75 @@ function draw() {
     push()
     translate(tht.x,tht.y)
     rotate(tht.rotate)
-    text(tht.txt,0,0);
+    // text(tht.txt,0,0);
+
+        for (var s = 3; s > 1; s--){
+    // let tht = freeThoughts[s]
+    textSize(tht.size+s);
+    fill(0,0,0,tht.lifeSpan)
+    text(tht.txt,0,s*10);
+  }    
+
     // rotate(PI / 3.0);
     pop();
     move(tht)
   }  
 
-    for (var s = 3; s > freeThoughts; s--){
-    let tht = freeThoughts[s]
-    textSize(tht.Size+s);
-    fill(255,0,0,tht.lifeSpan)
-    text(tht.txt,0,s*10);
-  }    
 
-  // background(0);
 
-  // fill(random(255),random(255),random(255));
-  // stroke(random(255),random(255),random(255));
-  // rectMode(CENTER);
-  // point(x, y, 20, 20);  
-  // point(y, x, 50, 50);
-
-  
-
-  // if (mouseIsPressed) {
-  //   fill(255, 150);
-  //   noStroke();
-  //   ellipse(mouseX, mouseY, 60, 60);
   }
 
 
+
+function getThought(){
+
+  let thought = getRandomThought(firstPart) + " " + getRandomThought(thirdPart) + " " + getRandomThought(adjectives) + " " + getRandomThought(fourthPart)  
+  if (random()>0.9){
+    thought += "!"
+  } else if (random()>0.8) { 
+
+    thought += ";)"
+
+
+  }
+  
+  return thought 
+
+}
+
 function mousePressed(){
+
   console.log('mouse pressed')
-  clickPos = [mouseX, mouseY];
-  // var d = dist(mouseX, mouseY, tht.x, tht,y);
-
-  // if (d < 3000/2){
-  //   tht.dead
-  // }
-  // creates a new thought 
-
+  let d = dist(mouseX,mouseY,width/2,height/2) 
+  console.log('distance: ', d)
+  let radius = 1500
+  if (d < radius){
   let tht = {}
-  tht.x = width/2 
-  tht.y = height/2 
+  tht.x = mouseX  
+  tht.y = mouseY 
   tht.size = random(1,200)
   // tht.Align = random(textAlign)
   tht.font = random(fonts)
-  tht.txt = getRandomThought(firstPart) + " " + getRandomThought(thirdPart) + " " + getRandomThought(adjectives) + " " + getRandomThought(fourthPart)  
+  tht.txt = getThought()
+
   tht.dead = random(1,10)
   // tht.lifespan = 2;
   frameRate(fr);
   freeThoughts.push(tht)
   tht.lifeSpan = 255
   tht.rotate = random(0,TWO_PI) //random rotation in radians
-
+  tht.r = random(255);
+  tht.g = random(255);
+  tht.b = random(255);
 
   fill(random(255), random(255), random(255))
   r = random(255);
   g = random(255);
   b = random(255);
+
+  }
+
+
 
 
 }
