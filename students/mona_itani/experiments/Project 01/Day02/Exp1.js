@@ -78,15 +78,15 @@ function display(){
 
       let cell = grid[x][y]
 
-      fill(255)
+      fill(0)
       stroke(0)
       
 
       if (cell.state){
-         fill(0)
+         fill(255)
       }
      
-    ellipse(cell.x*resolution,cell.y*resolution,resolution,resolution)
+    rect(cell.x*resolution,cell.y*resolution,resolution,resolution)
       
 
 
@@ -148,8 +148,8 @@ function eat(){
       }
       if (score > 1){
         obj.state = true
-      } else if (random()<0.05) {
-        obj.state = true 
+      } else if (random()<0.10) {
+        obj.state = false 
 
       } else { 
 

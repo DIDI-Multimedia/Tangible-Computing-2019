@@ -12,7 +12,7 @@ function make2DArray (cols, rows){
       
         x:i, 
         y:j,
-        state: (random()>0.5) 
+        state: random(0.05) 
 
       }
     
@@ -49,7 +49,7 @@ let resolution = 9;
 
 
 function setup(){
-  createCanvas(600,600);
+  createCanvas(800,800);
   cols = width / resolution;
   rows = height / resolution;
   grid = make2DArray(cols, rows);

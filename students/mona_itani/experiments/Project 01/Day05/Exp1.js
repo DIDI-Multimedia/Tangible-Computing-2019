@@ -78,15 +78,15 @@ function display(){
 
       let cell = grid[x][y]
 
-      fill(255)
+      fill(25,24,12)
       stroke(0)
       
 
       if (cell.state){
-         fill(0)
+         fill(22,34,123)
       }
      
-    ellipse(cell.x*resolution,cell.y*resolution,resolution,resolution)
+    rect(cell.x*resolution,cell.y*resolution,resolution,resolution)
       
 
 
@@ -132,7 +132,7 @@ function eat(){
 
       let neighbours = [n1,n2,n3,n4,n6]
 
-      for (var r = 1; r < neighbours.length; r++){
+      for (var r = 2; r < neighbours.length; r++){
         if (neighbours[r]){
           score += neighbours[r].state
         }
@@ -146,14 +146,10 @@ function eat(){
         y:j,
 
       }
-      if (score > 2){
+      if (score > 1){
         obj.state = false
-      } else if (random()<0.5) {
-        obj.state =false 
-
-      } else if (neighbours<1){
-
-        obj.state = false
+      } else if (random()<5) {
+        obj.state =true 
 
       }
  
