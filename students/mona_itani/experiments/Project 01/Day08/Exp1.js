@@ -86,7 +86,7 @@ function display(){
          fill(0)
       }
      
-    ellipse(cell.x*resolution,cell.y*resolution,resolution,resolution)
+    ellipse(cell.x*resolution,cell.y*resolution,8,9)
 
       
 
