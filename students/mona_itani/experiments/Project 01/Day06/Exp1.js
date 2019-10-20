@@ -78,16 +78,17 @@ function display(){
 
       let cell = grid[x][y]
 
-      fill(255)
+      fill(255,255,174)
       stroke(0)
+      strokeWeight(0)
       
 
       if (cell.state){
          fill(0)
       }
      
-    ellipse(cell.x*resolution,cell.y*resolution,resolution,resolution)
-      
+    rect(cell.x*resolution,cell.y*resolution,resolution,resolution)
+     ellipse(cell.x*resolution,cell.y*resolution,resolution,resolution)      
 
 
 

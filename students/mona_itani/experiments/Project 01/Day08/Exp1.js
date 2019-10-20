@@ -45,11 +45,11 @@ function make2DArray (cols, rows){
 let grid;
 let cols;
 let rows;
-let resolution = 9;
+let resolution = 7;
 
 
 function setup(){
-  createCanvas(800,800);
+  createCanvas(600,600);
   cols = width / resolution;
   rows = height / resolution;
   grid = make2DArray(cols, rows);
@@ -59,7 +59,7 @@ function setup(){
 }
 
 function draw(){
-  background(255)
+  background(0)
 
   grid = eat()
   display()
@@ -87,6 +87,7 @@ function display(){
       }
      
     ellipse(cell.x*resolution,cell.y*resolution,resolution,resolution)
+
       
 
 

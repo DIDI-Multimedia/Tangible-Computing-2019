@@ -70,11 +70,11 @@ function draw(){
 
 function display(){
 
-  for (var x = 0; x < grid.length; x++){
+  for (var x = 3; x < grid.length; x++){
 
     let row = grid[x]
 
-    for (var y = 0; y < row.length; y++){
+    for (var y = 2; y < row.length; y++){
 
       let cell = grid[x][y]
 
@@ -147,12 +147,13 @@ function eat(){
 
       }
       if (score > 1){
-        obj.state = false
+        obj.state = true
       } else if (random()<5) {
-        obj.state =true 
+        obj.state = false
 
       }
- 
+        
+      
 
       newRow.push(obj)
 
