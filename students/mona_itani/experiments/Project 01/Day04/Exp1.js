@@ -45,7 +45,7 @@ function make2DArray (cols, rows){
 let grid;
 let cols;
 let rows;
-let resolution = 5;
+let resolution = 6;
 
 
 function setup(){
