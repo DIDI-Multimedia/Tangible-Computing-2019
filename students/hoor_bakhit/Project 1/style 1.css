@@ -1,0 +1,23 @@
+/* div class based on id */
+
+#content {
+
+
+	font-family: 'helvetica';
+	padding: 5%;
+background-color: #D2B9D3;
+border: 4px dotted;
+border-color: #2B2537;
+
+{
+  text-decoration: none;
+}
+
+
+p {
+
+	color: #6A287E !important; 
+
+     
+
+}

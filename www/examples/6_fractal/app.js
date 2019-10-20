@@ -1,4 +1,5 @@
 
+
 var container;
 var camera, scene, raycaster, renderer;
 var mouse = new THREE.Vector2(), INTERSECTED;
@@ -27,11 +28,8 @@ function init() {
 	container.appendChild( renderer.domElement );
 
 	var geo = new THREE.BoxBufferGeometry( 1,1,1)
-	// fractalCubes(params1,1,1,1)
 	fractalCubes(geo,4,300,0,0,0)
-	// fractalCubes(params1,1,1,-1)
-	// fractalCubes(params1,-1,-1,-1)
-	// fractalCubes({step:10,geometry:geometry,scale:50,pos:0,dir:'up',position:{x:0,y:0,z:0}})
+
 
 }
 
@@ -50,12 +48,9 @@ function fractalCubes(geo,step,scale,x,y,z){
 	if (step > 0){
 
 		fractalCubes(geo,step,scale,x+scale,y+scale,z+scale)
-
 		fractalCubes(geo,step,scale,x-scale,y+scale,z+scale)
 		fractalCubes(geo,step,scale,x-scale,y-scale,z+scale)
-		
-		fractalCubes(geo,step,scale,x-scale,y-scale,z-scale)
-		
+		fractalCubes(geo,step,scale,x-scale,y-scale,z-scale)	
 		fractalCubes(geo,step,scale,x+scale,y+scale,z-scale)
 		fractalCubes(geo,step,scale,x-scale,y+scale,z-scale)
 		fractalCubes(geo,step,scale,x+scale,y-scale,z+scale)

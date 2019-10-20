@@ -1,40 +1,48 @@
-class CA {
-  int() cells;
-  int() ruleset;
-  int w = 10;
-// The CA should keep track of how many generations.
-  int generation = 0;
-  CA() {
-    cells = new int[width/w];
-    ruleset = {0,1,0,1,1,0,1,0};
-    cells[cells.length/2] = 1;
-  }
- 
-// Function to compute the next generation
-  void generate() {
-    int[] nextgen = new int[cells.length];
-    for (int i = 1; i < cells.length-1; i++) {
-      int left   = cells[i-1];
-      int me     = cells[i];
-      int right  = cells[i+1];
-      nextgen[i] = rules(left, me, right);
-    }
-    cells = nextgen;
-// Increment the generation counter.
-    generation++;
-  }
- 
-  int rules(int a, int b, int c) {
-    String s = "" + a + b + c;
-    int index = Integer.parseInt(s,2);
-    return ruleset[index];
-  }
- 
-  for (int i = 0; i < cells.length; i++) {
-    if (cells[i] == 1) fill(0);
-    else               fill(255);
-// Set the y-location according to the generation.
-    rect(i*w, generation*w, w, w);
-  }
+function setup(){
+ createCanvas(500,500)
+ background(0);
 
-// source: https://natureofcode.com/book/chapter-7-cellular-automata/
+  let line = {
+  
+  x1: width/6,
+  y1:3,
+  x2: width/3,
+  y2: height+3,
+ 
+ }
+ 
+ let numlines = 40
+
+ drawlineRecursion(line,numlines);
+}
+
+function drawlineRecursion(l,numlines){
+
+ fill(random(100),random(100),random(100),30)
+ stroke(255);
+  // strokeWeight(numlines*25)
+  //line(l.x1,l.y1,l.x2,l.y2
+  push()
+  translate(width/2.5,height/2.5)
+ ellipse(10,50,numlines*25-4,numlines*25)
+  ellipse(5,10,numlines*10,numlines*10)
+  ellipse(20,70,numlines*30,numlines*30)
+ pop()
+ 
+
+
+  numlines=numlines -1
+
+  if (numlines>3){
+    drawlineRecursion(l,numlines)
+    //console.log(numlines)
+  }
+  // line(l.x1,1.y1,1.x2,y2)
+  //drawlineRecursion()
+
+
+
+
+
+
+}
