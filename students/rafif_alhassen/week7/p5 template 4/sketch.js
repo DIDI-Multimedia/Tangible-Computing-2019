@@ -12,9 +12,14 @@ let secondPart = ["hungry", " late for class", " eye infection, miss"]
 
 let thirdPart = ["feeling"]
 
-let fourthPart = ["in Abu Dhabi", "in Dubai", "in Sharjah", "in university", "at the movies", "in the car", "at the coffee shop", "at home", "at the beach", "in the mall", "in the restaurant", "with her friends", "with his friends"]
+let fourthPart = ["in Abu Dhabi", "in Dubai", "in Sharjah", "in university", "at the movies", "in the car", "at the coffee shop", "at home", "at the beach", "in the mall", "in the restaurant", "with her friends", "with his friends", "with your friends"]
 
-let fonts = ["Helvetica, Times New Roman, Comic Sans, Arial"]
+// let fonts = ['Helvetica', 'Times New Roman', 'Comic Sans', 'Arial']
+
+// let angle = 0.0;
+
+// let jitter = 0.0;
+
 
 // let position = ["CENTER", "RIGHT", "LEFT"]
 
@@ -39,6 +44,7 @@ function setup() {
   console.log(adjectives)
   lifeSpan = 0.2;
   ellipseMode(CENTER);
+  // rotate(90);
   // lastPrint = millis () - 3000;
   // fill(255)
 
@@ -65,7 +71,17 @@ function draw() {
   frameRate(fr);
   fill(255);
   noStroke()
-  ellipse(2200, 2000, 3000, 3000);
+
+  //   if (second() % 2 === 0) {
+  //   jitter = random(-0.1, 0.1);
+  // }
+
+  // angle = angle + jitter;
+  // let c = cos(angle);
+  // translate(width / 6, height / 6);
+  // rotate(c);
+
+  ellipse(2500, 2500, 3000, 3000);
   // ellipse(2200,2100,3000,3000);
  
   for (var i = 0; i < freeThoughts.length; i++){
@@ -73,11 +89,22 @@ function draw() {
     console.log(tht.lifeSpan)
     fill(0,tht.lifeSpan)
     textSize(tht.Size);
-    textFont(tht.Font);
+    // textFont(Helvetica)
     // textAlign(tht.Align);
-    text(tht.txt,tht.x,tht.y)
+    // push();
+    // translate(100,100);
+    // rotate( radians(frameCount) );
+    // text(tht.txt,tht.x,tht.y);
+    push()
+    translate(tht.x,tht.y)
+    rotate(tht.rotate)
+    text(tht.txt,0,0);
+    // rotate(PI / 3.0);
+    pop();
     move(tht)
-  }
+  
+
+  }      
 
   // background(0);
 
@@ -105,13 +132,15 @@ function mousePressed(){
   tht.y = height/2 
   tht.Size = random(1,200)
   // tht.Align = random(textAlign)
-  tht.Font = random(fonts)
+  // tht.Font = random(fonts)
   tht.txt = getRandomThought(firstPart) + " " + getRandomThought(thirdPart) + " " + getRandomThought(adjectives) + " " + getRandomThought(fourthPart)  
   tht.dead = random(1,10)
   // tht.lifespan = 2;
   frameRate(fr);
   freeThoughts.push(tht)
   tht.lifeSpan = 255
+  tht.rotate = random(0,TWO_PI) //random rotation in radians
+
   fill(random(255), random(255), random(255))
   r = random(255);
   g = random(255);
