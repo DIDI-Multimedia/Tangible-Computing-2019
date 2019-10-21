@@ -45,7 +45,7 @@ function make2DArray (cols, rows){
 let grid;
 let cols;
 let rows;
-let resolution = 9;
+let resolution = 10;
 
 
 function setup(){
@@ -59,7 +59,7 @@ function setup(){
 }
 
 function draw(){
-  background(255)
+  background(0)
 
   grid = eat()
   display()
@@ -78,12 +78,13 @@ function display(){
 
       let cell = grid[x][y]
 
-      fill(255)
-      stroke(0)
+      fill(123,13,343)
+      stroke(100)
+      strokeWeight(-10)
       
 
       if (cell.state){
-         fill(0)
+         fill(255)
       }
      
     ellipse(cell.x*resolution,cell.y*resolution,resolution,resolution)
@@ -112,25 +113,25 @@ function eat(){
       let cell = grid[i][j]
 
       let a =  constrain(i-1, 0, grid.length); 
-      let b =  constrain(i+1, 1, grid.length); 
-      let c =  constrain(j-1, 1, row.length); 
+      let b =  constrain(i+1, 0, grid.length); 
+      let c =  constrain(j-1, 0, row.length); 
       let d =  constrain(j+1, 0, row.length); 
 
   
 
-     // let n1 = grid[a][c]
-      //let n2 = grid[a][j]
+     let n1 = grid[a][c]
+      let n2 = grid[a][j]
       let n3 = grid[a][d]
       // console.log(n1)
 
       let n4 = grid[i][c]
-      let n6 = grid[i][d]
+      //let n6 = grid[i][d]
 
       let n7 = grid[a][j]
       let n8 = grid[a][c]
       // let n9 = grid[b][d]
 
-      let neighbours = [n7,n8,n3,n4,n6]
+      let neighbours = [n1,n7*2,n8,n4,n2*2]
 
       for (var r = 2; r < neighbours.length; r++){
         if (neighbours[r]){
@@ -142,11 +143,23 @@ function eat(){
 
       let obj = {
       
-        x:i, 
+        x:i*2, 
         y:j,
 
       }
-    
+      if (score < 2){
+        obj.state = true
+      } else if (random()>0.05) {
+        obj.state = false 
+
+      } 
+
+      if (score >3){
+        obj.state = true
+      } else if (random()<0.05) {
+        obj.state = true
+
+      }
  
 
       newRow.push(obj)
@@ -224,6 +237,49 @@ function eat(){
 //   return sum;
 // }
 
+
+
+
+//     for (let i = 0; i < cols; i++) {
+//     for (let j = 0; j < rows; j++) {
+//       let state = grid[i][j];
+
+    
+   
+// //live people count
+//    let sum = 0;
+//      let neighbors = countNeighbors(grid, i, j);
+
+//       if (state == 0 && neighbors == 8) {
+//         next[i][j] = 1;
+//       } else if (state == 10 && (neighbors < 20 || neighbors > 300)) {
+//         next[i][j] = 0;
+//       } else {
+//         next[i][j] = state;
+//      }
+
+
+
+//    }
+//  }
+
+  
+//   grid = next;
+
+// }
+
+// function countNeighbors(grid, x, y) {
+//   let sum = 0;
+//   for (let i = -1; i < 2; i++) {
+//     for (let j = -1; j < 2; j++) {
+//       let col = (x + i + cols) % cols;
+//       let row = (y + j + rows) % rows;
+//       sum += grid[col][row];
+//     }
+//   }
+//   sum -= grid[x][y];
+//   return sum;
+// }
 
 
 

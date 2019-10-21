@@ -1,31 +1,59 @@
-var mic;
+let mic
+let a = 0
+let fft
+let peakDetect
+let tall = 1
 
-function setup(){
-  let canvas = createCanvas(windowWidth/2,windowWidth/2)
-    canvas.parent('sketch-holder');
-
-  // angleMode(DEGREES)
+function setup() {
+ let canvas = createCanvas(windowWidth/1.5,windowHeight/1.5)
+  canvas.parent('sketch-holder')
+  mic = new p5.AudioIn();
+  mic.start();
   
-  mic = new p5.AudioIn()
-  mic.start(0.9,1024)
-
-  // fft = new p5.FFT();
-  // fft.setInput(mic);
+  fft = new p5.FFT(0.9,512);
+  fft.setInput(mic);
+  peakDetect = new p5.PeakDetect(180, 20000, 0.1, 60)
+  
+  angleMode(DEGREES)
 }
 
-function draw(){
+function draw() {
+  
+  let vol = mic.getLevel();
+  let spectrum =  fft.analyze();
+  let col = map (vol*1000, 0, width, 0, 255)
+  peakDetect.update(fft);
+  background(col,30, col);
 
-  background(0)
-  var vol = mic.getLevel();
-  // var spectrum = fft.analyze(1024);
+  if (vol > 0.2){
+    a = a + 0.05
+        // strokeWeight (8)
+  } else {
+    a = a - 0.009
+     // strokeWeight(1)
+  }
 
-  translate(width / 2, width / 2);
-  noStroke();
-  for (let i = 0; i < 10; i++) {
-    for (let c = 0; i < 255; i += 25) {
-      fill(vol * 900, c, i)
-      ellipse(0, vol * i * 4, 10, 10);
-      rotate(PI / 5);
-    }
+  if (peakDetect.isDetected) {
+    // strokeWeight (8)
+    tall = 2
+
+  } else {
+    // strokeWeight(1)
+    tall = 1
+}
+
+
+  // console.log(spectrum)
+  for (var i = 0; i < spectrum.length; i++){
+  stroke(random(255),random(255),random(255))
+  push()
+  // movement = map (mouseX, 0, width, 0, 200)
+  fill(random(255),random(255),random(255))
+  translate(width/2,height/2)
+  rotate(i*a)   
+  rect (i, 10, 4, (spectrum[i]+100)*tall)
+  pop()
+
   }
 }
+

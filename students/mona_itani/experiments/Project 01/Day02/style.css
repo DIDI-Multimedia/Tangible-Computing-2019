@@ -1,8 +1,16 @@
 /* style.css */
+#content{
+	
+	text-align: center;
+	font-family: 'Verdana';
+	
+ 	
+}
 
 html, body {
 
   height: 50%;
+ 
 
 
 
@@ -13,32 +21,25 @@ h1 {
 }
 
 body {
-body {
-
-	font-family: 'arial';
-/*	color: #592C5F; */
-	padding: 5vw;
-	background-color: #555555;
-	justify-content: center;
-	align-items: center;
-
+	background-color: white;
+	text-align: center;
+	font-family: 'Verdana';
+ 	
 
 }
-
 #sketch-holder{
 	padding-top: 5%;
 	width: 100%;
-	position:relative;
+	position:center;
 	left:37.5vw;
-
 }
 
-footer {
 
-   width: 100%;
-   padding-top: 5%;
-   position: absolute;
-   text-align: center;*/
-
+a:link, a:visited {
+  background-color: #B195E0;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
 }
-

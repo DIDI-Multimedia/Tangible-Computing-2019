@@ -22,12 +22,13 @@ function draw(){
   tint(255, 45);
   image(video, 0, 0);
   for (var i = 0; i < video.length; i++){
+    
+      fill(255)
 
-     
-    // rect(row*stepX,col*stepY,stepX,stepY) 
+    }
 
-    //i += 0.01;
+  }
+    
+
+
  
-}
-
-}
