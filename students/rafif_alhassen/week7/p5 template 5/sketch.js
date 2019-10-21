@@ -128,10 +128,10 @@ function getThought(){
 
   let thought = getRandomThought(firstPart) + " " + getRandomThought(thirdPart) + " " + getRandomThought(adjectives) + " " + getRandomThought(fourthPart)  
   if (random()>0.9){
-    thought += "!"
+    thought += ""
   } else if (random()>0.8) { 
 
-    thought += ";)"
+    thought += ""
 
 
   }
