@@ -3,6 +3,16 @@ var camZ, scene, raycaster, renderer;
 //var mouse = new THREE.Vector2(), INTERSECTED;
 var radius = 500, theta = 0;
 var frustumSize = 1000;
+
+
+//posenet part 
+
+
+let videoCamera;
+let poseNet;
+let poses = [];
+
+
 init();
 animate();
 
@@ -12,9 +22,10 @@ function init() {
 
   document.body.appendChild( container ); // place three.js in body of file
   var aspect = window.innerWidth / window.innerHeight;
-  var camZ = new THREE.PerspectiveCamera( 45, innerWidth/ innerHeight, 1, 1000 ); // camZ.position.set(1)
-  camZ.position(10,10,10)
-  camZ.target.set(0,0,0)
+  camZ = new THREE.PerspectiveCamera( 45, innerWidth/ innerHeight, 1, 1000 ); // camZ.position.set(1)
+  camZ.position.set(10,10,10)
+
+  camZ.lookAt(0,0,0)
 
   scene = new THREE.Scene();
   scene.add( camZ );
@@ -120,27 +131,20 @@ function render() {
 }
 
 
-//posenet part 
 
-
-let video;
-
-let poseNet;
-
-let poses = [];
 
 
 
 function setup() {
 
   createCanvas(640, 480);
-  video = createCapture(VIDEO);
-  video.size(width, height);
+  videoCamera = createCapture(VIDEO);
+  videoCamera.size(width, height);
 
 
   // Create a new poseNet method with a single detection
 
-  poseNet = ml5.poseNet(video, modelReady);
+  poseNet = ml5.poseNet(videoCamera, modelReady);
 
   // This sets up an event that fills the global variable "poses"
 
@@ -154,7 +158,7 @@ function setup() {
 
   // Hide the video element, and just show the canvas
 
-  video.hide();
+  videoCamera.hide();
 
 }
 
@@ -179,7 +183,7 @@ function draw() {
 
   // We can call both functions to draw all keypoints and the skeletons
 
-  drawKeypoints(counter);
+  drawKeypoints(null);
 
   //drawSkeleton();
 
@@ -191,7 +195,7 @@ let time = 0
 
 // let keypoints = []
 
-function drawKeypoints(counter) {
+function drawKeypoints() {
   
 
   time += second()/50
@@ -220,7 +224,7 @@ function drawKeypoints(counter) {
         if (keypoint.position)
         {
           noStroke();
-          drawCubes(keypoint.position,time)
+          drawCubes(keypoint.position)
         }
 
         // fractalCubes(geo , step , scale , keypoint.position.x , keypoint.position.y , z)
@@ -240,8 +244,7 @@ function drawKeypoints(counter) {
 
 // A function to draw the skeletons
 
-function drawSkeleton() 
-{
+function drawSkeleton() {
 
 
   // Loop through all the skeletons detected
