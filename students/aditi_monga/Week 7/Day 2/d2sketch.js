@@ -1,38 +1,45 @@
-var mic;
-// var song;
+// from https://p5js.org/reference/#/p5.PeakDetect
 
-// function preload(){
-// 	song = loadSound('https://drive.google.com/file/d/183g550iL68tFs-JiQvGLsLjc7aDcfW_9/view?usp=sharing')
-// }
+let mic
+let fft
+let peakDetect
+let ellipseWidth = 40
 
-var volhistory = [];
+function setup() {
 
-function setup(){
-	let canvas = createCanvas(windowWidth/2,windowWidth/4)
-	canvas.parent('sketch-holder');
+ let canvas = createCanvas(windowWidth/2,windowHeight/2)
+  canvas.parent('sketch-holder')
 
-	// song.play();
+  mic = new p5.AudioIn()
+  mic.start()
 
-	mic = new p5.AudioIn()
-	mic.start()
+  fft = new p5.FFT()
+  fft.setInput(mic)
+  peakDetect = new p5.PeakDetect (180, 20000, 0.4, 60)
+
 }
 
-function draw(){
-  	background(0)
-	var vol = mic.getLevel();
-	volhistory.push(vol)
-noFill()
-stroke(255)
+function draw() {
+  // background(200);
+  let vol = mic.getLevel()
+  fft.analyze();
+  peakDetect.update(fft);
+  // console.log(spectrum)
+  
+  if (peakDetect.isDetected) {
+  	ellipseWidth = 50;
+    background (random(255),random(255),random(255))
+    fill(random(255),random(255),random(255))
+  } else {
+  	ellipseWidth *= 0.95;
+    // background (0)
+  }
 
-// push()
-// translate(0, windowWidth/2)
-
-beginShape();
-	for (var i = 0; i < volhistory.length; i++) {
-		vertex(i, vol*random(300,500))
-	}
-endShape();
-// pop()
-	// fill(vol*255,vol*59,vol*200)
-	// ellipse(width/2, width/2,600,600)
+for (var x = 0; x < width+300; x+=50){
+  for (var y = 0; y < height+300; y +=50){
+  stroke(random(255),random(255),random(255))
+  rectMode (CENTER)
+  rect(x, y, ellipseWidth, ellipseWidth);
+}
+}
 }

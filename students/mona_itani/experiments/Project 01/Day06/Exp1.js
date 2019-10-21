@@ -78,16 +78,17 @@ function display(){
 
       let cell = grid[x][y]
 
-      fill(255)
+      fill(255,255,174)
       stroke(0)
+      strokeWeight(0)
       
 
       if (cell.state){
          fill(0)
       }
      
-    ellipse(cell.x*resolution,cell.y*resolution,resolution,resolution)
-      
+    rect(cell.x*resolution,cell.y*resolution,resolution,resolution)
+     ellipse(cell.x*resolution,cell.y*resolution,resolution,resolution)      
 
 
 
@@ -191,6 +192,50 @@ function eat(){
 
 //    let next = make2DArray(cols, rows);
 //    //grid
+
+//     for (let i = 0; i < cols; i++) {
+//     for (let j = 0; j < rows; j++) {
+//       let state = grid[i][j];
+
+    
+   
+// //live people count
+//    let sum = 0;
+//      let neighbors = countNeighbors(grid, i, j);
+
+//       if (state == 0 && neighbors == 8) {
+//         next[i][j] = 1;
+//       } else if (state == 10 && (neighbors < 20 || neighbors > 300)) {
+//         next[i][j] = 0;
+//       } else {
+//         next[i][j] = state;
+//      }
+
+
+
+//    }
+//  }
+
+  
+//   grid = next;
+
+// }
+
+// function countNeighbors(grid, x, y) {
+//   let sum = 0;
+//   for (let i = -1; i < 2; i++) {
+//     for (let j = -1; j < 2; j++) {
+//       let col = (x + i + cols) % cols;
+//       let row = (y + j + rows) % rows;
+//       sum += grid[col][row];
+//     }
+//   }
+//   sum -= grid[x][y];
+//   return sum;
+// }
+
+
+
 
 //     for (let i = 0; i < cols; i++) {
 //     for (let j = 0; j < rows; j++) {

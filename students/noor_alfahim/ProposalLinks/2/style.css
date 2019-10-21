@@ -1,0 +1,24 @@
+/* div class based on id */
+
+#content {
+
+	font-family: 'helvetica';
+	padding: 5%;
+
+}
+
+
+p {
+
+	color: #000 !important; 
+
+
+.image {
+  width: 250px;
+}
+
+.image:hover {
+  background: #ff0000;
+}
+
+}

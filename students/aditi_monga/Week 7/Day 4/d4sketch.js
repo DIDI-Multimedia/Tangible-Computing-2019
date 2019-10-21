@@ -1,29 +1,35 @@
-var mic;
+let mic
+let a = 0
+let fft
 
-
-function setup(){
-let canvas = createCanvas(windowWidth/2,windowWidth/2)
-    canvas.parent('sketch-holder')
-
-    angleMode(DEGREES)
-
-	mic = new p5.AudioIn()
-	mic.start()
+function setup() {
+ let canvas = createCanvas(windowWidth/1.5,windowHeight/1.5)
+  canvas.parent('sketch-holder')
+  mic = new p5.AudioIn();
+  mic.start();
+  fft = new p5.FFT(0.9,128);
+  fft.setInput(mic);
+  angleMode(DEGREES)
 }
 
-function draw(){
- 
-	var vol = mic.getLevel();
+function draw() {
+  let vol = mic.getLevel();
+  let spectrum =  fft.analyze();
+  let col = map (vol*1000, 0, width, 0, 255)
+  background(col,50,70);
 
-  background(10,100,vol*1000)
+  if (vol > 0.2){
+    a = a + 0.01
+  }
 
+  // console.log(spectrum)
+  for (var i = 0; i < spectrum.length; i++){
+  stroke(random(255),255, 153)
   push()
-  translate (width/2,width/2)
-  scale(vol*8)
-  rotate(vol*360)
-  rectMode(CENTER)
-  noStroke()
-  fill(vol*1000,100,10)
-  rect(0,0,100,50)
+  movement = map (mouseX, 0, width, 0, 200)
+  translate(width/2,height/2)
+  rotate((i*a))   
+  rect (i, 0, 1, spectrum[i])
   pop()
+  }
 }

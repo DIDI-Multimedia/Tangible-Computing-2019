@@ -45,14 +45,14 @@ function make2DArray (cols, rows){
 let grid;
 let cols;
 let rows;
-let resolution = 9;
+let resolution = 6;
 
 
 function setup(){
   createCanvas(600,600);
   cols = width / resolution;
   rows = height / resolution;
-  grid = make2DArray(cols, rows);
+  grid = make2DArray(cols*9, rows);
 
 
 
@@ -78,15 +78,16 @@ function display(){
 
       let cell = grid[x][y]
 
-      fill(255)
+      fill(235,65,13)
       stroke(0)
+      strokeWeight(0)
       
 
       if (cell.state){
-         fill(0)
+         fill(random(255))
       }
      
-    ellipse(cell.x*resolution,cell.y*resolution,resolution,resolution)
+  rect(cell.x*resolution,cell.y*resolution,resolution*9,resolution*9)
       
 
 
@@ -112,9 +113,9 @@ function eat(){
       let cell = grid[i][j]
 
       let a =  constrain(i-1, 0, grid.length); 
-      let b =  constrain(i+1, 0, grid.length); 
+      let b =  constrain(i+1, 1, grid.length); 
       let c =  constrain(j-1, 0, row.length); 
-      let d =  constrain(j+1, 0, row.length); 
+      let d =  constrain(j+1, 1, row.length); 
 
   
 
@@ -146,19 +147,23 @@ function eat(){
         y:j,
 
       }
-      if (score > 1){
+    
+    if (score < 2){
         obj.state = true
-      } else if (random()<0.05) {
-        obj.state = true 
+      } else if (score +neighbours) {
+        obj.state = true
 
-      } else { 
+        if (score = 3){
+          obj.state = false 
 
-        obj.state = false
+        }else if (score>3+neighbours)
+        obj.state= false
 
-      }
+      } 
  
 
       newRow.push(obj)
+
 
 
     }
@@ -232,10 +237,5 @@ function eat(){
 //   sum -= grid[x][y];
 //   return sum;
 // }
-
-
-
-
-
 
     

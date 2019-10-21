@@ -6,13 +6,22 @@ let fr = 30;
 let thoughts = ["i am hungry", "i am stressed out", "who is texting me", "what should i have for lunch", "i am tired", "i am overwhelmed", "i am struggling"]
 
 
-let firstPart = ["I am", "Who is","She is","He is","We are","They are"]
+let firstPart = ["I am", "Who is","She is","He is","We are","They are","You are"]
 
-let secondPart = [" hungry", " late for class", " eye infection, miss"]
+let secondPart = ["hungry", " late for class", " eye infection, miss"]
 
-let fonts = ["Helvetica, Times New Roman, Comic Sans, Arial"]
+let thirdPart = ["feeling"]
 
-// let position = ["CENTER, RIGHT, LEFT"]
+let fourthPart = ["in Abu Dhabi", "in Dubai", "in Sharjah", "in university", "at the movies", "in the car", "at the coffee shop", "at home", "at the beach", "in the mall", "in the restaurant", "with her friends", "with his friends", "with your friends"]
+
+let fonts = ['Helvetica', 'Times New Roman', 'Comic Sans', 'Typewriter']
+
+// let angle = 0.0;
+
+// let jitter = 0.0;
+
+
+// let position = ["CENTER", "RIGHT", "LEFT"]
 
 
 let freeThoughts = []
@@ -34,6 +43,8 @@ function setup() {
   background(0);
   console.log(adjectives)
   lifeSpan = 0.2;
+  ellipseMode(CENTER);
+  // rotate(90);
   // lastPrint = millis () - 3000;
   // fill(255)
 
@@ -43,6 +54,8 @@ function setup() {
   var r = 80
   var g = 120
   var b = 255
+
+  var clickPos;
 
 function draw() {
 
@@ -54,59 +67,112 @@ function draw() {
   //     last Print = millis(); 
 
   background(r,g,b);
+
+  // if (clickPos) {
+  //   text(getRandomThought(firstPart) + " " + getRandomThought(thirdPart) + " " + getRandomThought(adjectives) + " " + getRandomThought(fourthPart), clickPos[0], clickPos[1]);
+  // }
+
   drainBrain()
   // fill(random(255),random(255),random(255));
   stroke(0);
   frameRate(fr);
-  fill(0);
+  fill(255);
   noStroke()
+  //   if (second() % 2 === 0) {
+  //   jitter = random(-0.1, 0.1);
+  // }
+
+  // angle = angle + jitter;
+  // let c = cos(angle);
+  // translate(width / 6, height / 6);
+  // rotate(c);
+
+  ellipse(width/2, height/2, 3000, 3000);
+  // ellipse(2200,2100,3000,3000);
  
   for (var i = 0; i < freeThoughts.length; i++){
     let tht = freeThoughts[i]
-    console.log(tht.lifeSpan)
+    // console.log(tht.lifeSpan)
     fill(0,tht.lifeSpan)
-    textSize(tht.Size);
-    textFont(tht.Font);
-    text(tht.txt,tht.x,tht.y)
+    textSize(tht.size);
+    textFont(tht.font);
+    // textAlign(tht.Align);
+    // push();
+    // translate(100,100);
+    // rotate( radians(frameCount) );
+    // text(tht.txt,tht.x,tht.y);
+    push()
+    translate(tht.x,tht.y)
+    rotate(tht.rotate)
+    // text(tht.txt,0,0);
+
+        for (var s = 3; s > 1; s--){
+    // let tht = freeThoughts[s]
+    textSize(tht.size+s);
+    fill(0,0,0,tht.lifeSpan)
+    text(tht.txt,0,s*10);
+  }    
+
+    // rotate(PI / 3.0);
+    pop();
     move(tht)
+  }  
+
+
+
   }
 
-  // background(0);
 
-  // fill(random(255),random(255),random(255));
-  // stroke(random(255),random(255),random(255));
-  // rectMode(CENTER);
-  // point(x, y, 20, 20);  
-  // point(y, x, 50, 50);
 
+function getThought(){
+
+  let thought = getRandomThought(firstPart) + " " + getRandomThought(thirdPart) + " " + getRandomThought(adjectives) + " " + getRandomThought(fourthPart)  
+  if (random()>0.9){
+    thought += ""
+  } else if (random()>0.8) { 
+
+    thought += ""
+
+
+  }
   
+  return thought 
 
-  // if (mouseIsPressed) {
-  //   fill(255, 150);
-  //   noStroke();
-  //   ellipse(mouseX, mouseY, 60, 60);
-  }
-
+}
 
 function mousePressed(){
-  console.log('mouse pressed')
-  // creates a new thought 
 
+  console.log('mouse pressed')
+  let d = dist(mouseX,mouseY,width/2,height/2) 
+  console.log('distance: ', d)
+  let radius = 1500
+  if (d < radius){
   let tht = {}
-  tht.x = width/2 
-  tht.y = height/2 
-  tht.Size = random(1,200)
-  tht.Font = random(fonts)
-  tht.txt = getRandomThought(firstPart) + " " + getRandomThought(adjectives)
+  tht.x = mouseX  
+  tht.y = mouseY 
+  tht.size = random(1,200)
+  // tht.Align = random(textAlign)
+  tht.font = random(fonts)
+  tht.txt = getThought()
+
   tht.dead = random(1,10)
   // tht.lifespan = 2;
   frameRate(fr);
   freeThoughts.push(tht)
   tht.lifeSpan = 255
+  tht.rotate = random(0,TWO_PI) //random rotation in radians
+  tht.r = random(255);
+  tht.g = random(255);
+  tht.b = random(255);
+
   fill(random(255), random(255), random(255))
   r = random(255);
   g = random(255);
   b = random(255);
+
+  }
+
+
 
 
 }

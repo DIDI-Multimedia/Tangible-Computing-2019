@@ -30,7 +30,7 @@ function drawFrameLines(poseList){
 			let kp01 = pose01[k]
 			let kp02 = pose02[k]
 
-			drawLine(kp01,kp02) // function that draws lines between frames 
+			drawLine(kp01,kp02) // create a function that draws lines between frames 
 
 
 
