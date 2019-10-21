@@ -1,6 +1,20 @@
 
 
+
+
+
+
+let bx;
+let by;
+let boxSize = 75;
+let overBox = false;
+let locked = false;
+let xOffset = 0.0;
+let yOffset = 0.0;
+
 function setup (){
+
+
   createCanvas (400,400)
   background(0)
 
@@ -21,9 +35,15 @@ function setup (){
 
   drawLineRecursion (line,numLines)
 
+
+
+  function mousepress(){
+    if mousepress 
+
+
+  }
+
 }
-
-
 
 
 function drawLineRecursion(l,numLines){
@@ -40,6 +60,43 @@ function drawLineRecursion(l,numLines){
 
     }
 
-  // drawLineRecursion()
+    function draw() {
+  background(237, 34, 93);
+
+  // Test if the cursor is over the box
+  if (
+    mouseX > bx - boxSize &&
+    mouseX < bx + boxSize &&
+    mouseY > by - boxSize &&
+    mouseY < by + boxSize
+  ) {
+    overBox = true;
+    if (!locked) {
+      stroke(255);
+      fill(244, 122, 158);
+    }
+  } else {
+    stroke(156, 39, 176);
+    fill(244, 122, 158);
+    overBox = false;
+  }
+
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
