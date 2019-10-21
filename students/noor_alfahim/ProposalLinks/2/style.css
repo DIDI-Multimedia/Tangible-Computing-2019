@@ -12,4 +12,14 @@ p {
 
 	color: #000 !important; 
 
+
+
+	.image {
+  width: 250px;
+}
+
+.image:hover {
+  background: #ff0000;
+}
+
 }
