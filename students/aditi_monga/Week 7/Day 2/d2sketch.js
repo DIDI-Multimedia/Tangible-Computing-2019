@@ -15,7 +15,7 @@ function setup() {
 
   fft = new p5.FFT()
   fft.setInput(mic)
-  peakDetect = new p5.PeakDetect
+  peakDetect = new p5.PeakDetect (180, 20000, 0.4, 60)
 
 }
 
