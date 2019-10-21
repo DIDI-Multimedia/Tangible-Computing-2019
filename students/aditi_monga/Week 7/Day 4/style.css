@@ -3,23 +3,23 @@ body {
 	font-family: 'arial';
 /*	color: #592C5F; */
 	padding: 5vw;
-	background-color: #7cd4d7;
+	background-color: #ffffff;
 	justify-content: center;
 	align-items: center;
 
 }
 
 h1, h5{
-	color: #cc2208
+	color: #ffc20f
 }
 
 a {
-	color: #1e4355
+	color: #000000
 }
 
 p, h3 {
 
-	color: #9d612f; 
+	color: #4e6ff4; 
 
 
 }
