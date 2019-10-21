@@ -1,5 +1,5 @@
 var video;
-var vScale = 7
+var vScale = 8
 let pixels
 let prl00
 let prl01
@@ -16,16 +16,31 @@ function setup() {
 
 }
 
+ var counter = 0
+ var limit = 10
 
 function draw() {
 
-  background(51); 
+
+
+
+  if (counter > limit) {
+      background(51); 
   video.loadPixels(); // we need to research about these function 
   loadPixels();
-  updatePixelsRandomTime(noise(255))
+  updatePixelsRandomTime(0.9)
   displayPixels()
   updatePerlinNoise()
+    counter = 0
+    limit ++
+  }
+  counter ++
+if (limit > 25){
 
+
+
+  limit = 5
+}
 }
 
 
@@ -58,7 +73,7 @@ function displayPixels(){
     if (random()>0.5){ // try replacing 0.5 with another number
 
       // randomly swaping the positions of pixels
-      let j = constrain(i - 1,0,pixels.length)
+      let j = constrain(i - 0,0,pixels.length)
       copyPixelNeighbourProps(i,j)
 
     }
@@ -77,18 +92,19 @@ function drawPixel( pixel ){
     let numCol = height/pixel.scale 
     fill(pixel.r,pixel.g,pixel.b)
 
-   let r = noise( prl00*pixel.x/numRow )*255
-   let b = 233
-    let g = random()
+    let r = noise( prl00*pixel.x/numRow )*255
+    let b = noise( prl00*pixel.y/numCol )*255
+    let g = noise( prl01*pixel.x/numRow )*255
 
     let boxWidth = noise( prl00*pixel.x/numRow )*pixel.scale*3
-    let boxHeight = noise( prl02*pixel.y/numCol )*pixel.scale*6
+    let boxHeight = noise( prl02*pixel.y/numCol )*pixel.scale*4
 
-    stroke(r,g,b,200)
+    stroke(r,g,b,30)
+    strokeWeight(9)
 
     rect(pixel.x,pixel.y, boxWidth, boxHeight); 
 
-   // rotate(0.0002)
+    
 
 }
 
@@ -138,13 +154,67 @@ function updatePixelsRandomTime(probability){
   
     for (var x = 0; x < video.width; x++){
 
-      if(random()> probability){
+      
 
-        pixels[k] = createPixelObj(x,y,vScale)
+    
+ let newPixel = createPixelObj(x,y,vScale)
+      
+     let test = Math.abs(newPixel.r - pixels[k].r)  
+              let test1 = Math.abs(newPixel.b - pixels[k].b) 
+              let test2 = Math.abs(newPixel.g - pixels[k].g) 
+
+       if (test < 20 && test1 < 20 && test2 < 20){
+
+
+          
+          pixels[k].r = 0
+            pixels[k].g = 0
+              pixels[k].b = 0
+
+              pixels.isblack = true
+        } else { 
+
+        pixels[k] = newPixel
+       }
+
+         k++  
+
+         
+  // let test = Math.abs(newPixel - pixels[k]) 
+               
+
+
+  //       if (test < 10){
+
+
+  //         pixels[k].scale = 1           
+
+  //             //pixels.isblack = true
+  //       } else { 
+  //         pixels[k].scale = vScale
+  //       pixels[k] = newPixel
+  //       }
+
+  //       console.log
+
+  //        k++  
+
+
+
+         
+
+
+
+
+
+
+
+  if(random()> probability){
+
 
       }
       
-      k++
+     
     }
 
   }
@@ -159,7 +229,8 @@ function createPixelObj(x,y,vScale) {
       var b = video.pixels[index+2];
       let posX = x*vScale
       let posY = y*vScale
-      let px = {x:posX,y:posY,r:r,g:g,b:b,scale:vScale}
+      let px = {x:posX,y:posY,r:r,g:g,b:b,scale:vScale, isblack:false}
+
       return px 
 
 }
@@ -224,6 +295,7 @@ function draw(){
 }
 
 */
+
 
 
 
