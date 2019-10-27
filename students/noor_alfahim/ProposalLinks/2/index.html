@@ -1,30 +1,128 @@
-<!-- boilerplate p5 example -->
 <!DOCTYPE html>
-
 <html>
 
-<head>
-	
-	<title> p5 sketch </title>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="style.css"> 
- 
+<html> 
+<p> <center> 
+	<!-- when mouse is move over the colour name, colour change -->
 
+	
+	<a onmouseover="document.bgColor='white'">White</a><br> 
+	<a onmouseover="document.bgColor='red'">Red</a><br> 
+
+
+</p> 
+</html> 
+
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+img:hover {
+  animation: shake 0.5s;
+  animation-iteration-count: infinite;
+}
+
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+
+
+}
+
+
+
+
+<style type="text/css">
+
+#jsalarmclock{
+font-family: Tahoma;
+font-weight: bold;
+font-size: 12px;
+}
+
+#jsalarmclock div{
+margin-bottom: 0.8em;
+}
+
+#jsalarmclock div.leftcolumn{
+float: left;
+width: 150px;
+font-size: 13px;
+background-color: lightyellow;
+clear: left;
+}
+
+#jsalarmclock span{
+margin-right: 5px;
+}
+
+</style>
+
+<script type="text/javascript">
+
+
+
+
+</script>
+
+
+</style>
+</head>
+<body>
+
+
+
+
+
+<center><p><font helvetica>  Hover over the image:</p>
+
+
+<img src="../../Photos/mom phone.png" alt="Mom Calling" width="280" height="600" class="image" >
+</div>
+</center>
+
+
+
+<html>
+<head>
+<center>
+<script>
+function startTime() {
+  var today = new Date();
+  var h = today.getHours();
+  var m = today.getMinutes();
+  var s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('txt').innerHTML =
+  h + ":" + m + ":" + s;
+  var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  return i;
+}
+</script>
 </head>
 
-<body>
-	<div id="content">
+<body onload="startTime()">
 
-		<h1>Week Four, Day Two </h1>
-		<p> 
-		
-			Coupling: Mike Wazowski
-		</p>
-		<script src="sketch.js"></script>		
-	
-	</div>
+<div id="txt"></div>
+
 
 </body>
-
 </html>
+
+
+
