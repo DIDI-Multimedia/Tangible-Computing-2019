@@ -6,7 +6,7 @@ echo node_modules
 echo .DS_Store
 template/node template/node_modules
 # students/mona_itani/Week1/week1.png
-labs/wk_09/node_modules
+labs/wk_09/twitter/node_modules
 node_modules/verror/README.md
 node_modules/verror/package.json
 node_modules/verror/LICENSE
