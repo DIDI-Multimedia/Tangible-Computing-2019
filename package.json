@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/DIDI-Multimedia/Tangible-Computing-2019/issues"
   },
-  "homepage": "https://github.com/DIDI-Multimedia/Tangible-Computing-2019#readme"
+  "homepage": "https://github.com/DIDI-Multimedia/Tangible-Computing-2019#readme",
+  "dependencies": {
+    "twit": "^2.2.11"
+  }
 }
