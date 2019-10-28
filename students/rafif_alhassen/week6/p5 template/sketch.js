@@ -26,8 +26,6 @@ function drawlineRecursion(l,numlines){
  ellipse(10,50,numlines*25-4,numlines*25)
  pop()
  
-
-
   numlines=numlines -0.5
 
   if (numlines>2){
@@ -36,12 +34,6 @@ function drawlineRecursion(l,numlines){
   }
   // line(l.x1,1.y1,1.x2,y2)
   //drawlineRecursion()
-
-
-
-
-
-
 }
 
 

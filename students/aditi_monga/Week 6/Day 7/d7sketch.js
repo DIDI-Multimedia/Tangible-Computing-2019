@@ -13,7 +13,7 @@ function setup(){
 }
 
 function draw(){
-  background(0)
+  background(0, 50)
 
   var vol = mic.getLevel();
 
