@@ -5,6 +5,8 @@ template/node template/node_modules
 echo node_modules
 echo .DS_Store
 template/node template/node_modules
+
+node_modules/
 # students/mona_itani/Week1/week1.png
 labs/wk_09/twitter/node_modules
 node_modules/verror/README.md
