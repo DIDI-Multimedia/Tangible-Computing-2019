@@ -7,18 +7,13 @@
 
 	<title> Week Eight - P1 </title>
 
-	<!-- load processing files  -->
-	<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script> -->
-
-	<!-- load CSS -->
 	<link rel="stylesheet" type="text/css" href="style.css"> 
 	<style>
-			body {
-				background-image: url("yuno.jpg");
-				background-repeat:no-repeat;
-      			background-size:100%;
-			}
+		body {
+			background-image: url("yuno.jpg");
+			background-repeat:no-repeat;
+			background-size:100%;
+		}
 	</style>
 
 </head>
@@ -27,30 +22,72 @@
 
 	<div id="content">
 
-<center>
-		<h1> <em>MuW201</em>: Tangible Computing, 2019  </h1>
-	
-		<h5> Project One </h5>
-</center>
-				<hr>
+		<center>
+			<h1> <em>MuW201</em>: Tangible Computing, 2019  </h1>
+
+			<h5> Project One </h5>
+		</center>
+		<hr>
 		<br>
 
-		<h3> Progress: </h3>
+		<h3> Code: </h3>
 
 		<ul>
-			
-			<p><a href="Day 5\day5.html"> Musical Clock </a></p>
-			
-<!-- 		</strike> -->
-		
-		<br>
-		<aside>
-			<p>I'm so excited to share this idea with you all!</p>
-			<ul>
-				<p><a href="..\Main Page\index.html"> Main Page</a></p>
-		</aside>
-	</div>
+			<p><a href="sketch\sketch.html"> Musical Clock </a></p>
+			<br>
 
-</body>
+
+			<h3> Video: </h3>
+			<video width="720" height="480" controls>
+			<source src="media\video.mp4" type="video/mp4"> </video>
+
+				<br>
+				<br>
+				<br>
+
+				<aside>
+
+				<p>As mentioned earlier, for my P1 Project, I was planning to use music/noise to measure time. It does not follow the standard metric system of hours, minutes and seconds, but instead, finds a new way to measure the time passed based on the amplitude, frequency and BPM (beats per minute) of the songs.</p>
+				<p>Strongly inspired by the old Windows Media Player, although we can’t tangibly touch music, I’ve always been fascinated with how we can “see” music through frequency and amplitude visualisation. The original idea was to use p5.js and a microphone as an input to any playlist of the listener’s choice, and the code would generate time passed based on the beats of the song. A slow song would generate slower beat analysis and vice versa. </p>
+				<p>However, the constraints of p5.js shaped the project differently.</p>
+				<p>So, the first step of generating the code was to create a microphone input (as experimented in week four). The mic.Input function detects only amplitude (in English, it’s called volume. I did not sign up for physics but ended up learning it anyway). Amplitude generates only one output value, which is the current volume the mic detects. </p>
+				<p>I continued experimenting with this in week five, and I quickly realised the mic is extremely sensitive, making it difficult to work in DIDI due to the loud air conditioners. I got the best results in a quiet environment. By this point, I realised “beats” are detected by p5.js only at a certain frequency (in English, we call this pitch – how shrill or deep a sound is). Thus, I had to enter the world of p5.FFT. </p>
+				<p>FFT analyses the sound input and produces an array of numbers as an output – providing the amplitude of the frequencies it can detect. We can choose to see the number of frequencies p5.js analyses – any number between 2 to 1024, as long as the number is a power of two (e.g. you can only analyse 2, 4, 8, 16, 32, 64, 128, 516, etc. frequencies). I still don’t understand the physics behind the reason these numbers are permitted to use, but I thought it was important to point out. </p>
+				<p>Finally, in week six, I managed to get the FFT code to work. Since the ambient noise and the mic sensitivity didn’t allow the code to detect beats properly, I decided to look up and use the exact frequency of drums as the minimum and maximum frequencies to be detected. To my dismay, the ambient sounds (such as air conditioners) unfortunately have similar frequencies, therefore the code worked even without music. I would have preferred creating an audio source within the computer, unfortunately the attempt led to more problems such as having to set up a server to support uploading an mp3 file. </p>
+				<p>A certain code called “peakDetect” wasn’t the best either, as it only worked with a certain genre of music, however, it created a decent effect, and I decided to integrate it into my code. </p>
+				<p>After a lot of trial and error, I ended up with a rotating pattern that changed its shape based on the volume of the beats/lyrics (whichever was produced to be louder in the song, e.g. harmonies will not trigger the beat but its drums would, and on the other hand a solo singer will overpower the drums in the background). The clock’s pattern would move anti-clockwise slowly if there is no song playing, encouraging you to charge the clock by playing music. Upbeat songs would turn the pattern clockwise more than a slow song would, creating a feeling of fighting the clock’s anticlockwise movement by playing high energy songs. </p>
+				<p>I love the how the code works, and I thoroughly enjoyed the process of creating it! </p>
+
+					<br> 
+					<br>
+				
+				<p>References: </p>
+
+				<li>b2renger (2015). Beat detection and Onset detection · Issue #34 · processing/p5.js-sound. [online] GitHub. Available at: https://github.com/processing/p5.js-sound/issues/34 [Accessed 21 Oct. 2019].</li>
+				<li>Github.io. (2019). Visualizing Music with p5.js. [online] Available at: https://therewasaguy.github.io/p5-music-viz/ [Accessed 18 Oct. 2019].</li>
+				<li>LeiosOS (2017). YouTube. YouTube. Available at: https://www.youtube.com/watch?v=XtypWS8HZco [Accessed 21 Oct. 2019].</li>
+				<li>Pérez, J.M. (2019). Finding out the BPM of a song using Javascript. [online] Jmperezperez.com. Available at: https://jmperezperez.com/beats-audio-api/ [Accessed 21 Oct. 2019].</li>
+				<li>P5js.org. (n.d.). analyze(). [online] Available at: https://p5js.org/reference/#/p5.FFT/analyze [Accessed 19 Oct. 2019].</li>
+				<li>P5js.org. (n.d.). p5.FFT. [online] Available at: https://p5js.org/reference/#/p5.FFT [Accessed 19 Oct.
+						2019].</li>
+				<li>P5js.org. (n.d.). peakDetect(). [online] Available at: https://p5js.org/reference/#/p5.PeakDetect
+						[Accessed 21 Oct. 2019].</li>
+				<li>The Coding Train (2019). Code! Programming with p5.js. YouTube. Available at:
+							https://www.youtube.com/playlist?list=PLRqwX-V7Uu6Zy51Q-x9tMWIv9cueOFTFA [Accessed 20
+						Oct. 2019].</li>
+				<li>Turner, F. (2013). Making Audio Reactive Visuals. [online] Airtightinteractive.com. Available at:
+							https://www.airtightinteractive.com/2013/10/making-audio-reactive-visuals/ [Accessed 21 Oct.
+						2019].</li>
+				<li>Webaudioweekly.com. (2014). Issue 24. [online] Available at: https://www.webaudioweekly.com/24
+						[Accessed 16 Oct. 2019].</li>
+				<li>Zytrax.com. (2014). Tech Stuff - Frequency Ranges. [online] Available at: http://www.zytrax.com/tech/audio/audio.html [Accessed 21 Oct. 2019].</li>
+
+					<ul>
+						<p><a href="..\Main Page\index.html"> Main Page</a></p>
+				</aside>
+					
+		</div>
+
+	</body>
 
 </html>
