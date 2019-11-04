@@ -7,7 +7,7 @@ console.log('express server running')
 const request = require ('request')
 
 let apiKey = '4efbc6b7681a84b8edb85f7a9b618d70'
-let city = 'Portland'
+let city = 'Toronto'
 let url = 'http://api.openweathermap.org/data/2.5/weather?q='+city+'&appid='+ apiKey
 
 
