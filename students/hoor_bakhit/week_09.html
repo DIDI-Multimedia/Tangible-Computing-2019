@@ -28,6 +28,42 @@
 		<hr>
 		
 		<a href="index.html"> go to home page </a>
+		 <p> Code</p>
+
+		<code>let express = require('express')
+let app = express()
+let server = app.listen(3000)
+app.use(express.static('public'))
+console.log('express server running')
+
+const request = require ('request')
+
+let apiKey = '4efbc6b7681a84b8edb85f7a9b618d70'
+let city = 'Toronto'
+let url = 'http://api.openweathermap.org/data/2.5/weather?q='+city+'&appid='+ apiKey
+
+
+request(url, function(err,response,body)
+{
+  if (err)
+  {
+    console.log('error:' , error)
+  }
+
+  else
+  {
+    console.log('body:' , body)
+  }
+});
+</code>
+
+<p> The API log</p>
+
+<code>{"coord":{"lon":-70.25,"lat":43.66},"weather":[{"id":800,"main":"Clear","description":"clear sky","icon":"01n"}],"base":"stations","main":{"temp":274.33,"pressure":1022,"humidity":60,"temp_min":270.93,"temp_max":277.59},"visibility":16093,"wind":{"speed":4.1,"deg":260},"clouds":{"all":1},"dt":1572848367,"sys":{"type":1,"id":5454,"country":"US","sunrise":1572866420,"sunset":1572902925},"timezone":-18000,"id":4975802,"name":"Portland","cod":200}
+-
+body: {"coord":{"lon":-79.39,"lat":43.65},"weather":[{"id":804,"main":"Clouds","description":"overcast clouds","icon":"04n"}],"base":"stations","main":{"temp":274.59,"pressure":1022,"humidity":74,"temp_min":272.15,"temp_max":276.48},"visibility":14484,"wind":{"speed":1,"deg":70},"clouds":{"all":90},"dt":1572848112,"sys":{"type":1,"id":941,"country":"CA","sunrise":1572868614,"sunset":1572905118},"timezone":-18000,"id":6167865,"name":"Toronto","cod":200}
+</code>
+
 		
 
 </center>
