@@ -7,7 +7,7 @@ function setup() {
 let canvas = createCanvas(windowWidth, windowWidth/3)
   canvas.parent('sketch-holder');
 
-  for (let i = 0; i < 200; i++) {
+  for (let i = 0; i < 500; i++) {
     con.push(new Jitter());
   }
 }
@@ -57,7 +57,7 @@ class Jitter {
     this.x = random(width);
     this.y = random(height);
     this.diameter = random(10, 20);
-    this.speed = 2;
+    this.speed = 4;
   }
 
   move() {
@@ -72,8 +72,10 @@ class Jitter {
     rotate(angle)
     fill(random(255),random(255),random(255))
     noStroke()
-    ellipse(this.x, this.y, this.diameter, this.diameter);
     rect(this.y, this.x, this.diameter, this.diameter);
+    ellipse(this.x, this.y, this.diameter, this.diameter);
+    
+
       pop()
     } 
   }}
