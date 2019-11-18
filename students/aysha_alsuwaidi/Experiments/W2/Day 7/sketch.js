@@ -9,17 +9,18 @@ let canvas = createCanvas(windowWidth/3, windowWidth/3)
 
 function draw(){
 
-    for (var angle=1; angle < TWO_PI; angle+= TWO_PI/rectsize){
+    for (var angle=0.1; angle < TWO_PI; angle+= TWO_PI/rectsize){
       console.log(angle)
 
       push()
       translate(width/2,height/2)
       rotate(angle)
-       stroke(random(255),random(255))
-       strokeWeight(15)
-      triangle(2,2,mouseX,mouseY)
-      triangle(2,20,mouseX,mouseY)
-      triangle(mouseX,mouseY,22,2)
+      noFill()
+       stroke(590,random(255),random(100),random(5))
+       strokeWeight(200)
+      triangle(15,2,random(20,12,90),random(2,2,9))
+      triangle(100,0,random(2,2,9),random(0,9))
+     
       pop()
     }
 }

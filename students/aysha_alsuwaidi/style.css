@@ -3,7 +3,7 @@
 
 	font-family: 'Verdana';
   font-style: oblique;
-  cursor:url('nyan_cat.png');
+
 
 
 
@@ -21,7 +21,7 @@ body {
 @keyframes change{
   0%{background-color: #F9D7ED;}
   25%{background-color: #FBCDEB;}
-  50%{background-color: #F9D7ED;}
+  50%{background-color: #f5c4e4;}
   75%{background-color: #FBCDEB;}
   100%{background-color: #F9D7ED;}
 
