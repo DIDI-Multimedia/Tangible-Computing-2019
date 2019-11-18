@@ -96,7 +96,6 @@ function draw() {
     rotate(tht.rotate)
     for (var s = 3; s > 1; s--){
       textSize(tht.Size+s);
-      // stroke(s*10,0,255,tht.lifespan-s)
       fill(255,0,0,tht.lifeSpan)
       text(tht.txt,0,s*10);      
     }

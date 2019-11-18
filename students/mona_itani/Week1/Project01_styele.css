@@ -17,9 +17,10 @@ body{
 
 h2{
 	font-family:serif;
-	text-align: center;
+	text-align: left;
 	font-size: 100%;
 	color:black;
+	padding:5;
 	}
 
 
