@@ -27,7 +27,7 @@ function init() {
 	addLights()
 
 	cubes = addRndCubeArr()
-	console.log(cubes)
+
 }
 
 function addLights(){
@@ -53,23 +53,23 @@ function onDocumentMouseDown( event ){
     mouse.x = ( event.clientX / window.innerWidth ) ;
     mouse.y = ( event.clientY / window.innerHeight ) ;
 
-    for (var z = 0; z < cubes.length; z++) { 
+    // for (var z = 0; z < cubes.length; z++) { 
 
-    	let row = cubes[z]
+    // 	let row = cubes[z]
     	
-    	for (var y = 0; y < row.length; y ++ ){
+    // 	for (var y = 0; y < row.length; y ++ ){
 
-    		let col = cubes[y]
+    // 		let col = cubes[y]
     		
-    		for(var x = 0; x < col.length; x ++ ){
+    // 		for(var x = 0; x < col.length; x ++ ){
 
-    			let obj = cubes[x][y][z]
-    			obj.scale.set(20*mouse.x,5*(mouse.x+mouse.y),20*mouse.y)
+    // 			let obj = cubes[x][y][z]
+    // 			obj.scale.set(20*mouse.x,5*(mouse.x+mouse.y),20*mouse.y)
 
-    		}
+    // 		}
 
-    	}
-    }
+    // 	}
+    // }
 
 }
 
@@ -78,17 +78,18 @@ function onDocumentMouseDown( event ){
 
 function addRndCubeArr(){
 
+	console.log(' create array of cubes ')
 	// let dimX = 5 + Math.random()*10
 	// let dimY = 5 + Math.random()*10
 	// let dimZ = 5 + Math.random()*10
 
 
-	let dimX = 3
-	let dimY = 3 
-	let dimZ = 3 
+	let dimX = 2
+	let dimY = 2 
+	let dimZ = 2 
 
 	let space = 25
-	let scale = 10
+	let scale = 5
 
 	var geo = new THREE.BoxBufferGeometry( 1,1,1)
 
@@ -110,7 +111,6 @@ function addRndCubeArr(){
 				let g = Math.floor(y/dimX*255)
 				let b = Math.floor(z/dimX*255)
 				let rgb = 'rgb(' + r + ',' + g + ',' + b + ')';
-				// console.log(rgb)
 				var object = new THREE.Mesh( geo, material)
 				object.material.color.set(rgb)	
 				object.position.set(x*space,y*space,z*space)
