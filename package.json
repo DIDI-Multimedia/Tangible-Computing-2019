@@ -20,6 +20,10 @@
   },
   "homepage": "https://github.com/DIDI-Multimedia/Tangible-Computing-2019#readme",
   "dependencies": {
+    "express": "^4.17.1",
+    "i": "^0.3.6",
+    "npm": "^6.12.1",
+    "request": "^2.88.0",
     "twit": "^2.2.11"
 
   }

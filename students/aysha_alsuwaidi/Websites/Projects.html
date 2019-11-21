@@ -26,8 +26,101 @@
 			<h1 class="springy-text" style="width: 40% color: grey;
 		text-shadow: 1px 1px 10px white;
 		font-size: 30px; "> EXPLODING CAT </h1> </div>
-		
-		<div class="box"><p> 
+		<center>
+			<!-- Slideshow container -->
+<div class="slideshow-container">
+
+  <!-- Full-width images with number and caption text -->
+  
+   <div class="mySlides fade">
+    <img src="../pictures/1.png" style="width:50%">
+  </div>
+
+  	 <div class="mySlides fade">
+    <img src="../pictures/2.png" style="width:50%">
+  </div>
+
+   <div class="mySlides fade">
+    <img src="../pictures/3.png" style="width:50%">
+  </div>
+
+   <div class="mySlides fade">
+    <img src="../pictures/4.png" style="width:50%">
+  </div>
+
+   <div class="mySlides fade">
+    <img src="../pictures/5.png" style="width:50%">
+  </div>
+
+   <div class="mySlides fade">
+    <img src="../pictures/6.png" style="width:50%">
+  </div>
+
+   <div class="mySlides fade">
+    <img src="../pictures/7.png" style="width:50%">
+  </div>
+
+   <div class="mySlides fade">
+    <img src="../pictures/8.png" style="width:50%">
+  </div>
+
+   <div class="mySlides fade">
+    <img src="../pictures/9.png" style="width:50%">
+  </div>
+
+   <div class="mySlides fade">
+    <img src="../pictures/10.png" style="width:50%">
+  </div>
+
+   <div class="mySlides fade">
+    <img src="../pictures/11.png" style="width:50%">
+  </div>
+
+   <div class="mySlides fade">
+    <img src="../pictures/12.png" style="width:50%">
+  </div>
+
+   <div class="mySlides fade">
+    <img src="../pictures/13.png" style="width:50%">
+  </div>
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+
+<script type="text/javascript">
+	var slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+</script>
+		<!-- <div class="box"><p> 
 			Telling time is something I never thought was a big deal or how cruical it is to tell time. When I think of time the first thing that comes to my mind is a timed bomb. The bomb is usually lit up and as time passes the thread reaches closer to the bomb, it explodes. I thought that I might combine my favrotie item with the idea of a bomb to create a time telling machine. I thought of about cats and confetti, and thought of using all what I have learned and more to create an Exploding Cat. A grumpy cat that starts blowing up for 57 seconds and blows up into a confetti for 3 seconds, which calculates 60 seconds in total.
 			<br>
 			<img src= "../pictures/gato.jpeg" style="width: 330px;" alt="Exploding Cat";>
@@ -38,14 +131,16 @@
 			<img src= "../pictures/clock.png" style="width: 200px;" >
 			<img src= "../pictures/confetti.jpg" style="width: 200px;" >
 			<br>
+		</p>
+		<br>
 			<p>
 			How I plan to code it: </p>
 			<img src= "../pictures/how.jpeg" style="width: 330px;" alt="Lang";>
 			<img src= "../pictures/Kawaii.png" style="width: 400px;" >
 		</p> <a href="week_02.html"> Practice Using JavaScript </a>
 		<a href="project1.html"> Project 1 </a>
-		</div>
-
+		</div> -->
+	</center>
 
 		<img src= "../pictures/faroosh.png" style="width: 50px;" alt="faroosh";>		
 		<a href="../index.html"> Home </a>

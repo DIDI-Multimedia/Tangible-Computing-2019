@@ -83,9 +83,9 @@ function addRndCubeArr(){
 	// let dimZ = 5 + Math.random()*10
 
 
-	let dimX = 4
-	let dimY = 4 
-	let dimZ = 4 
+	let dimX = 3
+	let dimY = 3 
+	let dimZ = 3 
 
 	let space = 25
 	let scale = 10
