@@ -1,39 +1,40 @@
-console.log('my node.js server is running')
+var five = require("johnny-five"),
+  board, button;
 
+board = new five.Board();
 
-let express = require('express')
+board.on("ready", function() {
 
-let app = express()
-// creates a new instance of express exported by the Express module:
+  // Create a new `button` hardware instance.
+  // This example allows the button module to
+  // create a completely default instance
+  button = new five.Button(2);
 
-let server = app.listen(3000)
-// Starts a UNIX socket and listens for connections on the given path. This method is identical to Node’s http.Server.listen().
+  // Inject the `button` hardware into
+  // the Repl instance's context;
+  // allows direct command line access
+  board.repl.inject({
+    button: button
+  });
 
-app.use(express.static('public'))
-// Mounts the specified middleware function or functions at the specified path: the middleware function is executed when the base of the requested path matches path.
-// serve static content 
-var led 
-// console.log('my socket server is running')
-const io = require('socket.io')(server) // load socket it
-const {Board,Led} = require ('johnny-five')
+  // Button Event API
 
-const board = new Board()
-board.on("ready",function(){
-	led = new Led(13);
-	led.blink(100)
-})
+  // "down" the button is pressed
+  button.on("down", function() {
+    console.log("down");
+  });
 
-io.sockets.on('connection',function(socket){
+  // "hold" the button is pressed for specified time.
+  //        defaults to 500ms (1/2 second)
+  //        set
+  button.on("hold", function() {
+    console.log("hold");
+  });
 
-	console.log('socket connected')
-	socket.on('ButtonPressed', function(value){
-		console.log('changing blink to', value)
-		led.blink(value)
-	})
-})
-
-
-
-
+  // "up" the button is released
+  button.on("up", function() {
+    console.log("up");
+  });
+});
 
 
