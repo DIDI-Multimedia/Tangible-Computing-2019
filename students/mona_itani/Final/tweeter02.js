@@ -97,7 +97,7 @@ board.on("ready", function() {
     let genre = '18'
 
     let videoList = videos[18] // list 
-    console.log('video list: ', videoList)
+    console.log('video list:18', videoList)
     let video = getRandomVideoFromList(videoList)
     console.log('video:', video)
     // tweeDIDI(video)
@@ -123,7 +123,7 @@ let msgList = [
     'Men! Watch this!', 
 
     'Why we need feminsim:',
-    
+
 	'Live as a women in this day and age:', 
 
 
