@@ -6,12 +6,12 @@ let capture
 let poseNet
 let noseX = 0
 let noseY = 0
-let wristX=0
-let wristY=0
+let wristX = 0
+let wristY = 0
 let confidence = 0
 var socket 
 
-functio preLoad() {
+function preLoad() {
 
   socket = io.connect( 'http://localhost:3000' )
 
@@ -40,22 +40,27 @@ function gotPoses(poses) {
     try{
 
       let confidence1 = obj.pose['rightWrist'].confidence
-      let confidence2 = obj.pose['leftWrist'].confidence
+      //let confidence2 = obj.pose['leftWrist'].confidence
 
       if (confidence1 > 0.1){
 
         noseX = obj.pose['rightWrist'].x
-        socket.emit('+', noseX)
-
         noseY = obj.pose['rightWrist'].y
-        socket.emit('+', noseY)
+
+
+        var obj = {}
+        obj.x = noseX 
+        obj.y = noseY
+
+        socket.emit('+', obj)
+
       }
 
-      if(confidence2 > 0.1)
-      {
-        wristX = obj.pose['leftWrist'].x
-        wristY = obj.pose['leftWrist'].y
-      }
+      // if(confidence2 > 0.1)
+      // {
+      //   wristX = obj.pose['leftWrist'].x
+      //   wristY = obj.pose['leftWrist'].y
+      // }
 
     } 
 
@@ -89,7 +94,6 @@ function draw()
       ellipse(noseX,noseY,100,100)
       ellipse(wristX,wristY,100,100)
     
-  
   
 }
 

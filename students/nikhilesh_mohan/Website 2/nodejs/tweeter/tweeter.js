@@ -13,27 +13,27 @@ var config = {
 }
 
 
-var tweeter = Twit(config)
+// var tweeter = Twit(config)
 
-console.log('test')
-function tweeDIDI(txt)
-{
-	var tweet = {
-		status: txt
-	}
-	function tweeted(err,data,response)
-	{
-		if(err)
-		{
-			console.log('error', error)
-		}
-		else
-		{
-			console.log('sending tweet ....')
-		}
-	}
+// console.log('test')
+// function tweeDIDI(txt)
+// {
+// 	var tweet = {
+// 		status: txt
+// 	}
+// 	function tweeted(err,data,response)
+// 	{
+// 		if(err)
+// 		{
+// 			console.log('error', error)
+// 		}
+// 		else
+// 		{
+// 			console.log('sending tweet ....')
+// 		}
+// 	}
 
-	tweeter.post('statuses/update', tweet, tweeted)
-}
+// 	tweeter.post('statuses/update', tweet, tweeted)
+// }
 
-tweeDIDI('Banjo is awesome !!')
+// tweeDIDI('Banjo is awesome !!')

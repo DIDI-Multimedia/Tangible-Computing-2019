@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Johnny Five Example </title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script>
+	<script type="text/javascript" src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+
+</head>
+<body>
+
+	<button type="button" id="add"> + </button>
+	<button type="button" id="sub"> - </button>
+	
+	
+	<script type="text/javascript">
+
+		var socket 
+		var speed = 100 
+
+		connectSocket()
+
+		document.getElementById("add").onclick = function(){
+			console.log(speed)
+
+			increaseBlink()
+
+
+		}
+
+		document.getElementById("sub").onclick = function(){
+		console.log(speed)
+
+			decreaseBlink()
+
+		}
+
+
+		function connectSocket(){
+
+			socket = io.connect('http://localhost:3000') 
+		
+		}
+
+		function increaseBlink(){
+
+			speed = speed + 10
+			socket.emit('+', speed)
+
+
+		}
+
+		function decreaseBlink(){
+
+			speed = speed - 10
+			socket.emit('-',speed)
+
+		}
+		
+
+	</script>
+
+</body>
+</html>
