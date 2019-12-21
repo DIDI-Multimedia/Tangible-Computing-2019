@@ -1,5 +1,6 @@
+console.log('tweeter.js')
+
 var five = require("johnny-five"),
-board, button;
 var Twit = require('twit')
 var request = require('request');
 
@@ -13,23 +14,29 @@ var config = {
 
 }
 
-var tweeter = Twit(config)
+// var tweeter = Twit(config)
 
 function tweeDIDI(msg){
 
-	var tweet = {
-		status: msg
-	}
-	function tweeted(err,data,respone){
+	// console.log('trying to send', msg)
 
-		if(err){
-			console.log('error',error)
-		}
-		else {
-			console.log('sending tweet...')
-		}
-	}
-tweeter.post('statuses/update', tweet, tweeted)
+	// var tweet = {
+
+	// 	status: msg
+	
+	// }
+	
+	// function tweeted(err,data,respone){
+
+	// 	if(err){
+	// 		console.log('error',error)
+	// 	}
+	// 	else {
+	// 		console.log('sending tweet...')
+	// 	}
+	// }
+
+		// tweeter.post('statuses/update', tweet, tweeted)
 }
 tweeDIDI('Meoooww~ I am playing!')
 
