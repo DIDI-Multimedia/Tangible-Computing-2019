@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Johnny Five Example</title>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script>
+	<script type="text/javascript" src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+
+</head>
+<body>
+
+	<div id='sketch-holder'></div>
+
+	<button type = "button" id = "add"> Add </button>
+	<button type = "button" id = "subtract"> Minus </button>
+
+	<!-- <script src="app.js"></script> -->
+
+	<script type="text/javascript">
+		
+	
+		// var speed = 100
+
+		connectSocket()
+
+		// document.getElementById("add").onclick = function(){
+			
+		// 	console.log(speed)
+
+		// 	increaseBlink()
+
+		// }
+
+		// document.getElementById("subtract").onclick = function(){
+			
+		// 	console.log(speed)
+		// 	decreaseBlink()
+			
+		// }
+
+
+
+		function connectSocket(){
+
+			socket = io.connect('http://localhost:3000')
+
+			socket.on('playSound', function(data){
+
+				console.log(data)
+
+			})
+
+
+		}
+
+
+
+		// function increaseBlink(){
+
+		// 	speed = speed + 10
+		// 	socket.emit('+', speed)
+
+
+		// }
+
+
+
+		// function decreaseBlink(){
+
+		// 	speed = speed - 10
+		// 	socket.emit('-', speed)
+
+
+		// }
+
+	var socket
+		
+
+
+	</script>
+
+
+</body>
+</html>
