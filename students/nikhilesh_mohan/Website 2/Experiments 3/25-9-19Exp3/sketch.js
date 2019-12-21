@@ -9,6 +9,13 @@ let noseY = 0
 let wristX=0
 let wristY=0
 let confidence = 0
+var socket 
+
+functio preLoad() {
+
+  socket = io.connect( 'http://localhost:3000' )
+
+}
 
 function setup() 
 {
@@ -17,13 +24,16 @@ function setup()
   capture.size(640,480);
   capture.hide();
   poseNet = ml5.poseNet(capture, modelReady)
-  poseNet.on('pose' , gotPoses)
+  poseNet.on( 'pose' , gotPoses )
+
 }
 
 function gotPoses(poses) {
 
+  
+
   console. log(poses)
-  poses.forEach(obj=>{
+  poses.forEach(obj=>{ 
 
     console.log(obj)
 
@@ -35,7 +45,10 @@ function gotPoses(poses) {
       if (confidence1 > 0.1){
 
         noseX = obj.pose['rightWrist'].x
+        socket.emit('+', noseX)
+
         noseY = obj.pose['rightWrist'].y
+        socket.emit('+', noseY)
       }
 
       if(confidence2 > 0.1)
