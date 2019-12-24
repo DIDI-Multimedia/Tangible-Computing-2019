@@ -58,7 +58,7 @@ var amp
 var song
 
 function preload(){
-  song = loadSound ("thunder.mp3")
+  song = loadSound ("sunflower.mp3")
 }
 
 function setup() {
@@ -66,7 +66,7 @@ function setup() {
   canvas.parent('sketch-holder')
 
   fft = new p5.FFT(0.9,64);
-  fft.setInput(song);
+  // fft.setInput(song);
   amp = new p5.Amplitude()
 
   peakDetect = new p5.PeakDetect(180, 20000, 0.1, 60)
