@@ -1,0 +1,131 @@
+#content {
+	
+	text-align: center;
+	font-family: Verdana;
+ 	font-style: oblique;
+  padding: 50px
+}
+body {  background: linear-gradient(to right, #bb9ae7,#b2ccf9,#f9b2e1); }
+
+.springy-text {
+ 
+  animation-name: springy-text;
+  animation-duration: 3s;
+  animation-timing-function: ease-in;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  animation-play-state: running;
+  animation-fill-mode: backwards;
+  font-family: verdana;
+}
+@keyframes springy-text {
+  0%   {
+    letter-spacing: 0.7em;
+    color: white;
+  }
+  100%   {
+    letter-spacing: 0.1em;
+    color: white;
+  }
+}
+
+}
+
+p {
+
+  color: #000 !important; 
+
+}
+
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 100%;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  
+  position: relative;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.9s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: #FF74A8;
+}
+
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+
+.box{
+  background-color:white;
+
+/*  height: 20%*/
+  width: 55%;
+  border:groove;
+  box-sizing: border-box;
+  padding: 20px 20px;
+  font-family: Verdana;
+  margin:0 auto;
+  border-right-color: pink;
+  border-left-color: pink;
+  border-top-color: pink;
+  border-bottom-color: pink;
+}
+
+
+
+a:link, a:visited {
+  background-color: #FDA3C0;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, a:active {
+  background-color: #ED3F76;
+}

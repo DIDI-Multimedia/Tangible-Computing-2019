@@ -1,0 +1,83 @@
+<!-- HTML Example -->
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<title> Week Fourteen - P2 </title>
+
+	<link rel="stylesheet" type="text/css" href="style.css"> 
+	<style>
+		body {
+			background-image: url("yuno.jpg");
+			background-repeat:no-repeat;
+			background-size:100%;
+		}
+	</style>
+
+</head>
+
+<body>
+
+	<div id="content">
+
+		<center>
+			<h1> <em>MuW201</em>: Tangible Computing, 2019  </h1>
+
+			<h5> Project Two </h5>
+		</center>
+		<hr>
+		<br>
+
+		<h3> Code: <i>has to be run on node with an arduino connection</i></h3>
+
+		<ul>
+			<p>Version 1: <a href="p2\public\index.html">Ultrasonic Volume Control</a> </p> 
+			<p>Version 2: <a href="p2v2\public\index.html">Musical Instrument for Cats</a> </p> 
+			<br>
+
+
+			<h3> Video: </h3>
+			<video width="720" height="480" controls>
+			<source src="media\video.mp4" type="video/mp4"> </video>
+
+				<br>
+				<br>
+				<br>
+
+				<aside>
+
+				<p>As far as I can remember, I've always been inclined towards music. I learnt the basics of music when I was 6 and picked up my first instrument when I was 8. Starting with the recorder, then moving to the keyboard, finally teaching myself the guitar, I've thoroughly enjoyed this universal language.</p>
+				<p>Music is so universal, my cats often sit beside me whenever I play music -- whether it’s the popular songs from the radio, the guitar being played by me, or fooling around the keyboard, they're always fascinated by music. I clearly remember that a few years ago, one of my cats, Rafiki, tried to play the keyboard with her front paws, standing on her hind legs on a chair.</p>
+				<p>She couldn't play individual notes because of her paws, nor did she understand tempo, the keys and their corresponding notes (yet). On the other paw, my other cat, Simba, is terrified by the guitar due to its size, however, she never leaves my side whenever I play a ballad on the keyboard. She meows along, often out of tune; however, she responds the most to higher scale music. It is no surprise that she does this, as cats are sensitive to higher frequencies (Catsbest.eu, 2019) and due to the fascinating nature of cats to respond to calming music, a new genre of music for “other than human” species has been composed (Purina, 2019). There are libraries of “Music for Cats” available on all popular platforms, namely YouTube and Spotify.</p>
+				<p>This got me thinking. Cats like music and the only activity my cats do is eating, grooming, scratching and running across the house at 3 in the morning. What if I could take their behaviours, and use it to create music? The scratching post idea seemed viable, as my cats scratch their scratching post multiple times a day in a certain sequence. Using the ultrasonic sensor would help identify how far the cat is from the scratching post and depending on the area of the scratching post used, it could play notes from a piano. </p>
+				<p>I decided to use the higher octaves of a piano for the “cat keyboard” as the pitch would be more appealing for cats. In the code, the audio gets stuck in a recursive loop, but this “flaw” is very similar to the appealing music for cats as composed by io9 (Clark, 2015). Called “Spooks Ditty”, the recursive error in my project somehow generates an identical sound. Another point to note regarding the construction/coding, Standard Firmata does not work with this code. A code I found on GitHub named “PingFirmata” does.</p>
+				<p>Based on further research, I was amazed at the different music created for different animals. There’s music for monkeys, felines, elephants, and all of them sound drastically different from each other (National Geographic, 2015). I hope that this project can create a medium for animals to communicate or compose music they would prefer to listen to.</p>
+
+					<br> 
+					<br>
+				
+				<p>References: </p>
+
+				<li>Catsbest.eu. (2019). Cats and Music: What you should know. [online] Available at: https://www.catsbest.eu/catsbest_en/about-cats/posts/music-for-cats-.php [Accessed 21 Dec. 2019].</li>
+				<li>Clark, L. (2015). Here’s What Music Specially Composed for Your Cat Sounds Like. [online] Smithsonian Magazine. Available at: https://www.smithsonianmag.com/smart-news/heres-what-music-specially-composed-your-cat-sounds-180954503/ [Accessed 21 Dec. 2019]. </li>
+				<li>National Geographic (2015). Meow Mix—Why Scientists Have Created Music for Cats. [online] Nationalgeographic.com. Available at:
+				https://www.nationalgeographic.com/news/2015/03/150313-animals-music-cats-tamarins-psychology-science/ [Accessed 21 Dec. 2019].</li>
+				<li>Purina. (2019). Do Cats Like Music? [online] Available at: https://www.purina.co.uk/cats/behaviour-and-training/understanding-cat-behaviour/do-cats-like-music [Accessed 21 Dec. 2019].</li>
+				<br>
+
+				<p>References used for construction:</p>
+				<li>Johnny-Five. (2019). JavaScript Robotics: Proximity - HC-SR04 (Johnny-Five). [online] Available at: http://johnny-five.io/examples/proximity-hcsr04/ [Accessed 21 Dec. 2019]. </li>
+				<li>rwaldron (2015). PingFirmata: StandardFirmata + Support for PING_READ (use with HCSR04). [online] GitHub. Available at: https://gist.github.com/rwaldron/0519fcd5c48bfe43b827 [Accessed 21 Dec. 2019].</li>
+				<li>ajfisher (2016). Error: Please upload PingFirmata to the board · Issue #3 · ajfisher/nodebots-hcsr04. [online] GitHub. Available at: https://github.com/ajfisher/nodebots-hcsr04/issues/3 [Accessed 21 Dec. 2019].</li>
+
+					<ul>
+						<p><a href="..\Main Page\index.html"> Main Page</a></p>
+				</aside>
+					
+		</div>
+
+	</body>
+
+</html>
