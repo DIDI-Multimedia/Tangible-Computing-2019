@@ -1,23 +1,18 @@
-var rectsize = 5
-var a = 3
+
+
 function setup() {
-let canvas = createCanvas(windowWidth/3, windowWidth/3)
+let canvas = createCanvas(windowWidth/1, windowWidth/2)
   canvas.parent('sketch-holder');
-  background(255)
+  capture = createCapture(VIDEO);
+  
 
 }
 
 function draw(){
-
-
-
-stroke(0.4,random(255),random(255),random(255))
-strokeWeight(70)
-rect(mouseX/2,mouseY/2,24,2)
-
-
-  if (mouseIsPressed){
-    background(255)
-  }
+  background(255);
+  image(capture, 100,50,1000, 500);
+  tint(255,0,150);
+ 
+  
 
 }
